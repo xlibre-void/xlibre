@@ -104,4 +104,5 @@ _These packages will now be in your **OctoXBPS** package manager. When a new ver
 | xlibre-xf86-video-voodoo            | https://github.com/X11Libre/xf86-video-voodoo           | :heavy_check_mark: |
 | xlibre-xf86-video-cirrus            | https://github.com/X11Libre/xf86-video-cirrus           | :heavy_check_mark: |
 | xlibre-xf86-video-r128              | https://github.com/X11Libre/xf86-video-r128             | :heavy_check_mark: |
+| xlibre-xf86-video-s3virge           | https://github.com/X11Libre/xf86-video-s3virge          | :heavy_check_mark: |
 | xlibre-xf86-video-mga               | https://github.com/X11Libre/xf86-video-mga              | :heavy_check_mark: |
