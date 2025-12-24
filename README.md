@@ -58,7 +58,7 @@ sudo xbps-install -S xlibre-minimal
 - xauth
 - xinit
 
-<img width="939" height="662" alt="Снимок экрана_20251220_024101" src="https://github.com/sofijacom/xlibre/blob/main/img/20251223_180912.png" />
+<img width="939" height="662" alt="20251224_070953" src="https://github.com/sofijacom/xlibre/blob/main/img/20251224_070953.png?raw=true" />
 
 
 _These packages will now be in your **OctoXBPS** package manager. When a new version of the packages is released, you will update it along with all the other packages._
