@@ -21,10 +21,7 @@ lib32disabled=yes
 LDFLAGS="-Wl,-z,lazy"
 
 pre_configure() {
-
   autoreconf -fi
-  ./configure
-  make
 }
 
 post_install() {
