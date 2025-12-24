@@ -44,6 +44,7 @@ jobs:
     - run: bash ./srcpkgs/xlibre-xf86-video-r128/update.sh
     - run: bash ./srcpkgs/xlibre-xf86-video-mach64/update.sh
     - run: bash ./srcpkgs/xlibre-xf86-video-mga/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-video-s3virge/update.sh
     # - run: bash ./srcpkgs/xlibre-xf86-video-openchrome/update.sh
     - name: Check for updates
       id: check-updates
