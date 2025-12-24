@@ -6,5 +6,5 @@ metapackage=yes
 depends="xorg-fonts xlibre-xserver xauth xinit xlibre-input-drivers xlibre-video-drivers"
 short_desc="XLibre meta-package containing all essential packages for a easy to use installation"
 maintainer="Sofiya <sofiya@v.com>"
-license="Public Domain"
+license="MIT"
 homepage="https://github.com/X11Libre/xserver/wiki"
