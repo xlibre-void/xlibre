@@ -22,8 +22,6 @@ LDFLAGS="-Wl,-z,lazy"
 
 pre_configure() {
   ./autogen.sh
-  ./configure
-  make
 }
 
 post_install() {
