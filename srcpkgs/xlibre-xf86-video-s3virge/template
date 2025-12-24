@@ -6,7 +6,7 @@ revision=1
 build_style=gnu-configure
 configure_args="--prefix=/usr"
 hostmakedepends="pkg-config"
-makedepends="xlibre-server-devel xorgproto automake libtool pkgconf xorg-util-macros"
+makedepends="xlibre-xserver-devel xorgproto automake libtool pkgconf xorg-util-macros"
 depends="virtual?xserver-abi-video-28_1"
 short_desc="XLibre fork of s3virge video driver"
 maintainer="Sofiya <sofiya@v.com>"
