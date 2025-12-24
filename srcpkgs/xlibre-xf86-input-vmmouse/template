@@ -5,6 +5,7 @@ version=25.0.0
 revision=1
 archs="i686* x86_64*"
 build_style=gnu-configure
+configure_args="--prefix=/usr --with-udev-rules-dir=/usr/lib/udev/rules.d"
 hostmakedepends="pkg-config"
 makedepends="xlibre-xserver-devel autoconf automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
 depends="virtual?xserver-abi-input-26_1"
@@ -19,12 +20,9 @@ checksum=41c760d547989d0b120b76e299c2b2611f13fb063838fb6c3fa7fe26eb756fbe
 lib32disabled=yes
 
 pre_configure() {
-
   ./autogen.sh
-  ./configure --prefix=/usr \
-    --with-udev-rules-dir=/usr/lib/udev/rules.d
+  ./configure
   make
-
 }
 
 post_install() {
