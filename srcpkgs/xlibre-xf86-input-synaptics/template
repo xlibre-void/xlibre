@@ -1,0 +1,37 @@
+# Template file for 'xf86-input-synaptics'
+pkgname=xlibre-xf86-input-synaptics
+_pkgname=xf86-input-synaptics
+version=25.0.0
+revision=1
+build_style=gnu-configure
+hostmakedepends="pkg-config"
+makedepends="xlibre-xserver-devel libX11-devel libXtst-devel pixman-devel libpciaccess-devel autoconf automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros libevdev-devel"
+depends="virtual?xserver-abi-input-26_1"
+short_desc="XLibre fork of X.Org Synaptics driver for notebook touchpads"
+maintainer="Sofiya <sofiya@v.com>"
+license="MIT"
+conflicts="xf86-input-synaptics"
+replaces="xf86-input-synaptics>=0"
+homepage="https://github.com/X11Libre/xf86-input-synaptics"
+distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
+checksum=fca6a16ed199505a27dc167e88722b4d45aa5f46e86561d6c6eee3d7a750a107
+lib32disabled=yes
+
+pre_configure() {
+  ./autogen.sh
+  ./configure --prefix=/usr
+  make
+}
+
+post_install() {
+	vlicense COPYING
+}
+
+xlibre-xf86-input-synaptics-devel_package() {
+	lib32disabled=yes
+	short_desc+=" - development files"
+	pkg_install() {
+		vmove usr/include
+#		vmove usr/lib/pkgconfig
+	}
+}

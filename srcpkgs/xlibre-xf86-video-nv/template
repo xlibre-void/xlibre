@@ -1,0 +1,28 @@
+# Template file for 'xf86-video-nv'
+pkgname=xlibre-xf86-video-nv
+_pkgname=xf86-video-nv
+version=xlibre-xf86-video-nv-25.0.0
+revision=1
+build_style=gnu-configure
+hostmakedepends="pkg-config"
+makedepends="xlibre-xserver-devel xorgproto automake libtool libXi-devel xorg-util-macros"
+depends="virtual?xserver-abi-video-28_1 mesa-dri"
+short_desc="NVIDIA video driver for the XLibre X server"
+maintainer="Sofiya <sofiya@v.com>"
+license="MIT"
+homepage="https://github.com/X11Libre/xf86-video-nv"
+distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
+checksum=cc8573fb3672410523b6b9758f2affb1f0867bf95708c092279e0e3014f12b04
+lib32disabled=yes
+
+LDFLAGS="-Wl,-z,lazy"
+
+pre_configure() {
+  autoreconf -fi
+  ./configure --prefix=/usr
+  make
+}
+
+post_install() {
+	vlicense COPYING
+}

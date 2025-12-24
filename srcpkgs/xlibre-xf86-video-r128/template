@@ -1,0 +1,31 @@
+# Template file for 'xf86-video-r128'
+pkgname=xlibre-xf86-video-r128
+_pkgname=xf86-video-r128
+version=25.0.0
+revision=1
+build_style=gnu-configure
+hostmakedepends="pkg-config"
+makedepends="xlibre-xserver-devel xorgproto autoconf automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
+depends="virtual?xserver-abi-video-28_1"
+short_desc="XLibre fork of X.Org ATI Rage 128 video driver"
+maintainer="Sofiya <sofiya@v.com>"
+license="MIT"
+conflicts="xf86-video-r128"
+replaces="xf86-video-r128>=0"
+homepage="https://github.com/X11Libre/xf86-video-r128"
+distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
+checksum=5b8eea711b3ee12aff67401bb1a7d0546bc8c1466571998a47eed5c1b9c154eb
+lib32disabled=yes
+
+LDFLAGS="-Wl,-z,lazy"
+
+pre_configure() {
+
+  ./autogen.sh
+  ./configure --prefix=/usr
+  make
+}
+
+post_install() {
+	vlicense COPYING
+}

@@ -1,0 +1,28 @@
+# Template file for 'xf86-video-mach64'
+pkgname=xlibre-xf86-video-mach64
+_pkgname=xf86-video-mach64
+version=${VERSION}
+revision=1
+build_style=gnu-configure
+hostmakedepends="pkg-config"
+makedepends="xlibre-xserver-devel xorgproto autoconf automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
+depends="virtual?xserver-abi-video-28_1"
+short_desc="XLibre fork of X.Org ATI Rage Pro video driver"
+maintainer="Sofiya <sofiya@v.com>"
+license="MIT"
+conflicts="xf86-video-mach64"
+replaces="xf86-video-mach64>=0"
+homepage="https://github.com/X11Libre/xf86-video-mach64"
+distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
+checksum=${SHA256}
+lib32disabled=yes
+
+LDFLAGS="-Wl,-z,lazy"
+
+pre_configure() {
+	autoreconf -vif
+}
+
+post_install() {
+	vlicense COPYING
+}

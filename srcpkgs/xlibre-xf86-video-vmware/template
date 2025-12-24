@@ -1,0 +1,33 @@
+# Template file for 'xf86-video-vmware'
+pkgname=xlibre-xf86-video-vmware
+_pkgname=xf86-video-vmware
+version=25.0.0
+revision=1
+archs="i686* x86_64*"
+build_style=gnu-configure
+configure_args="--enable-vmwarectrl-client"
+hostmakedepends="pkg-config"
+makedepends="xlibre-xserver-devel autoconf xorgproto automake fakeroot gawk gettext libtool m4 pkgconf libdrm-devel MesaLib-devel xorg-util-macros"
+depends="virtual?xserver-abi-video-28_1 mesa-dri"
+short_desc="XLibre fork of X.org vmware video driver"
+maintainer="Sofiya <sofiya@v.com>"
+license="MIT AND X11"
+conflicts="xf86-video-vmware"
+replaces="xf86-video-vmware>=0"
+homepage="https://github.com/X11Libre/xf86-video-vmware"
+distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
+checksum=5aabf5932fe071c21f621a5bfa5bc93523cbd6ef10cef5f3ecf89bf0ea66bbb4
+lib32disabled=yes
+
+LDFLAGS="-Wl,-z,lazy"
+
+pre_configure() {
+
+  ./autogen.sh
+  ./configure --prefix=/usr
+  make
+}
+
+post_install() {
+	vlicense COPYING
+}

@@ -1,0 +1,68 @@
+name: update
+run-name: "Automated update of ${{ github.ref_name }} by @${{ github.actor }}"
+
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-versions:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/main' }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        persist-credentials: false
+        fetch-depth: 0
+        token: ${{ secrets.PULL_PUSH }}
+    - run: sudo apt update -y && sudo apt install -y jq git curl
+    - run: bash ./srcpkgs/xlibre-xserver/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-input-libinput/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-input-evdev/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-video-amdgpu/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-input-vmmouse/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-input-synaptics/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-video-ati/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-video-nouveau/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-video-nv/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-video-intel/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-video-dummy/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-video-fbdev/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-video-vesa/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-video-vmware/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-input-wacom/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-video-sisusb/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-video-qxl/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-input-joystick/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-input-elographics/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-video-voodoo/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-input-void/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-video-cirrus/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-video-r128/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-video-mach64/update.sh
+    - run: bash ./srcpkgs/xlibre-xf86-video-mga/update.sh
+    # - run: bash ./srcpkgs/xlibre-xf86-video-openchrome/update.sh
+    - name: Check for updates
+      id: check-updates
+      run: |
+        if [[ -n "$(git diff --exit-code)" ]]; then
+          echo "has_updates=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "No new updates"
+          echo "has_updates=false" >> "$GITHUB_OUTPUT"
+        fi
+    - name: Commit updates
+      if: ${{ steps.check-updates.outputs.has_updates == 'true' }}
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git commit --all --message "Automated update"
+    - name: Push updates
+      if: ${{ steps.check-updates.outputs.has_updates == 'true' }}
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.PULL_PUSH }}
+        branch: ${{ github.ref }}

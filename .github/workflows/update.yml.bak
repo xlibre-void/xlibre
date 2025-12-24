@@ -1,0 +1,90 @@
+name: update
+run-name: "Automated update of ${{ github.ref_name }} by @${{ github.actor }}"
+
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-versions:
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/main' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        pkg:
+          - xlibre-xserver
+          - xlibre-xf86-input-libinput
+          - xlibre-xf86-input-evdev
+          - xlibre-xf86-video-amdgpu
+          - xlibre-xf86-input-vmmouse
+          - xlibre-xf86-input-synaptics
+          - xlibre-xf86-video-ati
+          - xlibre-xf86-video-nouveau
+          - xlibre-xf86-video-nv
+          - xlibre-xf86-video-intel
+          - xlibre-xf86-video-dummy
+          - xlibre-xf86-video-fbdev
+          - xlibre-xf86-video-vesa
+          - xlibre-xf86-video-vmware
+          - xlibre-xf86-input-wacom
+          - xlibre-xf86-video-sisusb
+          - xlibre-xf86-video-qxl
+          - xlibre-xf86-input-joystick
+          - xlibre-xf86-input-elographics
+          - xlibre-xf86-video-voodoo
+          - xlibre-xf86-input-void
+          - xlibre-xf86-video-cirrus
+          - xlibre-xf86-video-r128
+          - xlibre-xf86-video-mach64
+          - xlibre-xf86-video-mga
+         # - xlibre-xf86-video-openchrome
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        persist-credentials: false
+        fetch-depth: 0
+        token: ${{ secrets.PULL_PUSH }}
+    - uses: dcarbone/install-jq-action@v3.2.0
+    - run: bash ./srcpkgs/${{ matrix.pkg }}/update.sh
+      env:
+        GH_TOKEN: ${{ github.token }}
+      continue-on-error: true
+    - uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: ${{ matrix.pkg }}
+        path: ./srcpkgs/${{ matrix.pkg }}
+
+  push-updates:
+    runs-on: ubuntu-latest
+    needs: update-versions
+    if: always()
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        persist-credentials: false
+        fetch-depth: 0
+        token: ${{ secrets.PULL_PUSH }}
+    - uses: actions/download-artifact@v4
+      with:
+        path: ./srcpkgs
+    - name: commit updates
+      id: check-updates
+      run: |
+        if [[ -n "$(git status --porcelain)" ]]; then
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --all --message "Automated update"
+          echo "has_updates=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "No new updates"
+          echo "has_updates=false" >> "$GITHUB_OUTPUT"
+        fi
+    - name: push updates
+      if: steps.check-updates.outputs.has_updates == 'true'
+      uses: ad-m/github-push-action@v1.0.0
+      with:
+        github_token: ${{ secrets.PULL_PUSH }}
+        branch: ${{ github.ref }}

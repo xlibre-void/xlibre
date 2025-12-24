@@ -1,0 +1,151 @@
+name: Build and Release XLibre for VOID linux
+
+env:
+  TAG: workflow-${{ github.run_number }}
+  SHA: ${{ github.sha }}
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - srcpkgs/**
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build packages
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - { arch: x86_64,       libc: glibc }
+          # - { arch: x86_64-musl,  libc: musl  }
+    container:
+      image: ghcr.io/void-linux/void-${{ matrix.config.libc }}-full:20250901R1
+      options: --platform linux/amd64 --privileged
+      volumes:
+        - /dev:/dev
+      env:
+        ARCH: '${{ matrix.config.arch }}'
+        XBPS_TARGET_ARCH: ${{ matrix.arch }}
+        REPO_OWNER: "${{ github.repository_owner }}"
+        REPO_NAME: "${{ github.event.repository.name }}"
+    if: ${{ github.ref == 'refs/heads/main' }}
+
+    steps:
+      - name: Prep container
+        run: |
+          mkdir -p /etc/xbps.d && cp /usr/share/xbps.d/*-repository-*.conf /etc/xbps.d/
+          xbps-install -Syu xbps && xbps-install -yu && xbps-install -y sudo bash curl git github-cli
+          useradd -G xbuilder -M builder -s $(which bash)
+
+      - name: Checkout xlibre
+        uses: actions/checkout@v4
+        with:
+          repository: void-linux/void-packages
+          ref: master
+
+      - name: Merge this repository into void-linux/void-packages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global --add safe.directory "*"
+          git remote add -f sofijacom https://github.com/sofijacom/xlibre.git
+          git merge --no-commit --strategy-option=theirs --allow-unrelated-histories -Xignore-space-change sofijacom/main
+          mkdir -p hostdir/binpkgs
+          gh release download --pattern "*${ARCH}*" --dir hostdir/binpkgs --repo sofijacom/xlibre || true
+          if [ "$ARCH" = x86_64 ]; then
+            rm --force hostdir/binpkgs/*x86_64-musl*
+          fi
+          rm --force hostdir/binpkgs/*.xbps.sig2
+
+      - name: Identify changes to build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          latest_name=$(gh release view --json tagName --jq '.tagName' --repo sofijacom/xlibre || echo "Initial Commit")
+          latest_sha=$(git rev-list --max-count=1 ${latest_name} 2>/dev/null || git rev-list --max-parents=0 sofijacom/main)
+          echo "Latest Tag Name: ${latest_name}"
+          echo "Latest Tag SHA: ${latest_sha}"
+
+          chown -R builder:builder .
+
+          git diff-tree -r --no-renames --name-only --diff-filter=AM ${latest_sha} ${SHA} -- 'srcpkgs/**' \
+          | cut -d/ -f 2 | uniq | xargs sudo -Eu builder ./xbps-src sort-dependencies | tee /tmp/templates
+
+      - name: Setup void-packages
+        run: |
+          chown -R builder:builder .
+          echo XBPS_BUILD_ENVIRONMENT=void-packages-ci >> etc/conf
+          echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
+          echo XBPS_CHROOT_CMD=uchroot >> etc/conf
+
+          yes | sudo -Eu builder ./xbps-src -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} binary-bootstrap
+
+      # -------------------- Packages to build --------------------
+
+      - name: build pkgs
+        run: |
+          pkgs=$(cat /tmp/templates)
+          for pkg in ${pkgs}; do
+            sudo -Eu builder ./xbps-src pkg -j$(nproc) -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} "${pkg}" || printf "Failed building ${pkg}!\n"
+          done
+
+      # -----------------------------------------------------------
+
+      - name: Clean & sign
+        working-directory: ./hostdir/binpkgs
+        env:
+          PRIVKEY: ${{ secrets.PRIV_KEY }}
+          XBPS_PASSPHRASE: ${{ secrets.SIGN_PASS }}
+        run: |
+          sudo -Eu builder xbps-rindex --remove-obsoletes ${PWD}
+          printf "%s\n" "${PRIVKEY}" > key.pem
+          sudo -Eu builder xbps-rindex --privkey key.pem --sign --signedby "${REPO_NAME}-github-actions" --verbose ${PWD}
+          sudo -Eu builder xbps-rindex --privkey key.pem --sign-pkg --verbose ${PWD}/*.xbps
+          sudo -Eu builder rm -f key.pem
+          sudo -Eu builder xbps-rindex --clean ${PWD}
+
+      - name: checksum
+        working-directory: ./hostdir/binpkgs
+        run: |
+          rm -rf *.sha256sum *.sha512sum
+          for file in *.xbps; do
+            sha256sum "${file}" | cut -d ' ' -f 1 > "${file}.sha256sum"
+            sha512sum "${file}" | cut -d ' ' -f 1 > "${file}.sha512sum"
+          done
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.arch }}-repodata
+          path: ./hostdir/binpkgs
+
+      - name: short sha
+        run: |
+          printf "SHORT_SHA=$(git rev-parse --short ${SHA})" >> $GITHUB_ENV
+
+      - name: release
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          name: ${{ env.SHORT_SHA }}
+          tag_name: ${{ env.TAG }}
+          files: |
+            ./hostdir/binpkgs/*.xbps            
+            ./hostdir/binpkgs/*.sig2
+            ./hostdir/binpkgs/*repodata
+
+#            ./hostdir/binpkgs/*.sha256sum
+#            ./hostdir/binpkgs/*.sha512sum

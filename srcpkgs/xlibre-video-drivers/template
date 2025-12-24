@@ -1,0 +1,21 @@
+# Template file for 'xlibre-video-drivers'
+pkgname=xlibre-video-drivers
+version=25.0.0
+revision=1
+metapackage=yes
+depends="xlibre-xf86-video-fbdev xlibre-xf86-video-dummy"
+short_desc="XLibre video drivers meta-package"
+maintainer="Sofiya <sofiya@v.com>"
+license="MIT"
+conflicts="xorg-video-drivers"
+replaces="xorg-video-drivers>=0"
+homepage="https://github.com/X11Libre/xserver/wiki"
+
+case "$XBPS_TARGET_MACHINE" in
+	i686*|x86_64*) depends+=" xlibre-xf86-video-vesa xlibre-xf86-video-vmware" ;;
+esac
+
+case "$XBPS_TARGET_MACHINE" in
+	armv[56]*|aarch64*|mips*) ;;
+	*) depends+=" xlibre-xf86-video-ati xlibre-xf86-video-amdgpu xlibre-xf86-video-nouveau" ;;
+esac

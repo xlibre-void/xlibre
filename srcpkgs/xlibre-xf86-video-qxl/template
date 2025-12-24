@@ -1,0 +1,32 @@
+# Template file for 'xf86-video-qxl'
+pkgname=xlibre-xf86-video-qxl
+_pkgname=xf86-video-qxl
+version=25.0.0
+revision=1
+build_style=gnu-configure
+configure_args="--prefix=/usr"
+hostmakedepends="automake m4 gawk xorg-util-macros libtool pkg-config"
+makedepends="xlibre-xserver-devel spice-protocol xorgproto"
+depends="virtual?xserver-abi-video-28_1"
+short_desc="XLibre fork of X.Org X11 qxl video driver"
+maintainer="Sofiya <sofiya@v.com>"
+license="MIT"
+conflicts="xf86-video-qxl"
+replaces="xf86-video-qxl>=0"
+homepage="https://github.com/X11Libre/xf86-video-qxl"
+distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
+checksum=ee0b0798a2fa2dd3e2494dee996cdc41ac2e43054f53b33a619960786d5b7e8c
+lib32disabled=yes
+
+LDFLAGS="-Wl,-z,lazy"
+
+pre_configure() {
+
+  autoreconf -fi
+  ./configure
+  make
+}
+
+post_install() {
+	vlicense COPYING
+}

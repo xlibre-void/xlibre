@@ -1,0 +1,27 @@
+# Template file for 'xf86-input-void'
+pkgname=xlibre-xf86-input-void
+_pkgname=xf86-input-void
+version=25.0.0
+revision=1
+build_style=gnu-configure
+hostmakedepends="pkg-config"
+makedepends="xlibre-xserver-devel xorgproto autoconf automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
+depends="virtual?xserver-abi-input-26_1"
+short_desc="XLibre fork of X.Org void input driver"
+maintainer="Sofiya <sofiya@v.com>"
+license="custom"
+homepage="https://github.com/X11Libre/xf86-input-void"
+distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
+checksum=2b242b55e429c25e31ca884dedf43bb60be4dbdd0a7ff015f10fa23cd6e08064
+lib32disabled=yes
+
+pre_configure() {
+
+  ./autogen.sh
+  ./configure --prefix=/usr
+  make
+}
+
+post_install() {
+	vlicense COPYING
+}

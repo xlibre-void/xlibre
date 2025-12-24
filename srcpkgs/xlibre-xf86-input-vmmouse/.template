@@ -1,0 +1,33 @@
+# Template file for 'xf86-input-vmmouse'
+pkgname=xlibre-xf86-input-vmmouse
+_pkgname=xf86-input-vmmouse
+version=${VERSION}
+revision=1
+archs="i686* x86_64*"
+build_style=gnu-configure
+hostmakedepends="pkg-config"
+makedepends="xlibre-xserver-devel autoconf automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
+depends="virtual?xserver-abi-input-26_1"
+short_desc="XLibre fork of X.Org VMWare Mouse input driver"
+maintainer="Sofiya <sofiya@v.com>"
+license="custom"
+conflicts="xf86-input-vmmouse"
+replaces="xf86-input-vmmouse>=0"
+homepage="https://github.com/X11Libre/xf86-input-vmmouse"
+distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
+checksum=${SHA256}
+lib32disabled=yes
+
+pre_configure() {
+
+  ./autogen.sh
+  ./configure --prefix=/usr \
+    --with-udev-rules-dir=/usr/lib/udev/rules.d
+  make
+
+}
+
+post_install() {
+	vlicense COPYING
+	rm -rfv "${DESTDIR}"/usr/{lib,share}/hal
+}

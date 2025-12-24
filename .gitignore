@@ -1,0 +1,23 @@
+.idea
+*.ignore
+*.tmp
+*.bkp
+*.retry
+*.*~
+.directory
+*.key
+*.pem
+*.pub
+
+# Exclude all binaries
+*.bin
+*.jar
+*.tar
+*.zip
+*.gzip
+*.tgz
+
+# VSCode
+.vscode/*
+*.vsix
+.history/

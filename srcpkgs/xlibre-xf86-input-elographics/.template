@@ -1,0 +1,28 @@
+# Template file for 'xf86-input-elographics'
+pkgname=xlibre-xf86-input-elographics
+_pkgname=xf86-input-elographics
+version=${VERSION}
+revision=1
+archs="x86_64*"
+build_style=gnu-configure
+hostmakedepends="pkg-config"
+makedepends="xlibre-xserver-devel autoconf xorgproto automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
+depends="virtual?xserver-abi-input-26_1"
+short_desc="XLibre fork of X.Org Elographics TouchScreen input driver"
+maintainer="Sofiya <sofiya@v.com>"
+license="MIT"
+homepage="https://github.com/X11Libre/xf86-input-elographics"
+distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
+checksum=${SHA256}
+lib32disabled=yes
+
+pre_configure() {
+
+  ./autogen.sh
+  ./configure --prefix=/usr
+  make
+}
+
+post_install() {
+	vlicense COPYING
+}

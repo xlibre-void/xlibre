@@ -1,0 +1,31 @@
+# Template file for 'xf86-video-intel'
+pkgname=xlibre-xf86-video-intel
+_pkgname=xf86-video-intel
+version=${VERSION}
+revision=1
+archs="i686* x86_64*"
+build_style=gnu-configure
+configure_args="--with-default-dri=3 --libexecdir=/usr/lib"
+hostmakedepends="git automake libtool pkg-config xorg-util-macros"
+makedepends="xlibre-xserver-devel autoconf automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros libXScrnSaver-devel libXcursor-devel libXinerama-devel libXrandr-devel libXtst-devel libXvMC-devel"
+depends="virtual?xserver-abi-video-28_1 mesa-dri"
+short_desc="XLibre Intel video driver"
+maintainer="Sofiya <sofiya@v.com>"
+license="MIT"
+conflicts="xf86-video-intel"
+replaces="xf86-video-intel>=0"
+homepage="https://github.com/X11Libre/xf86-video-intel"
+distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
+checksum=${SHA256}
+lib32disabled=yes
+
+CFLAGS="-fcommon"
+LDFLAGS="-Wl,-z,lazy"
+
+pre_configure() {
+	NOCONFIGURE=1 ./autogen.sh
+}
+
+post_install() {
+	vlicense COPYING
+}

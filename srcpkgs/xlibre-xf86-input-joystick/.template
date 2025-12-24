@@ -1,0 +1,39 @@
+# Template file for 'xf86-input-joystick'
+pkgname=xlibre-xf86-input-joystick
+_pkgname=xf86-input-joystick
+version=${VERSION}
+revision=1
+build_style=gnu-configure
+hostmakedepends="pkg-config"
+makedepends="xlibre-xserver-devel autoconf spice-protocol xorgproto automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
+depends="virtual?xserver-abi-input-26_1"
+short_desc="XLibre fork of Joystick input driver"
+maintainer="Sofiya <sofiya@v.com>"
+license="MIT"
+conflicts="xf86-input-joystick"
+replaces="xf86-input-joystick>=0"
+homepage="https://github.com/X11Libre/xf86-input-joystick"
+distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
+checksum=${SHA256}
+lib32disabled=yes
+
+
+pre_configure() {
+  ./autogen.sh
+  ./configure --prefix=/usr
+   make
+}
+
+post_install() {
+    vlicense COPYING
+	vinstall ${FILESDIR}/50-joystick.conf 644 usr/share/X11/xorg.conf.d
+}
+
+xlibre-xf86-input-joystick-devel_package() {
+	lib32disabled=yes
+	short_desc+=" - development files"
+	pkg_install() {
+		vmove usr/include
+#		vmove usr/lib/pkgconfig
+	}
+}

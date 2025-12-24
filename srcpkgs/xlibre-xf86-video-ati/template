@@ -1,0 +1,36 @@
+# Template file for 'xf86-video-ati'
+pkgname=xlibre-xf86-video-ati
+_pkgname=xf86-video-ati
+version=25.0.0
+revision=1
+build_style=gnu-configure
+hostmakedepends="pkg-config"
+makedepends="xlibre-xserver-devel eudev-libudev-devel libpciaccess-devel libdrm-devel pixman-devel MesaLib-devel xorgproto autoconf automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
+depends="virtual?xserver-abi-video-28_1 mesa-dri"
+short_desc="XLibre ATI Radeon video driver"
+maintainer="Sofiya <sofiya@v.com>"
+license="MIT"
+conflicts="xf86-video-ati"
+replaces="xf86-video-ati>=0"
+homepage="https://github.com/X11Libre/xf86-video-ati"
+distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
+checksum=597e9b3f9b1b4f5e40fd6d1706f4ffe6d31bbc2955d4f435d1e3014f2e089bde
+lib32disabled=yes
+
+CFLAGS="-fcommon"
+LDFLAGS="-Wl,-z,lazy"
+
+case "$XBPS_TARGET_MACHINE" in
+	armv6*) broken="no dri.h";;
+esac
+
+pre_configure() {
+
+  ./autogen.sh --prefix=/usr --enable-glamor --disable-debug
+  ./configure --prefix=/usr
+  make
+}
+
+post_install() {
+	vlicense COPYING
+}

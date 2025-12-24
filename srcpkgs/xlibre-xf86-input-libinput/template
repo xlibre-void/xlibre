@@ -1,0 +1,39 @@
+# Template file for 'xf86-input-libinput'
+pkgname=xlibre-xf86-input-libinput
+_pkgname=xf86-input-libinput
+version=25.0.0
+revision=1
+build_style=meson
+hostmakedepends="pkg-config"
+makedepends="libinput-devel xlibre-xserver-devel libX11-devel gawk gettext xorgproto libXfont2-devel pixman-devel autoconf automake libtool"
+depends="virtual?xserver-abi-input-26_1"
+short_desc="XLibre fork of the generic input driver for the X.Org server based on libinput"
+maintainer="Sofiya <sofiya@v.com>"
+license="MIT"
+conflicts="xf86-input-libinput"
+replaces="xf86-input-libinput>=0"
+homepage="https://github.com/X11Libre/xf86-input-libinput"
+distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
+checksum=aa7369a0a3834876ba11659cc663105a1511651d7ac2be2338e5d195283fbd00
+lib32disabled=yes
+
+
+# pre_configure() {
+#	autoreconf -vif
+#	./configure --prefix=$HOME/build
+#   make
+# }
+
+post_install() {
+	vlicense COPYING
+}
+
+xlibre-xf86-input-libinput-devel_package() {
+	lib32disabled=yes
+	depends="${makedepends}"
+	short_desc+=" - development files"
+	pkg_install() {
+		vmove usr/include
+#		vmove usr/lib/pkgconfig
+	}
+}
