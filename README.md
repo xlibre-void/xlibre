@@ -20,7 +20,7 @@
 >>> _type in the terminal_
 
 ```
-printf "repository=https://github.com/sofijacom/xlibre/releases/latest/download/\n" | sudo tee /etc/xbps.d/99-repository-xlibre.conf
+printf "repository=https://github.com/xlibre-void/xlibre/releases/latest/download/\n" | sudo tee /etc/xbps.d/99-repository-xlibre.conf
 ```
 
 > [!IMPORTANT]
