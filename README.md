@@ -1,10 +1,4 @@
-<!-- <img width="120" height="120" alt="Xlibre" src="https://github.com/user-attachments/assets/83f9f0ca-5547-4f40-9c7c-53675a2a8799" /> -->
 
-<!-- <img width="120" height="120" alt="X-libre" src="https://github.com/user-attachments/assets/0f5c5d53-c6e3-4f6f-9a45-c8f15a5b9d2f" /> -->
-
-<!-- <img width="120" height="120" alt="Xlibre" src="https://github.com/user-attachments/assets/bebdeb7b-cb9e-4049-9692-d4f6b683f39e" /> -->
-
-<!-- <img width="1366" height="auto" alt="XLibre" src="https://github.com/user-attachments/assets/e49b976b-f074-4a42-bc18-4fb6373831c4" /> -->
 
 <img width="1366" height="auto" alt="XLibre-2" src="https://github.com/sofijacom/xlibre/blob/main/img/XLibre-2.png" />
 
