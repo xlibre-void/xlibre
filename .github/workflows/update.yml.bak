@@ -40,6 +40,8 @@ jobs:
           - xlibre-xf86-video-mach64
           - xlibre-xf86-video-mga
           - xlibre-xf86-video-s3virge
+          - xlibre-xf86-video-i128
+          - xlibre-xf86-video-i740
          # - xlibre-xf86-video-openchrome
     steps:
     - uses: actions/checkout@v4

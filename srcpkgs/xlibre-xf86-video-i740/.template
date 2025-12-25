@@ -1,0 +1,27 @@
+# Template file for 'xlibre-xf86-video-i740'
+pkgname=xlibre-xf86-video-i740
+_pkgname=xf86-video-i740
+version=${VERSION}
+revision=1
+build_style=gnu-configure
+configure_args="--prefix=/usr"
+hostmakedepends="pkg-config"
+makedepends="xlibre-xserver-devel xorgproto libXi-devel xorg-util-macros"
+depends="virtual?xserver-abi-video-28_1"
+short_desc="Xlibre Intel i740 video driver"
+maintainer="Sofiya <sofiya@v.com>"
+license="X11"
+homepage="https://github.com/X11Libre/xf86-video-i740"
+distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
+checksum=${SHA256}
+lib32disabled=yes
+
+LDFLAGS="-Wl,-z,lazy"
+
+pre_configure() {
+	./autogen.sh
+}
+
+post_install() {
+	vlicense COPYING
+}
