@@ -1,5 +1,3 @@
-
-
 <img width="1366" height="auto" alt="XLibre-2" src="https://github.com/sofijacom/xlibre/blob/main/img/XLibre-2.png" />
 
 
