@@ -51,7 +51,7 @@ sudo xbps-install -S xlibre
 sudo xbps-install -S xlibre-minimal
 ```
 > xlibre-minimal (includes everything listed below)
-- xlibre-server (xlibre-server-devel, xephyr, xnest, xvfb)
+- xlibre-xserver (xlibre-xserver-devel, xephyr, xnest, xvfb)
 - xlibre-xf86-input-libinput
 - xlibre-xf86-input-evdev
 - xorg-fonts
