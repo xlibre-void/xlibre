@@ -60,10 +60,10 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global --add safe.directory "*"
-          git remote add -f sofijacom https://github.com/sofijacom/xlibre.git
-          git merge --no-commit --strategy-option=theirs --allow-unrelated-histories -Xignore-space-change sofijacom/main
+          git remote add -f xlibre-void https://github.com/xlibre-void/xlibre.git
+          git merge --no-commit --strategy-option=theirs --allow-unrelated-histories -Xignore-space-change xlibre-void/main
           mkdir -p hostdir/binpkgs
-          gh release download --pattern "*${ARCH}*" --dir hostdir/binpkgs --repo sofijacom/xlibre || true
+          gh release download --pattern "*${ARCH}*" --dir hostdir/binpkgs --repo xlibre-void/xlibre || true
           if [ "$ARCH" = x86_64 ]; then
             rm --force hostdir/binpkgs/*x86_64-musl*
           fi
@@ -73,8 +73,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          latest_name=$(gh release view --json tagName --jq '.tagName' --repo sofijacom/xlibre || echo "Initial Commit")
-          latest_sha=$(git rev-list --max-count=1 ${latest_name} 2>/dev/null || git rev-list --max-parents=0 sofijacom/main)
+          latest_name=$(gh release view --json tagName --jq '.tagName' --repo xlibre-void/xlibre || echo "Initial Commit")
+          latest_sha=$(git rev-list --max-count=1 ${latest_name} 2>/dev/null || git rev-list --max-parents=0 xlibre-void/main)
           echo "Latest Tag Name: ${latest_name}"
           echo "Latest Tag SHA: ${latest_sha}"
 
