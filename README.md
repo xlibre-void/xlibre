@@ -105,4 +105,4 @@ _These packages will now be in your **OctoXBPS** package manager. When a new ver
 ### TODO
 
 - [x] Build and package Xlibre once a new version is released via GitHub Actions
-- [ ] 
+-  
