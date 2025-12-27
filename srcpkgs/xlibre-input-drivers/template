@@ -4,10 +4,10 @@ version=25.0.0
 revision=1
 metapackage=yes
 depends="
-  xlibre-xf86-input-evdev
-  xlibre-xf86-input-synaptics
-  xlibre-xf86-input-libinput
-  xlibre-xf86-input-wacom
+  xlibre-xf86-input-evdev>=0
+  xlibre-xf86-input-synaptics>=0
+  xlibre-xf86-input-libinput>=0
+  xlibre-xf86-input-wacom>=0
 "
 short_desc="XLibre input drivers meta-package"
 homepage="https://github.com/X11Libre/xserver/wiki"
@@ -17,5 +17,5 @@ replaces="xorg-input-drivers>=0"
 maintainer="Sofiya <sofiya@v.com>"
 
 case "$XBPS_TARGET_MACHINE" in
-	i686*|x86_64*) depends+=" xlibre-xf86-input-vmmouse"
+	i686*|x86_64*) depends+=" xlibre-xf86-input-vmmouse>=0"
 esac
