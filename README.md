@@ -29,6 +29,8 @@ You should now be able search through all xlibre related packages provided by th
 sudo xbps-query -Rs xlibre
 ```
 
+<img width="939" height="662" alt="20251224_070953" src="https://github.com/xlibre-void/xlibre/blob/main/img/20251224_070953.png?raw=true" />
+
 ### _install_
 
 ```shell
@@ -68,8 +70,6 @@ sudo xbps-install -S xlibre-minimal
 - xorg-fonts
 - xauth
 - xinit
-
-<img width="939" height="662" alt="20251224_070953" src="https://github.com/xlibre-void/xlibre/blob/main/img/20251224_070953.png?raw=true" />
 
 
 _These packages will now be in your **OctoXBPS** package manager. When a new version of the packages is released, you will update it along with all the other packages._
