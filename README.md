@@ -1,7 +1,7 @@
-<img width="1366" height="auto" alt="XLibre-2" src="https://github.com/sofijacom/xlibre/blob/main/img/XLibre-2.png" />
+<img width="1366" height="auto" alt="XLibre-2" src="https://github.com/xlibre-void/xlibre/blob/main/img/XLibre-2.png" />
 
 
-# XLibre for VOID linux  ![void](https://github.com/sofijacom/xlibre/blob/main/img/void.png)
+# XLibre for VOID linux  ![void](https://github.com/xlibre-void/xlibre/blob/main/img/void.png)
 
 
 > _**repository provides binary packages for:** x86_64-glibc_
@@ -50,7 +50,7 @@ sudo xbps-install -S xlibre-minimal
 - xauth
 - xinit
 
-<img width="939" height="662" alt="20251224_070953" src="https://github.com/sofijacom/xlibre/blob/main/img/20251224_070953.png?raw=true" />
+<img width="939" height="662" alt="20251224_070953" src="https://github.com/xlibre-void/xlibre/blob/main/img/20251224_070953.png?raw=true" />
 
 
 _These packages will now be in your **OctoXBPS** package manager. When a new version of the packages is released, you will update it along with all the other packages._
