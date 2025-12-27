@@ -1,0 +1,21 @@
+# Template file for 'xlibre-apps'
+pkgname=xlibre-apps
+version=25.1.0
+revision=1
+metapackage=yes
+depends="iceauth>=0 oclock>=0 sessreg>=0 setxkbmap>=0
+ smproxy>=0 transset>=0 x11perf>=0 xauth>=0
+ xbacklight>=0 xcalc>=0 xclipboard>=0 xclock>=0
+ xcmsdb>=0 xconsole>=0 xcursorgen>=0 xdpyinfo>=0
+ xev>=0 xeyes>=0 xfontsel>=0 xgamma>=0 xhost>=0
+ xinit>=0 xinput>=0 xkbcomp>=0 xkbevd>=0 xkbutils>=0
+ xkill>=0 xload>=0 xlogo>=0 xlsatoms>=0 xlsclients>=0
+ xmessage>=0 xmodmap>=0 xpr>=0 xprop>=0 xrandr>=0
+ xrdb>=0 xrefresh>=0 xset>=0 xsetroot>=0 xvinfo>=0
+ xwd>=0 xwininfo>=0 xwud>=0"
+short_desc="Xlibre applications"
+maintainer="maintainer="Sofiya <sofiya@v.com>"
+license="Public Domain"
+homepage="https://github.com/X11Libre/xserver/wiki"
+conflicts="xorg-server"
+replaces="xorg-server>=0"
