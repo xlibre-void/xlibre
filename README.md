@@ -55,8 +55,7 @@ sudo xbps-install -S xlibre
 - xlibre-xf86-video-amdgpu
 - xlibre-xf86-video-nouveau
 - xorg-fonts
-- xauth
-- xinit
+- xlibre-apps
 
 ### _or_
 
