@@ -14,8 +14,8 @@ depends="iceauth>=0 oclock>=0 sessreg>=0 setxkbmap>=0
  xrdb>=0 xrefresh>=0 xset>=0 xsetroot>=0 xvinfo>=0
  xwd>=0 xwininfo>=0 xwud>=0"
 short_desc="Xlibre applications"
-maintainer="maintainer="Sofiya <sofiya@v.com>"
+maintainer="Sofiya <sofiya@v.com>"
 license="Public Domain"
 homepage="https://github.com/X11Libre/xserver/wiki"
 conflicts="xorg-server"
-replaces="xorg-server"
+replaces="xorg-server>=0"
