@@ -23,6 +23,8 @@ printf "repository=https://github.com/xlibre-void/xlibre/releases/latest/downloa
 sudo xbps-install -S
 ```
 
+_These packages will now be in your **OctoXBPS** package manager. When a new version of the packages is released, you will update it along with all the other packages._
+
 You should now be able search through all xlibre related packages provided by this repository, and install packages as usual:
 
 ```shell
@@ -70,9 +72,6 @@ sudo xbps-install -S xlibre-minimal
 - xorg-fonts
 - xauth
 - xinit
-
-
-_These packages will now be in your **OctoXBPS** package manager. When a new version of the packages is released, you will update it along with all the other packages._
 
 
 # Available packages
