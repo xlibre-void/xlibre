@@ -78,14 +78,15 @@ sudo xbps-install -S xlibre-minimal
 | package | source | automatic update |
 |:--------|:-------|:-----------------|
 | xlibre                              | https://github.com/X11Libre/xserver/                    | :heavy_check_mark: |
+| xlibre-apps                         | https://github.com/X11Libre/xserver/wiki                | :heavy_check_mark: |
 | xlibre-input-drivers                | https://github.com/X11Libre/xserver/wiki                | :heavy_check_mark: |
 | xlibre-minimal                      | https://github.com/X11Libre/xserver/                    | :heavy_check_mark: |
-| xlibre-xserver                       | https://github.com/X11Libre/xserver/                    | :heavy_check_mark: |
-| xlibre-xserver-common                | https://github.com/X11Libre                             | :heavy_check_mark: |
-| xlibre-xserver-devel                 | https://github.com/X11Libre                             | :heavy_check_mark: |
-| xlibre-xserver-xephyr                | https://github.com/X11Libre                             | :heavy_check_mark: |
-| xlibre-xserver-xnest                 | https://github.com/X11Libre                             | :heavy_check_mark: |
-| xlibre-xserver-xvfb                  | https://github.com/X11Libre                             | :heavy_check_mark: |
+| xlibre-xserver                      | https://github.com/X11Libre/xserver/                    | :heavy_check_mark: |
+| xlibre-xserver-common               | https://github.com/X11Libre                             | :heavy_check_mark: |
+| xlibre-xserver-devel                | https://github.com/X11Libre                             | :heavy_check_mark: |
+| xlibre-xserver-xephyr               | https://github.com/X11Libre                             | :heavy_check_mark: |
+| xlibre-xserver-xnest                | https://github.com/X11Libre                             | :heavy_check_mark: |
+| xlibre-xserver-xvfb                 | https://github.com/X11Libre                             | :heavy_check_mark: |
 | xlibre-video-drivers                |  https://github.com/X11Libre/xserver/wiki               | :heavy_check_mark: |
 | xlibre-xf86-input-evdev             | https://github.com/X11Libre/xf86-input-evdev            | :heavy_check_mark: |
 | xlibre-xf86-input-evdev-devel       | https://github.com/X11Libre/xf86-input-evdev            | :heavy_check_mark: |
