@@ -1,7 +1,7 @@
-<img width="1366" height="auto" alt="XLibre-2" src="https://github.com/sofijacom/xlibre/blob/main/img/XLibre-2.png" />
+<img width="1366" height="auto" alt="XLibre-2" src="https://github.com/xlibre-void/xlibre/blob/main/img/XLibre-2.png" />
 
 
-# XLibre for VOID linux  ![void](https://github.com/sofijacom/xlibre/blob/main/img/void.png)
+# XLibre for VOID linux  ![void](https://github.com/xlibre-void/xlibre/blob/main/img/void.png)
 
 
 > _**repository provides binary packages for:** x86_64-glibc_
@@ -23,18 +23,41 @@ printf "repository=https://github.com/xlibre-void/xlibre/releases/latest/downloa
 sudo xbps-install -S
 ```
 
+_These packages will now be in your **OctoXBPS** package manager. When a new version of the packages is released, you will update it along with all the other packages._
+
 You should now be able search through all xlibre related packages provided by this repository, and install packages as usual:
 
 ```shell
 sudo xbps-query -Rs xlibre
 ```
-### _install_
 
-> xlibre (includes a complete set, including drivers)
+<img width="939" height="662" alt="20251224_070953" src="https://github.com/xlibre-void/xlibre/blob/main/img/20251224_070953.png?raw=true" />
+
+### _install_
 
 ```shell
 sudo xbps-install -S xlibre
 ```
+
+> xlibre (includes a complete set, including drivers)
+
+- xlibre-xserver (xlibre-xserver-devel, xephyr, xnest, xvfb)
+- xlibre-xf86-input-evdev
+- xlibre-xf86-input-synaptics
+- xlibre-xf86-input-libinput
+- xlibre-xf86-input-wacom
+- xlibre-xf86-input-vmmouse
+- xlibre-xf86-video-fbdev
+- xlibre-xf86-video-dummy
+- xlibre-xf86-video-vesa
+- xlibre-xf86-video-vmware
+- xlibre-xf86-video-ati
+- xlibre-xf86-video-amdgpu
+- xlibre-xf86-video-nouveau
+- xorg-fonts
+- xauth
+- xinit
+
 ### _or_
 
 ### _install_
@@ -49,11 +72,6 @@ sudo xbps-install -S xlibre-minimal
 - xorg-fonts
 - xauth
 - xinit
-
-<img width="939" height="662" alt="20251224_070953" src="https://github.com/sofijacom/xlibre/blob/main/img/20251224_070953.png?raw=true" />
-
-
-_These packages will now be in your **OctoXBPS** package manager. When a new version of the packages is released, you will update it along with all the other packages._
 
 
 # Available packages
@@ -106,3 +124,11 @@ _These packages will now be in your **OctoXBPS** package manager. When a new ver
 
 - [x] Build and package Xlibre once a new version is released via GitHub Actions
 -  
+
+<p align="center">
+	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/footers/gray0_ctp_on_line.svg?sanitize=true" />
+</p>
+
+<p align="center">
+	<a href="https://github.com/xlibre-void/xlibre/blob/main/LICENSE"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a>
+</p>
