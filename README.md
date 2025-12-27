@@ -28,13 +28,32 @@ You should now be able search through all xlibre related packages provided by th
 ```shell
 sudo xbps-query -Rs xlibre
 ```
-### _install_
 
-> xlibre (includes a complete set, including drivers)
+### _install_
 
 ```shell
 sudo xbps-install -S xlibre
 ```
+
+> xlibre (includes a complete set, including drivers)
+
+- xlibre-xserver (xlibre-xserver-devel, xephyr, xnest, xvfb)
+- xlibre-xf86-input-evdev
+- xlibre-xf86-input-synaptics
+- xlibre-xf86-input-libinput
+- xlibre-xf86-input-wacom
+- xlibre-xf86-input-vmmouse
+- xlibre-xf86-video-fbdev
+- xlibre-xf86-video-dummy
+- xlibre-xf86-video-vesa
+- xlibre-xf86-video-vmware
+- xlibre-xf86-video-ati
+- xlibre-xf86-video-amdgpu
+- xlibre-xf86-video-nouveau
+- xorg-fonts
+- xauth
+- xinit
+
 ### _or_
 
 ### _install_
