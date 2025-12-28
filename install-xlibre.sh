@@ -35,7 +35,6 @@ cat <<'EOF' >> /var/db/xbps/keys/00:ca:42:57:c9:c0:9a:ec:94:b4:7d:97:e5:a9:aa:1e
 	<string>xlibre-github-actions</string>
 </dict>
 </plist>
-
 EOF
 # Update the repository
 xbps-install -Su
