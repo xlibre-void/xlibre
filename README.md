@@ -3,6 +3,9 @@
 
 # XLibre for VOID linux  ![void](https://github.com/xlibre-void/xlibre/blob/main/img/void.png)
 
+![Security Audit](https://img.shields.io/github/actions/workflow/status/Letdown2491/waypoint-gtk/security.yml?label=Security%20Audit&logo=github)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![Platform](https://img.shields.io/badge/platform-Void%20Linux-478061?logo=linux)
 
 > _**repository provides binary packages for:** x86_64-glibc_
 
