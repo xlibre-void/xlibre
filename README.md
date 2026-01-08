@@ -80,7 +80,7 @@ sudo xbps-install -S xlibre-minimal
 
 ### Alternative method for installing XLibre
 
-_Automatically replaces X.Org xserver packages with Xlibre xserver packages_
+_Automatically replaces X.Org server packages with Xlibre xserver packages_
 
 > [!NOTE]
 > _One-line installation_
