@@ -22,7 +22,7 @@ cat <<'SETMIRROR' > /etc/xbps.d/99-repository-xlibre.conf
 repository=https://github.com/xlibre-void/xlibre/releases/latest/download/
 SETMIRROR
 # Add a public key to sign the repository
-# sudo wget -O /var/db/xbps/keys/00:ca:42:57:c9:c0:9a:ec:94:b4:7d:97:e5:a9:aa:1e.plist https://github.com/xlibre-void/xlibre/raw/refs/heads/main/repo-keys/00_ca_42_57_c9_c0_9a_ec_94_b4_7d_97_e5_a9_aa_1e.plist
+# sudo wget -O /var/db/xbps/keys/00:ca:42:57:c9:c0:9a:ec:94:b4:7d:97:e5:a9:aa:1e.plist https://github.com/xlibre-void/xlibre/raw/refs/heads/main/repo-keys/x86_64/00:ca:42:57:c9:c0:9a:ec:94:b4:7d:97:e5:a9:aa:1e.plist
 cat <<'EOF' >> /var/db/xbps/keys/00:ca:42:57:c9:c0:9a:ec:94:b4:7d:97:e5:a9:aa:1e.plist
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
