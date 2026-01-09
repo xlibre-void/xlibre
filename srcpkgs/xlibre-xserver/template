@@ -48,6 +48,7 @@ post_install() {
     pkg_install()
     {
         vmove usr/lib/xorg/protocol.txt
+        vmove usr/bin/Xfbdev
     }
 }
 
