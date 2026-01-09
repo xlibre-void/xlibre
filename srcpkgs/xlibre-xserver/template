@@ -44,7 +44,6 @@ post_install() {
     vinstall ${FILESDIR}/Xwrapper.config 644 etc/X11
     vlicense COPYING
     chmod 4755 ${DESTDIR}/usr/libexec/Xorg.wrap
-    chmod 4755 ${DESTDIR}usr/bin/Xfbdev
     find "${DESTDIR}"/usr/share/man -type f -iname '*[1-5].gz' -exec gunzip '{}' \;
     pkg_install()
     {
