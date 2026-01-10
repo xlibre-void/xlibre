@@ -17,7 +17,7 @@ xlibre-ports/
 ## Packages Included
 
 ### Core Server
-- **xlibre-server** - XLibre X server with subpackages (Xvfb, Xephyr, Xnest)
+- **xlibre-xserver** - XLibre X server with subpackages (Xvfb, Xephyr, Xnest)
 
 ### Input Drivers
 - xlibre-input-evdev - Generic event device input driver
@@ -44,7 +44,7 @@ xlibre-ports/
 ### Common Build Requirements
 
 Most packages require:
-- `xlibre-server-devel` - Development headers
+- `xlibre-xserver-devel` - Development headers
 - `xorgproto` - X.Org protocol headers
 - `xorg-util-macros` - X.Org build macros
 - `autoconf`, `automake`, `libtool` - Build tools (for GitHub source packages)
@@ -55,7 +55,7 @@ Packages built from GitHub sources use `autoreconf -vif` in the prepare step to 
 
 ### Meson-based Packages
 
-Some modern packages (libinput, wacom, xlibre-server) use Meson build system.
+Some modern packages (libinput, wacom, xlibre-xserver) use Meson build system.
 
 
 
