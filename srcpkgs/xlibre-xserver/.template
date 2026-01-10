@@ -3,7 +3,7 @@ pkgname=xlibre-xserver
 version=${VERSION}
 revision=1
 build_style=meson
-configure_args="-Dipv6=true -Dxorg=true -Dxnest=true -Dxephyr=true -Dxvfb=true -Dhal=false -Dudev=true -Dxkb_dir=/usr/share/X11/xkb -Dxkb_output_dir=/var/lib/xkb -Dlinux_acpi=true -Dlinux_apm=false -Dsuid_wrapper=true -Dxcsecurity=true -Dglamor=true -Ddri2=true -Ddri3=true -Dglx=true -Dsystemd_logind=$(vopt_if elogind true false)"
+configure_args="-Dipv6=true -Dxorg=true -Dxnest=true -Dxephyr=true -Dxfbdev=true -Dxvfb=true -Dhal=false -Dudev=true -Dxkb_dir=/usr/share/X11/xkb -Dxkb_output_dir=/var/lib/xkb -Dlinux_acpi=true -Dlinux_apm=false -Dsuid_wrapper=true -Dxcsecurity=true -Dglamor=true -Ddri2=true -Ddri3=true -Dglx=true -Dsystemd_logind=$(vopt_if elogind true false)"
 hostmakedepends="pkg-config xkbcomp flex xorgproto"
 makedepends="MesaLib-devel libXaw-devel libXfont2-devel libXrender-devel libXres-devel libXtst-devel libXv-devel libXxf86dga-devel libdmx-devel libepoxy-devel openssl-devel libtirpc-devel libxkbfile-devel libxkbui-devel libxshmfence-devel pixman-devel xcb-util-image-devel xcb-util-keysyms-devel xcb-util-renderutil-devel xcb-util-wm-devel xkbcomp nettle-devel libxcvt-devel font-util $(vopt_if elogind 'dbus-devel')"
 depends="xkeyboard-config $(vopt_if elogind 'elogind')"
