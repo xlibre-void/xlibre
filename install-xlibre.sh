@@ -17,6 +17,8 @@
 #                                           #
 #############################################
 
+# Сreate a catalog
+mkdir -p /etc/xbps.d
 # add Xlibe github mirror repository-x86_64-glibc
 cat <<'SETMIRROR' > /etc/xbps.d/99-repository-xlibre.conf
 repository=https://github.com/xlibre-void/xlibre/releases/latest/download/
