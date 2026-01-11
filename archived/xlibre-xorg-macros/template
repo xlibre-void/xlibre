@@ -1,0 +1,25 @@
+# Template file for 'mirror.fdo.xorg-macros'
+pkgname=xlibre-xorg-macros
+_pkgname=util-macros
+version=1.20.2
+revision=1
+build_style=gnu-configure
+configure_args="--prefix=/usr"
+hostmakedepends="pkg-config"
+makedepends="autoconf automake gawk gettext libtool pkgconf xorg-util-macros"
+short_desc="xlibre autotool macros"
+maintainer="Sofiya <sofiya@v.org>"
+license="MIT"
+homepage="https://github.com/X11Libre/mirror.fdo.xorg-macros"
+distfiles="https://github.com/X11Libre/mirror.fdo.xorg-macros/archive/refs/tags/${_pkgname}-${version}.tar.gz"
+checksum=43f870d7a42e562e0a3acbab41e9d94af338d5c617966ee7423f1039f3507c62
+conflicts="xorg-util-macros"
+replaces="xorg-util-macros>=0"
+
+pre_configure() {
+  ./autogen.sh
+}
+
+post_install() {
+	vlicense COPYING
+}
