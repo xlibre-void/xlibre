@@ -6,7 +6,7 @@ revision=1
 build_style=gnu-configure
 configure_args="--prefix=/usr"
 hostmakedepends="pkg-config"
-makedepends="autoconf automake gawk gettext libtool pkgconf xorg-util-macros"
+makedepends="autoconf automake gawk gettext libtool pkgconf"
 short_desc="xlibre autotool macros"
 maintainer="Sofiya <sofiya@v.org>"
 license="MIT"
