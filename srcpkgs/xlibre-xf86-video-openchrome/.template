@@ -14,7 +14,7 @@ license="MIT"
 conflicts="xf86-video-openchrome"
 replaces="xf86-video-openchrome>=0"
 homepage="https://github.com/X11Libre/xf86-video-openchrome"
-distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${_pkgname}-${version}.tar.gz"
+distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
 checksum=${SHA256}
 lib32disabled=yes
 
