@@ -4,6 +4,7 @@ _pkgname=xf86-video-nv
 version=${VERSION}
 revision=1
 build_style=gnu-configure
+configure_args="--prefix=/usr"
 hostmakedepends="pkg-config"
 makedepends="xlibre-xserver-devel xorgproto automake libtool libXi-devel xorg-util-macros"
 depends="virtual?xserver-abi-video-28_1 mesa-dri"
@@ -19,8 +20,6 @@ LDFLAGS="-Wl,-z,lazy"
 
 pre_configure() {
   autoreconf -fi
-  ./configure --prefix=/usr
-  make
 }
 
 post_install() {

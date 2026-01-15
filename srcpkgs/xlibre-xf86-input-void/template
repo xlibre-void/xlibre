@@ -4,6 +4,7 @@ _pkgname=xf86-input-void
 version=25.0.0
 revision=1
 build_style=gnu-configure
+configure_args="--prefix=/usr"
 hostmakedepends="pkg-config"
 makedepends="xlibre-xserver-devel xorgproto autoconf automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
 depends="virtual?xserver-abi-input-26_1"
@@ -16,10 +17,7 @@ checksum=2b242b55e429c25e31ca884dedf43bb60be4dbdd0a7ff015f10fa23cd6e08064
 lib32disabled=yes
 
 pre_configure() {
-
   ./autogen.sh
-  ./configure --prefix=/usr
-  make
 }
 
 post_install() {

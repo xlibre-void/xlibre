@@ -4,6 +4,7 @@ _pkgname=xf86-video-r128
 version=25.0.0
 revision=1
 build_style=gnu-configure
+configure_args="--prefix=/usr"
 hostmakedepends="pkg-config"
 makedepends="xlibre-xserver-devel xorgproto autoconf automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
 depends="virtual?xserver-abi-video-28_1"
@@ -20,10 +21,7 @@ lib32disabled=yes
 LDFLAGS="-Wl,-z,lazy"
 
 pre_configure() {
-
   ./autogen.sh
-  ./configure --prefix=/usr
-  make
 }
 
 post_install() {

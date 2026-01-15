@@ -18,15 +18,7 @@ distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-
 checksum=12878547b271f4e59ecd5098f935d4c0bd4560d0c2a3a667385d916bc63d00af
 lib32disabled=yes
 
-# pre_configure() {
-
-#  ./autogen.sh
-#  ./configure --prefix=/usr
-#  make
-# }
-
 post_install() {
-
 	rm -rf ${DESTDIR}/usr/lib/systemd
 	vlicense GPL
 }

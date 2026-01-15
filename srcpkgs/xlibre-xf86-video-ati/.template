@@ -4,6 +4,7 @@ _pkgname=xf86-video-ati
 version=${VERSION}
 revision=1
 build_style=gnu-configure
+configure_args="--prefix=/usr"
 hostmakedepends="pkg-config"
 makedepends="xlibre-xserver-devel eudev-libudev-devel libpciaccess-devel libdrm-devel pixman-devel MesaLib-devel xorgproto autoconf automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
 depends="virtual?xserver-abi-video-28_1 mesa-dri"
@@ -25,10 +26,7 @@ case "$XBPS_TARGET_MACHINE" in
 esac
 
 pre_configure() {
-
-  ./autogen.sh --prefix=/usr --enable-glamor --disable-debug
-  ./configure --prefix=/usr
-  make
+   ./autogen.sh --prefix=/usr --enable-glamor --disable-debug
 }
 
 post_install() {

@@ -4,6 +4,7 @@ _pkgname=xf86-input-synaptics
 version=${VERSION}
 revision=1
 build_style=gnu-configure
+configure_args="--prefix=/usr"
 hostmakedepends="pkg-config"
 makedepends="xlibre-xserver-devel libX11-devel libXtst-devel pixman-devel libpciaccess-devel autoconf automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros libevdev-devel"
 depends="virtual?xserver-abi-input-26_1"
@@ -19,8 +20,6 @@ lib32disabled=yes
 
 pre_configure() {
   ./autogen.sh
-  ./configure --prefix=/usr
-  make
 }
 
 post_install() {

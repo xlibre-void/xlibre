@@ -4,6 +4,7 @@ _pkgname=xf86-input-joystick
 version=${VERSION}
 revision=1
 build_style=gnu-configure
+configure_args="--prefix=/usr"
 hostmakedepends="pkg-config"
 makedepends="xlibre-xserver-devel autoconf spice-protocol xorgproto automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
 depends="virtual?xserver-abi-input-26_1"
@@ -17,11 +18,8 @@ distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-
 checksum=${SHA256}
 lib32disabled=yes
 
-
 pre_configure() {
   ./autogen.sh
-  ./configure --prefix=/usr
-   make
 }
 
 post_install() {

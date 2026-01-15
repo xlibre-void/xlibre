@@ -4,6 +4,7 @@ _pkgname=xf86-video-fbdev
 version=${VERSION}
 revision=1
 build_style=gnu-configure
+configure_args="--prefix=/usr"
 hostmakedepends="pkg-config"
 makedepends="xlibre-xserver-devel autoconf xorgproto automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
 depends="virtual?xserver-abi-video-28_1"
@@ -21,10 +22,7 @@ CFLAGS="-I$XBPS_CROSS_BASE/usr/include/xorg"
 LDFLAGS="-Wl,-z,lazy"
 
 pre_configure() {
-
   ./autogen.sh
-  ./configure --prefix=/usr
-  make
 }
 
 post_install() {

@@ -4,6 +4,7 @@ _pkgname=xf86-video-openchrome
 version=0.6.0
 revision=1
 build_style=gnu-configure
+configure_args="--prefix=/usr"
 hostmakedepends="pkg-config"
 makedepends="xlibre-xserver-devel libXvMC-devel xorgproto autoconf automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
 depends="virtual?xserver-abi-video-28_1"
@@ -25,10 +26,7 @@ case "$XBPS_TARGET_MACHINE" in
 esac
 
 pre_configure() {
-
   NOCONFIGURE=1 ./autogen.sh
-  ./configure --prefix=/usr
-  make
 }
 
 post_install() {

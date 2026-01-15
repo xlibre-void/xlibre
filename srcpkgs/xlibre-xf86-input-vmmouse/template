@@ -21,8 +21,6 @@ lib32disabled=yes
 
 pre_configure() {
   ./autogen.sh
-  ./configure
-  make
 }
 
 post_install() {

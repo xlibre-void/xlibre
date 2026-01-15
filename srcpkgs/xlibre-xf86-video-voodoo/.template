@@ -5,6 +5,7 @@ version=${VERSION}
 revision=1
 archs="x86_64*"
 build_style=gnu-configure
+configure_args="--prefix=/usr"
 hostmakedepends="pkg-config"
 makedepends="xlibre-xserver-devel autoconf xorgproto automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
 depends="virtual?xserver-abi-video-28_1"
@@ -19,10 +20,7 @@ checksum=${SHA256}
 lib32disabled=yes
 
 pre_configure() {
-
   ./autogen.sh
-  ./configure --prefix=/usr
-  make
 }
 
 post_install() {
