@@ -1,7 +1,7 @@
 # Template file for 'xf86-video-openchrome'
 pkgname=xlibre-xf86-video-openchrome
 _pkgname=xf86-video-openchrome
-version=0.6.0
+version=xlibre-xf86-video-openchrome-25.0.0
 revision=1
 build_style=gnu-configure
 configure_args="--prefix=/usr"
@@ -15,7 +15,7 @@ conflicts="xf86-video-openchrome"
 replaces="xf86-video-openchrome>=0"
 homepage="https://github.com/X11Libre/xf86-video-openchrome"
 distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${_pkgname}-${version}.tar.gz"
-checksum=a569d3e10ab00f99ad5438d079836418690ba99f0c3a4f25980644b7786ca8fa
+checksum=8e14401a2160c6a7174b09875b4f87d2ad92cecad51e4762fc8739a536cb835a
 lib32disabled=yes
 
 CFLAGS="-I$XBPS_CROSS_BASE/usr/include/xorg -fcommon"
