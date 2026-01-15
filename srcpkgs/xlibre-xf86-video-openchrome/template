@@ -1,7 +1,7 @@
 # Template file for 'xf86-video-openchrome'
 pkgname=xlibre-xf86-video-openchrome
 _pkgname=xf86-video-openchrome
-version=xlibre-xf86-video-openchrome-25.0.0
+version=25.0.0
 revision=1
 build_style=gnu-configure
 configure_args="--prefix=/usr"
