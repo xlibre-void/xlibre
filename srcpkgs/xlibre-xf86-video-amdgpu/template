@@ -1,7 +1,7 @@
 # Template file for 'xf86-video-amdgpu'
 pkgname=xlibre-xf86-video-amdgpu
 _pkgname=xf86-video-amdgpu
-version=25.0.1
+version=25.0.2
 revision=1
 archs="x86_64*"
 build_style=gnu-configure
@@ -16,7 +16,7 @@ conflicts="xf86-video-amdgpu"
 replaces="xf86-video-amdgpu>=0"
 homepage="https://github.com/X11Libre/xf86-video-amdgpu"
 distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
-checksum=d6c006a1efc389974b63e152e07338a4af87a8d0a692f4f2ce3c1484747e912f
+checksum=7b397858026f944b5e2d99dccb321d6c5fbdef8cf4c1c3b3fcc4b3367836deea
 lib32disabled=yes
 LDFLAGS="-Wl,-z,lazy"
 
