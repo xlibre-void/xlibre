@@ -1,7 +1,7 @@
 # Template file for 'xf86-input-libinput'
 pkgname=xlibre-xf86-input-libinput
 _pkgname=xf86-input-libinput
-version=25.0.0
+version=25.0.1
 revision=1
 build_style=meson
 hostmakedepends="pkg-config"
@@ -14,7 +14,7 @@ conflicts="xf86-input-libinput"
 replaces="xf86-input-libinput>=0"
 homepage="https://github.com/X11Libre/xf86-input-libinput"
 distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
-checksum=aa7369a0a3834876ba11659cc663105a1511651d7ac2be2338e5d195283fbd00
+checksum=d7d9246b6f9a03459a5b603b726aa4e4c0ec8ea669fff2f38976bc81eec96a44
 lib32disabled=yes
 
 
