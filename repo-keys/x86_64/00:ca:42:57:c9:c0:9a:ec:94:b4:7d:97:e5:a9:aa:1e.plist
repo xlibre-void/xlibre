@@ -7,6 +7,6 @@
 	<key>public-key-size</key>
 	<integer>2048</integer>
 	<key>signature-by</key>
-	<string>void-package-github-actions</string>
+	<string>xlibre-github-actions</string>
 </dict>
 </plist>
