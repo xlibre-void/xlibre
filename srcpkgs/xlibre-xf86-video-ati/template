@@ -1,7 +1,7 @@
 # Template file for 'xf86-video-ati'
 pkgname=xlibre-xf86-video-ati
 _pkgname=xf86-video-ati
-version=25.0.0
+version=25.0.1
 revision=1
 build_style=gnu-configure
 configure_args="--prefix=/usr"
@@ -15,7 +15,7 @@ conflicts="xf86-video-ati"
 replaces="xf86-video-ati>=0"
 homepage="https://github.com/X11Libre/xf86-video-ati"
 distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
-checksum=597e9b3f9b1b4f5e40fd6d1706f4ffe6d31bbc2955d4f435d1e3014f2e089bde
+checksum=35c96222fdbce8112f3a44b63d098a8a59c5950265ccf400561e49b8010fb0f6
 lib32disabled=yes
 
 CFLAGS="-fcommon"
@@ -27,7 +27,6 @@ esac
 
 pre_configure() {
    ./autogen.sh --prefix=/usr --enable-glamor --disable-debug
-
 }
 
 post_install() {
