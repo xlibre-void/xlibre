@@ -11,3 +11,4 @@ homepage="https://github.com/X11Libre/xserver/wiki"
 conflicts="xorg"
 replaces="xorg>=0"
 # Trigger musl build test
+# Trigger signing test

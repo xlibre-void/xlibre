@@ -140,10 +140,17 @@ jobs:
         working-directory: ./hostdir/binpkgs
         run: |
           rm -rf *.sha256sum *.sha512sum
-          for file in *.xbps; do
-            sha256sum "${file}" | cut -d ' ' -f 1 > "${file}.sha256sum"
-            sha512sum "${file}" | cut -d ' ' -f 1 > "${file}.sha512sum"
-          done
+          
+          # Only run the loop if there are actually files ending in .xbps
+          count=$(ls -1 *.xbps 2>/dev/null | wc -l)
+          if [ "$count" != 0 ]; then
+            for file in *.xbps; do
+              sha256sum "${file}" | cut -d ' ' -f 1 > "${file}.sha256sum"
+              sha512sum "${file}" | cut -d ' ' -f 1 > "${file}.sha512sum"
+            done
+          else
+            echo "No packages found to checksum."
+          fi
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
