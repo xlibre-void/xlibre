@@ -27,7 +27,7 @@ jobs:
       matrix:
         config:
           - { arch: x86_64,       libc: glibc }
-          # - { arch: x86_64-musl,  libc: musl  }
+          - { arch: x86_64-musl,  libc: musl  } # Enabled the musl build matrix
     container:
       image: ghcr.io/void-linux/void-${{ matrix.config.libc }}-full:20250901R1
       options: --platform linux/amd64 --privileged
@@ -35,7 +35,7 @@ jobs:
         - /dev:/dev
       env:
         ARCH: '${{ matrix.config.arch }}'
-        XBPS_TARGET_ARCH: ${{ matrix.arch }}
+        XBPS_TARGET_ARCH: ${{ matrix.config.arch }}
         REPO_OWNER: "${{ github.repository_owner }}"
         REPO_NAME: "${{ github.event.repository.name }}"
     if: ${{ github.ref == 'refs/heads/main' }}
@@ -63,9 +63,14 @@ jobs:
           git remote add -f xlibre-void https://github.com/xlibre-void/xlibre.git
           git merge --no-commit --strategy-option=theirs --allow-unrelated-histories -Xignore-space-change xlibre-void/main
           mkdir -p hostdir/binpkgs
+          
           gh release download --pattern "*${ARCH}*" --dir hostdir/binpkgs --repo xlibre-void/xlibre || true
-          if [ "$ARCH" = x86_64 ]; then
+          
+          # Clean up mismatched architectures so repodata generates correctly
+          if [ "$ARCH" = "x86_64" ]; then
             rm --force hostdir/binpkgs/*x86_64-musl*
+          elif [ "$ARCH" = "x86_64-musl" ]; then
+            rm --force hostdir/binpkgs/*x86_64.xbps
           fi
           rm --force hostdir/binpkgs/*.xbps.sig2
 
@@ -128,7 +133,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.arch }}-repodata
+          name: ${{ matrix.config.arch }}-repodata
           path: ./hostdir/binpkgs
 
       - name: short sha
@@ -146,6 +151,3 @@ jobs:
             ./hostdir/binpkgs/*.xbps            
             ./hostdir/binpkgs/*.sig2
             ./hostdir/binpkgs/*repodata
-
-#            ./hostdir/binpkgs/*.sha256sum
-#            ./hostdir/binpkgs/*.sha512sum
