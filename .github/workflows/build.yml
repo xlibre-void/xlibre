@@ -77,7 +77,7 @@ jobs:
           fi
           rm --force hostdir/binpkgs/*.xbps.sig2
 
-- name: Identify changes to build
+      - name: Identify changes to build
         run: |
           chown -R builder:builder .
 
