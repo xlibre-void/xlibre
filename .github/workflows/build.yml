@@ -154,3 +154,4 @@ jobs:
             ./hostdir/binpkgs/*.xbps            
             ./hostdir/binpkgs/*.sig2
             ./hostdir/binpkgs/*repodata
+
