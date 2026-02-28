@@ -77,19 +77,16 @@ jobs:
           fi
           rm --force hostdir/binpkgs/*.xbps.sig2
 
-      - name: Identify changes to build
-        env:
-          GH_TOKEN: ${{ github.token }}
+- name: Identify changes to build
         run: |
-          latest_name=$(gh release view --json tagName --jq '.tagName' --repo xlibre-void/xlibre || echo "Initial Commit")
-          latest_sha=$(git rev-list --max-count=1 ${latest_name} 2>/dev/null || git rev-list --max-parents=0 xlibre-void/main)
-          echo "Latest Tag Name: ${latest_name}"
-          echo "Latest Tag SHA: ${latest_sha}"
-
           chown -R builder:builder .
 
-          git diff-tree -r --no-renames --name-only --diff-filter=AM ${latest_sha} ${SHA} -- 'srcpkgs/**' \
-          | cut -d/ -f 2 | uniq | xargs sudo -Eu builder ./xbps-src sort-dependencies | tee /tmp/templates
+          echo "Bypassing diff-tree. Forcing build of all XLibre packages for musl..."
+          
+          # This grabs every package folder inside the upstream XLibre repo,
+          # sorts them by dependencies, and queues them all up to be built.
+          git ls-tree -r --name-only xlibre-void/main srcpkgs/ | cut -d/ -f2 | uniq | xargs sudo -Eu builder ./xbps-src sort-dependencies | tee /tmp/templates
+
 
       - name: Setup void-packages
         run: |
