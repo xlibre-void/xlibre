@@ -7,7 +7,7 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/platform-Void%20Linux-478061?logo=linux)
 
-> _**repository provides binary packages for:** x86_64-glibc_
+> _**repository provides binary packages for:** x86_64-glibc, x86_64-musl_
 
 
 > [!NOTE]
