@@ -27,3 +27,4 @@ post_install() {
 	vlicense COPYING
 	rm -rfv "${DESTDIR}"/usr/{lib,share}/hal
 }
+

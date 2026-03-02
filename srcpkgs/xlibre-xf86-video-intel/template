@@ -29,4 +29,3 @@ pre_configure() {
 post_install() {
 	vlicense COPYING
 }
-

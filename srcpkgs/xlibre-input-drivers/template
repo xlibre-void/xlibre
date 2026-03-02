@@ -19,3 +19,4 @@ maintainer="Sofiya <sofiya@v.com>"
 case "$XBPS_TARGET_MACHINE" in
 	i686*|x86_64*) depends+=" xlibre-xf86-input-vmmouse>=0"
 esac
+

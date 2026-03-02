@@ -96,3 +96,4 @@ xlibre-xserver-devel_package() {
          vmove usr/share/aclocal
      }
  }
+
