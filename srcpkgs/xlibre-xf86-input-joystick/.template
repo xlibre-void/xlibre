@@ -35,3 +35,4 @@ xlibre-xf86-input-joystick-devel_package() {
 #		vmove usr/lib/pkgconfig
 	}
 }
+
