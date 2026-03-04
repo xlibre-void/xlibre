@@ -92,7 +92,7 @@ jobs:
 
           # This compares the last release against the new commit and ONLY builds what changed
           git diff-tree -r --no-renames --name-only --diff-filter=AM ${latest_sha} ${SHA} -- 'srcpkgs/**' \
-          | cut -d/ -f 2 | uniq | xargs sudo -Eu builder ./xbps-src -a sort-dependencies | tee /tmp/templates
+          | cut -d/ -f 2 | uniq | xargs sudo -Eu builder ./xbps-src sort-dependencies | tee /tmp/templates
 
       - name: Setup void-packages
         run: |
