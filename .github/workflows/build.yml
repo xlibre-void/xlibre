@@ -20,6 +20,41 @@ jobs:
   build:
     name: Build packages
     runs-on: ubuntu-latest
+
+    container:
+      image: ghcr.io/void-linux/void-musl-full
+      env:
+        LICENSE_LIST: common/travis/license.lst
+
+    steps:
+      - name: Prepare container
+        run: |
+          # switch to repo-ci mirror
+          mkdir -p /etc/xbps.d && cp /usr/share/xbps.d/*-repository-*.conf /etc/xbps.d/
+          sed -i 's|repo-default|repo-ci|g' /etc/xbps.d/*-repository-*.conf
+          # install dependencies
+          xbps-install -Syu xbps && xbps-install -yu && xbps-install -y sudo bash grep curl git
+          # create non-root user
+          useradd -G xbuilder -M builder
+
+      - name: Clone and checkout
+        uses: classabbyamp/treeless-checkout-action@v1
+
+      - name: Prepare masterdir
+        run: |
+          chown -R builder:builder . &&
+          sudo -Eu builder common/travis/set_mirror.sh &&
+          common/travis/fetch-xtools.sh
+
+      - name: Find changed templates
+        run: sudo -Eu builder common/travis/changed_templates.sh
+
+      - name: Run lints
+        run: |
+          sudo -Eu builder common/travis/verify-update-check.sh || rv=1
+          sudo -Eu builder common/travis/xlint.sh || rv=1
+          exit "${rv:-0}"
+    
     permissions:
       contents: write
     strategy:
