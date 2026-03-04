@@ -27,12 +27,12 @@ jobs:
       matrix:
         config:
             - { arch: x86_64,       host: x86_64,      libc: glibc, platform: linux/amd64, test: 1 }
-            - { arch: aarch64,      host: x86_64,      libc: glibc, platform: linux/amd64, test: 0 }
+           # - { arch: aarch64,      host: x86_64,      libc: glibc, platform: linux/amd64, test: 0 }
             - { arch: x86_64-musl,  host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 1 }
-            - { arch: aarch64-musl, host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 0 }
+           # - { arch: aarch64-musl, host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 0 }
     container:
-      image: ghcr.io/void-linux/void-buildroot-${{ matrix.config.libc }}:20250901R1 # ghcr.io/void-linux/void-glibc-full:20250901R1
-      options: --platform ${{ matrix.config.platform }} # --platform linux/amd64 --privileged
+      image: ghcr.io/void-linux/void-glibc-full:20250901R1
+      options: --platform linux/amd64 --privileged
       volumes:
         - /dev:/dev
       env:
