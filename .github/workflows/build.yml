@@ -54,7 +54,10 @@ jobs:
           sudo -Eu builder common/travis/verify-update-check.sh || rv=1
           sudo -Eu builder common/travis/xlint.sh || rv=1
           exit "${rv:-0}"
-    
+          
+    build:
+    name: Build packages
+    runs-on: ubuntu-latest 
     permissions:
       contents: write
     strategy:
