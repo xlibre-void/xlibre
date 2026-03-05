@@ -27,9 +27,9 @@ jobs:
       matrix:
         config:
             - { arch: x86_64,       host: x86_64,      libc: glibc, platform: linux/amd64, test: 1 }
-            - { arch: aarch64,      host: x86_64,      libc: glibc, platform: linux/amd64, test: 0 }
+           # - { arch: aarch64,      host: x86_64,      libc: glibc, platform: linux/amd64, test: 0 }
             - { arch: x86_64-musl,  host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 1 }
-            - { arch: aarch64-musl, host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 0 }
+           # - { arch: aarch64-musl, host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 0 }
     container:
       image: ghcr.io/void-linux/void-glibc-full:20250901R1
       options: --platform linux/amd64 --privileged
@@ -102,8 +102,6 @@ jobs:
           echo XBPS_CHROOT_CMD=uchroot >> etc/conf
 
           yes | sudo -Eu builder ./xbps-src -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} binary-bootstrap
-          # Bootstrap x86_64-musl.
-          yes | sudo -Eu builder ./xbps-src -m masterdir-x86_64-musl -a aarch64-musl pkg binary-bootstrap
 
       # -------------------- Packages to build --------------------
 
