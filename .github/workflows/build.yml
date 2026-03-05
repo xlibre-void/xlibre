@@ -42,6 +42,18 @@ jobs:
         REPO_NAME: "${{ github.event.repository.name }}"
     if: ${{ github.ref == 'refs/heads/main' }}
 
+    container:
+      image: ghcr.io/void-linux/void-musl-full:20250901R1
+      options: --platform linux/amd64 --privileged
+      volumes:
+        - /dev:/dev
+      env:
+        ARCH: '${{ matrix.config.arch }}'
+        XBPS_TARGET_ARCH: ${{ matrix.config.arch }}
+        REPO_OWNER: "${{ github.repository_owner }}"
+        REPO_NAME: "${{ github.event.repository.name }}"
+    if: ${{ github.ref == 'refs/heads/main' }}
+
     steps:
       - name: Prep container
         run: |
