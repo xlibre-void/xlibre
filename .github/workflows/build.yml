@@ -32,7 +32,7 @@ jobs:
            # - { arch: aarch64-musl, host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 0 }
     container:
       image: ghcr.io/void-linux/void-glibc-full:20250901R1
-      options: --privileged # --platform linux/amd64 --privileged
+      options: --platform linux/amd64 --privileged
       volumes:
         - /dev:/dev
       env:
