@@ -27,19 +27,22 @@ jobs:
       matrix:
         config:
             - { arch: x86_64,       host: x86_64,      libc: glibc, platform: linux/amd64, test: 1 }
-           # - { arch: aarch64,      host: x86_64,      libc: glibc, platform: linux/amd64, test: 0 }
+            - { arch: aarch64,      host: x86_64,      libc: glibc, platform: linux/amd64, test: 0 }
             - { arch: x86_64-musl,  host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 1 }
-           # - { arch: aarch64-musl, host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 0 }
+            - { arch: aarch64-musl, host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 0 }
     container:
-      image: ghcr.io/void-linux/void-glibc-full:20250901R1
-      options: --platform linux/amd64 --privileged
+      image: ghcr.io/void-linux/void-${{ matrix.config.libc }}-full:20250616R1# ghcr.io/void-linux/void-glibc-full:20250901R1
+      options: --platform ${{ matrix.config.platform }} --privileged # --platform linux/amd64 --privileged
       volumes:
         - /dev:/dev
       env:
         ARCH: '${{ matrix.config.arch }}'
-        XBPS_TARGET_ARCH: ${{ matrix.config.arch }}
-        REPO_OWNER: "${{ github.repository_owner }}"
-        REPO_NAME: "${{ github.event.repository.name }}"
+        BOOTSTRAP: '${{ matrix.config.host }}'
+        TEST: '${{ matrix.config.test }}'
+       # ARCH: '${{ matrix.config.arch }}'
+       # XBPS_TARGET_ARCH: ${{ matrix.config.arch }}
+       # REPO_OWNER: "${{ github.repository_owner }}"
+       # REPO_NAME: "${{ github.event.repository.name }}"
     if: ${{ github.ref == 'refs/heads/main' }}
 
     steps:
