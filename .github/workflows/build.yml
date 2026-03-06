@@ -49,7 +49,7 @@ jobs:
           # Unset target arch so the host glibc container can update itself properly
           env -u XBPS_TARGET_ARCH xbps-install -Syu xbps
           env -u XBPS_TARGET_ARCH xbps-install -yu
-          env -u XBPS_TARGET_ARCH xbps-install -y sudo bash grep curl git github-cli
+          env -u XBPS_TARGET_ARCH xbps-install -y sudo bash grep curl git jq zip unzip github-cli xtools
           useradd -G xbuilder -M builder -s $(which bash)
 
       - name: Checkout xlibre
