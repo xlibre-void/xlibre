@@ -1,0 +1,42 @@
+name: Sign Repo
+
+on:
+  workflow_call:
+    inputs:
+      arch:
+        required: true
+        type: string
+    secrets:
+      PRIV_KEY:
+        required: true
+      SIGN_PASS:
+        required: true
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/void-linux/void-buildroot-glibc:20251206R1
+      options: --platform linux/amd64
+
+    steps:
+      - uses: actions/download-artifact@v7
+        with:
+          name: indexed-repo-${{ inputs.arch }}
+          path: /repo/${{ inputs.arch }}
+
+      - name: Sign repo
+        working-directory: /repo/${{ inputs.arch }}
+        env:
+          PRIVKEY: ${{ secrets.PRIV_KEY }}
+          XBPS_PASSPHRASE: ${{ secrets.SIGN_PASS }}
+        run: |
+          printf "%s\n" "${PRIVKEY}" > key.pem
+          xbps-rindex --privkey key.pem --sign --signedby "${{ github.repository }}-github-actions" --verbose .
+          xbps-rindex --privkey key.pem --sign-pkg --verbose ./*.xbps
+          rm -f key.pem
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: signed-repo-${{ inputs.arch }}
+          path: /repo/${{ inputs.arch }}

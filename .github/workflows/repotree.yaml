@@ -1,0 +1,70 @@
+name: Build Repo Tree
+
+on:
+  workflow_call:
+    outputs:
+      artifact_name:
+        value: repo-tree
+
+jobs:
+  repo_tree:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Install tools
+        run: sudo apt-get update && sudo apt-get install -y gh jq
+
+      - name: Prepare directories
+        run: |
+          mkdir -p {repo,oldrepo}/{x86_64,x86_64-musl}
+
+      # ----------------------------------------------------------
+      # 1. Download previous release packages
+      # ----------------------------------------------------------
+      - name: Download previous release packages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p raw
+          gh release download --pattern "*.xbps" --dir raw --repo grvn/void-packages || echo "No previous release or no .xbps assets"
+
+          for f in raw/*.xbps; do
+            [ -e "$f" ] || continue
+            case "$f" in
+              *.x86_64.xbps) mv "$f" oldrepo/x86_64/ ;;
+              *.x86_64-musl.xbps) mv "$f" oldrepo/x86_64-musl/ ;;
+            esac
+          done
+
+      # ----------------------------------------------------------
+      # 2. Download newly built packages
+      # ----------------------------------------------------------
+      - name: Download newly built packages
+        uses: actions/download-artifact@v7
+        with:
+          path: repo_raw
+          pattern: built-*
+          merge-multiple: true
+
+      - name: Sort new packages per arch
+        run: |
+          for f in repo_raw/*.xbps; do
+            [ -e "$f" ] || continue
+            case "$f" in
+              *.x86_64.xbps) mv "$f" repo/x86_64/ ;;
+              *.x86_64-musl.xbps) mv "$f" repo/x86_64-musl/ ;;
+            esac
+          done
+
+      # ----------------------------------------------------------
+      # 3. Upload repo-tree artifact
+      # ----------------------------------------------------------
+      - name: Upload merged repo tree
+        uses: actions/upload-artifact@v6
+        with:
+          name: repo-tree
+          path: |
+            repo
+            oldrepo

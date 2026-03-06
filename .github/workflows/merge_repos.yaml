@@ -1,0 +1,44 @@
+name: Create Merged Repo
+
+on:
+  workflow_call:
+    outputs:
+      artifact-name:
+        description: "Name of the uploaded artifact"
+        value: ${{ jobs.merge.outputs.artifact-name }}
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    outputs:
+      artifact-name: ${{ steps.set-artifact-name.outputs.name }}
+    steps:
+      - name: Set artifact name (unique per run)
+        id: set-artifact-name
+        run: echo "name=source-${{ github.run_id }}" >> $GITHUB_OUTPUT
+
+      - uses: actions/checkout@v6
+        with:
+          repository: void-linux/void-packages
+          ref: master
+
+      - name: Merge this repository into void-linux/void-packages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global --add safe.directory "*"
+
+          git remote add -f overlay https://github.com/grvn/void-packages.git
+          git fetch overlay
+          git merge --no-commit --strategy-option=theirs --allow-unrelated-histories -Xignore-space-change overlay/main
+
+          find -mindepth 1 -maxdepth 1 -exec tar czf source.tgz {} \+
+
+      - name: Upload prepared merged repo
+        uses: actions/upload-artifact@v6
+        with:
+          name: ${{ steps.set-artifact-name.outputs.name }}
+          path: source.tgz
+          retention-days: 1
