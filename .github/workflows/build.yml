@@ -102,7 +102,7 @@ jobs:
           echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
           echo XBPS_CHROOT_CMD=uchroot >> etc/conf
 
-          ./xbps-src -a -m masterdir-${{ matrix.config.arch }} binary-bootstrap
+          sudo -Eu builder ./xbps-src -a masterdir-${{ matrix.config.arch }} binary-bootstrap
 
       # -------------------- Packages to build -------------------- yes | sudo -Eu builder ./xbps-src -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} binary-bootstrap
 
