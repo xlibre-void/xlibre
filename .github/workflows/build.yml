@@ -4,13 +4,23 @@ env:
   TAG: workflow-${{ github.run_number }}
   SHA: ${{ github.sha }}
 
+#on:
+#  workflow_dispatch:
+#  push:
+#    branches:
+#      - main
+#    paths:
+#      - srcpkgs/**
+
 on:
-  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'srcpkgs/**'
   push:
     branches:
-      - main
+      - 'ci-**'
     paths:
-      - srcpkgs/**
+      - 'srcpkgs/**'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -37,7 +47,7 @@ jobs:
         - /dev:/dev
       env:
         ARCH: '${{ matrix.config.arch }}'
-        XBPS_TARGET_ARCH: ${{ matrix.config.arch }}
+        XBPS_TARGET_ARCH: "${{ matrix.config.arch }}"
         REPO_OWNER: "${{ github.repository_owner }}"
         REPO_NAME: "${{ github.event.repository.name }}"
     if: ${{ github.ref == 'refs/heads/main' }}
@@ -102,7 +112,7 @@ jobs:
           echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
           echo XBPS_CHROOT_CMD=uchroot >> etc/conf
 
-          yes | sudo -Eu builder ./xbps-src -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} -a ${{ matrix.config.arch }} binary-bootstrap
+          yes | sudo -Eu builder ./xbps-src -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} binary-bootstrap
           
 
       # -------------------- Packages to build --------------------
