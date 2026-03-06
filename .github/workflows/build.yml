@@ -27,7 +27,7 @@ jobs:
       matrix:
         config:
             - { arch: x86_64,       libc: glibc }
-           # - { arch: aarch64,      libc: glibc }
+            - { arch: aarch64,      libc: glibc }
             - { arch: x86_64-musl,  libc: musl } # Enabled the musl build matrix
            # - { arch: aarch64-musl, libc: musl }
     container:
