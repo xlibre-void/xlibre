@@ -18,7 +18,7 @@ on:
       - 'srcpkgs/**'
   push:
     branches:
-      - 'ci-**'
+      - 'main'
     paths:
       - 'srcpkgs/**'
 
