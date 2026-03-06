@@ -37,7 +37,7 @@ jobs:
         - /dev:/dev
       env:
         ARCH: '${{ matrix.config.arch }}'
-        XBPS_TARGET_ARCH: ${{ matrix.config.arch }}
+        XBPS_TARGET_ARCH: "${{ matrix.config.arch }}"
         REPO_OWNER: "${{ github.repository_owner }}"
         REPO_NAME: "${{ github.event.repository.name }}"
     if: ${{ github.ref == 'refs/heads/main' }}
@@ -46,10 +46,11 @@ jobs:
       - name: Prep container
         run: |
           mkdir -p /etc/xbps.d && cp /usr/share/xbps.d/*-repository-*.conf /etc/xbps.d/
+          sed -i 's|repo-default|repo-ci|g' /etc/xbps.d/*-repository-*.conf
           # Unset target arch so the host glibc container can update itself properly
           env -u XBPS_TARGET_ARCH xbps-install -Syu xbps
           env -u XBPS_TARGET_ARCH xbps-install -yu
-          env -u XBPS_TARGET_ARCH xbps-install -y sudo bash curl git github-cli
+          env -u XBPS_TARGET_ARCH xbps-install -y sudo bash grep curl git github-cli
           useradd -G xbuilder -M builder -s $(which bash)
 
       - name: Checkout xlibre
