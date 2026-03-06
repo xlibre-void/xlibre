@@ -37,7 +37,7 @@ jobs:
       volumes:
         - /dev:/dev
       env:
-        ARCH: '${{ matrix.arch }}' # '${{ matrix.config.arch }}'
+       # ARCH: '${{ matrix.arch }}' # '${{ matrix.config.arch }}'
         XBPS_TARGET_ARCH: "${{ matrix.arch }}"
         REPO_OWNER: "${{ github.repository_owner }}"
         REPO_NAME: "${{ github.event.repository.name }}"
