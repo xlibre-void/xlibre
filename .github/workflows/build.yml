@@ -43,7 +43,7 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
 
     steps:
-      - name: Prep container
+      - name: Prepare container
         run: |
           mkdir -p /etc/xbps.d && cp /usr/share/xbps.d/*-repository-*.conf /etc/xbps.d/
           sed -i 's|repo-default|repo-ci|g' /etc/xbps.d/*-repository-*.conf
