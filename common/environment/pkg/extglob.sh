@@ -1,1 +1,0 @@
-../install/extglob.sh

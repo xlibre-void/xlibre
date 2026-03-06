@@ -1,1 +1,0 @@
-../setup/misc.sh

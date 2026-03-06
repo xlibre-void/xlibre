@@ -1,1 +1,0 @@
-armv5tel.sh

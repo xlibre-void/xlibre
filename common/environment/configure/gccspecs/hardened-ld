@@ -1,5 +1,0 @@
-*self_spec:
-+ %{static|Bstatic|shared|Bshareable|i|r|pie|nopie:;:-pie}
-
-*link:
-+ %{!static:-z relro -z now}

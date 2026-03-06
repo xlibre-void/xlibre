@@ -1,1 +1,0 @@
-hostmakedepends+=" scons"
