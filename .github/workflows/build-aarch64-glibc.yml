@@ -64,9 +64,9 @@ jobs:
         run: |
           cd ~/void-pkgs
           git clone https://github.com/${{ env.REPO_OWNER }}/${{ env.REPO_NAME }}.git
-          cd ${{ env.REPO_NAME }}
-          cat common/shlibs >> ../void-packages/common/shlibs
-          cp -r srcpkgs/* ../void-packages/srcpkgs
+        # cd ${{ env.REPO_NAME }}
+        # cat common/shlibs >> ../void-packages/common/shlibs
+        # cp -r srcpkgs/* ../void-packages/srcpkgs
 
       - name: Create hostrepo and prepare masterdir
         run: |
