@@ -103,8 +103,6 @@ jobs:
           echo XBPS_CHROOT_CMD=uchroot >> etc/conf
 
           yes | sudo -Eu builder ./xbps-src -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} binary-bootstrap
-          sudo -Eu builder ./xbps-src -a aarch64-musl
-          sudo -Eu builder ./xbps-src -a aarch64
 
       # -------------------- Packages to build --------------------pkg
 
@@ -114,10 +112,7 @@ jobs:
           for pkg in ${pkgs}; do
             sudo -Eu builder ./xbps-src pkg -j$(nproc) -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} "${pkg}" || printf "Failed building ${pkg}!\n"
           done
-
-          sudo -Eu builder ./xbps-src -a aarch64-musl
-          sudo -Eu builder ./xbps-src -a aarch64
-
+          
       # -----------------------------------------------------------
 
       - name: Clean & sign
