@@ -59,13 +59,6 @@ jobs:
           env -u XBPS_TARGET_ARCH xbps-install -y sudo bash grep jq curl git github-cli
           useradd -G xbuilder -M builder -s $(which bash)
 
-      - name: Prepare masterdir
-        run: |
-            chown -R builder:builder . &&
-            sudo -Eu builder common/travis/set_mirror.sh &&
-            sudo -Eu builder common/travis/prepare.sh &&
-            common/travis/fetch-xtools.sh
-
       - name: Checkout xlibre
         uses: actions/checkout@v4
         with:
