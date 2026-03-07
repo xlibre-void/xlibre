@@ -45,14 +45,14 @@ jobs:
           sed -i 's|repo-default|repo-ci|g' /etc/xbps.d/*-repository-*.conf
           xbps-install -Syu xbps
           xbps-install -Syu
-          xbps-install -y tar bash grep jq curl git github-cli
+          xbps-install -y tar bash grep jq curl git github-cli xtools
 
-      - name: Install architecture support
-        run: |
-          xbps-install -Sy binfmt-support
-          ln -s /etc/sv/binfmt-support /var/service
-          sv up binfmt-support
-          xbps-install -Sy qemu-user
+     # - name: Install architecture support
+     #   run: |
+     #     xbps-install -Sy binfmt-support
+     #     ln -s /etc/sv/binfmt-support /var/service
+     #     sv up binfmt-support
+     #     xbps-install -Sy qemu-user
           
       - name: Clone Void-Packages and prepare
         run: |
