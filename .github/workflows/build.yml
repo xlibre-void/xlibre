@@ -61,7 +61,6 @@ jobs:
 
       - name: Prepare masterdir
         run: |
-            cd void-packages
             chown -R builder:builder . &&
             sudo -Eu builder common/travis/set_mirror.sh &&
             sudo -Eu builder common/travis/prepare.sh &&
