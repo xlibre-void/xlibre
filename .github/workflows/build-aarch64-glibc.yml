@@ -68,13 +68,13 @@ jobs:
         # cat common/shlibs >> ../void-packages/common/shlibs
         # cp -r srcpkgs/* ../void-packages/srcpkgs
 
-      - name: Create hostrepo and prepare masterdir
-        run: |
-          cd ~/void-pkgs/void-packages
-          ln -s "$(pwd)" /hostrepo &&
-          common/travis/set_mirror.sh &&
-          common/travis/prepare.sh &&
-          common/travis/fetch-xtools.sh
+     # - name: Create hostrepo and prepare masterdir
+     #   run: |
+     #     cd ~/void-pkgs/void-packages
+     #     ln -s "$(pwd)" /hostrepo &&
+     #     common/travis/set_mirror.sh &&
+     #     common/travis/prepare.sh &&
+     #     common/travis/fetch-xtools.sh
 
       # All declared individually for logging purposes
       # Common Deps
