@@ -83,10 +83,9 @@ jobs:
 
       - name: build pkgs
         run: |
-        # pkgs=$(cat /tmp/templates)
-        # for pkg in ${pkgs}; do
+          for pkg in ${pkgs}; do
             sudo -Eu builder ./xbps-src pkg -j$(nproc) -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} "${pkg}" || printf "Failed building ${pkg}!\n"
-        # done
+          done
 
       - name: Clean & sign
         working-directory: ./hostdir/binpkgs
