@@ -1,0 +1,152 @@
+name: "Build aarch64 Glibc"
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  REPO_OWNER: "${{ github.repository_owner }}"
+  REPO_NAME: "${{ github.event.repository.name }}"
+
+jobs:
+  build:
+    name: Build xlibre
+    runs-on: ubuntu-latest
+
+    container:
+      image: ghcr.io/void-linux/void-buildroot-${{ matrix.config.libc }}:20240526R1
+      options: --platform ${{ matrix.config.platform }}
+      env:
+        PATH: "/usr/libexec/chroot-git:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:/tmp/bin"
+        ARCH: "${{ matrix.config.arch }}"
+        BOOTSTRAP: "${{ matrix.config.host }}"
+        TEST: "${{ matrix.config.test }}"
+        HOSTREPO: /hostrepo
+
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - {
+              arch: aarch64,
+              host: x86_64,
+              libc: glibc,
+              platform: linux/amd64,
+              test: 0,
+            }
+
+    steps:
+      - name: Prepare container
+        run: |
+          mkdir -p /etc/xbps.d && cp /usr/share/xbps.d/*-repository-*.conf /etc/xbps.d/
+          ls -la
+          sed -i 's|repo-default|repo-ci|g' /etc/xbps.d/*-repository-*.conf
+          xbps-install -Syu xbps
+          xbps-install -Syu
+          xbps-install -y tar bash grep jq curl git github-cli
+
+      - name: Install architecture support
+        run: |
+          xbps-install -Sy binfmt-support
+          ln -s /etc/sv/binfmt-support /var/service
+          sv up binfmt-support
+          xbps-install -Sy qemu-user
+          
+      - name: Clone Void-Packages and prepare
+        run: |
+          mkdir ~/void-pkgs
+          cd ~/void-pkgs
+          git clone --depth 1 https://github.com/void-linux/void-packages.git
+
+      - name: Clone Xlibre repo and prepare
+        run: |
+          cd ~/void-pkgs
+          git clone https://github.com/${{ env.REPO_OWNER }}/${{ env.REPO_NAME }}.git
+          cd ${{ env.REPO_NAME }}
+          cat common/shlibs >> ../void-packages/common/shlibs
+          cp -r srcpkgs/* ../void-packages/srcpkgs
+
+      - name: Create hostrepo and prepare masterdir
+        run: |
+          cd ~/void-pkgs/void-packages
+          ln -s "$(pwd)" /hostrepo &&
+          common/travis/set_mirror.sh &&
+          common/travis/prepare.sh &&
+          common/travis/fetch-xtools.sh
+
+      # All declared individually for logging purposes
+      # Common Deps
+      # - name: Build tomlplusplus
+      #  run: (/hostrepo/xbps-src -A aarch64 -j$(nproc) -s -H ~/hostdir pkg tomlplusplus)
+
+      - name: build pkgs
+        run: |
+          pkgs=$(cat /tmp/templates)
+          for pkg in ${pkgs}; do
+            sudo -Eu builder ./xbps-src pkg -j$(nproc) -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} "${pkg}" || printf "Failed building ${pkg}!\n"
+          done
+
+      - name: Clean & sign
+        working-directory: ./hostdir/binpkgs
+        env:
+          PRIVKEY: ${{ secrets.PRIV_KEY }}
+          XBPS_PASSPHRASE: ${{ secrets.SIGN_PASS }}
+        run: |
+          # Only run rindex if there are actually packages built (.xbps files exist)
+          if ls *.xbps 1> /dev/null 2>&1; then
+            sudo -Eu builder xbps-rindex --remove-obsoletes ${PWD}
+            
+            if [ -n "${PRIVKEY}" ]; then
+              printf "%s\n" "${PRIVKEY}" > key.pem
+              sudo -Eu builder xbps-rindex --privkey key.pem --sign --signedby "${REPO_NAME}-github-actions" --verbose ${PWD}
+              sudo -Eu builder xbps-rindex --privkey key.pem --sign-pkg --verbose ${PWD}/*.xbps
+              sudo -Eu builder rm -f key.pem
+            else
+              echo "No PRIV_KEY found. Skipping cryptographic signing (normal for forks)."
+            fi
+            
+            sudo -Eu builder xbps-rindex --clean ${PWD}
+          else
+            echo "No packages were built. Skipping indexing."
+          fi
+
+      - name: checksum
+        working-directory: ./hostdir/binpkgs
+        run: |
+          rm -rf *.sha256sum *.sha512sum
+          
+          # Only run the loop if there are actually files ending in .xbps
+          count=$(ls -1 *.xbps 2>/dev/null | wc -l)
+          if [ "$count" != 0 ]; then
+            for file in *.xbps; do
+              sha256sum "${file}" | cut -d ' ' -f 1 > "${file}.sha256sum"
+              sha512sum "${file}" | cut -d ' ' -f 1 > "${file}.sha512sum"
+            done
+          else
+            echo "No packages found to checksum."
+          fi
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.config.arch }}-repodata
+          path: ./hostdir/binpkgs
+
+      - name: short sha
+        run: |
+          printf "SHORT_SHA=$(git rev-parse --short ${SHA})" >> $GITHUB_ENV
+
+      - name: release
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          name: ${{ env.SHORT_SHA }}
+          tag_name: ${{ env.TAG }}
+          files: |
+            ./hostdir/binpkgs/*.xbps            
+            ./hostdir/binpkgs/*.sig2
+            ./hostdir/binpkgs/*repodata
+
