@@ -42,7 +42,7 @@ jobs:
        TEST: '${{ matrix.config.test }}'
        REPO_OWNER: "${{ github.repository_owner }}"
        REPO_NAME: "${{ github.event.repository.name }}"
-    if: ${{ github.ref == 'refs/heads/master' }}
+    if: ${{ github.ref == 'refs/heads/main' }}
 
     steps:
       - name: Prepare container
