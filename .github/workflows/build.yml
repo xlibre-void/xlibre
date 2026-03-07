@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - master
+      - main
     paths:
       - srcpkgs/**
 
@@ -27,19 +27,15 @@ jobs:
       matrix:
         config:
           - { arch: x86_64,       host: x86_64,      libc: glibc, platform: linux/amd64, test: 1 }
-          - { arch: aarch64,      host: x86_64,      libc: glibc, platform: linux/amd64, test: 0 }
+         # - { arch: aarch64,      host: x86_64,      libc: glibc, platform: linux/amd64, test: 0 }
           - { arch: x86_64-musl,  host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 1 }
-          - { arch: aarch64-musl, host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 0 }
+         # - { arch: aarch64-musl, host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 0 }
     container:
       image: ghcr.io/void-linux/void-glibc-full:20250901R1 # ghcr.io/void-linux/void-${{ matrix.config.libc }}-full:20250901R1
-      options: --platform ${{ matrix.config.platform }} --privileged # --platform linux/amd64 --privileged
+      options: --platform ${{ matrix.config.platform }} --privileged
       volumes:
         - /dev:/dev
       env:
-       # ARCH: '${{ matrix.config.arch }}'
-       # XBPS_TARGET_ARCH: "${{ matrix.config.arch }}"
-       # REPO_OWNER: "${{ github.repository_owner }}"
-       # REPO_NAME: "${{ github.event.repository.name }}"
        ARCH: '${{ matrix.config.arch }}'
        XBPS_TARGET_ARCH: "${{ matrix.config.arch }}"
        BOOTSTRAP: '${{ matrix.config.host }}'
@@ -73,7 +69,7 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global --add safe.directory "*"
           git remote add -f xlibre-void https://github.com/xlibre-void/xlibre.git
-          git merge --no-commit --strategy-option=theirs --allow-unrelated-histories -Xignore-space-change xlibre-void/master
+          git merge --no-commit --strategy-option=theirs --allow-unrelated-histories -Xignore-space-change xlibre-void/main
           mkdir -p hostdir/binpkgs
           
           gh release download --pattern "*${ARCH}*" --dir hostdir/binpkgs --repo xlibre-void/xlibre || true
@@ -91,7 +87,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           latest_name=$(gh release view --json tagName --jq '.tagName' --repo xlibre-void/xlibre || echo "Initial Commit")
-          latest_sha=$(git rev-list --max-count=1 ${latest_name} 2>/dev/null || git rev-list --max-parents=0 xlibre-void/master)
+          latest_sha=$(git rev-list --max-count=1 ${latest_name} 2>/dev/null || git rev-list --max-parents=0 xlibre-void/main)
           echo "Latest Tag Name: ${latest_name}"
           echo "Latest Tag SHA: ${latest_sha}"
 
@@ -116,7 +112,7 @@ jobs:
         run: |
           pkgs=$(cat /tmp/templates)
           for pkg in ${pkgs}; do
-            sudo -Eu builder ./xbps-src pkg -j$(nproc) -m masterdir-${{ matrix.config.arch }} -a ${{ matrix.config.arch }} "${pkg}" || printf "Failed building ${pkg}!\n"
+            sudo -Eu builder ./xbps-src pkg -j$(nproc) -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} "${pkg}" || printf "Failed building ${pkg}!\n"
           done
           
       # -----------------------------------------------------------
