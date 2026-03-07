@@ -84,7 +84,7 @@ jobs:
       - name: build pkgs
         run: |
           for pkg in ${pkgs}; do
-            sudo -Eu builder ./xbps-src pkg -j$(nproc) -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} "${pkg}" || printf "Failed building ${pkg}!\n"
+            sudo -Eu builder /hostrepo/xbps-src pkg -j$(nproc) -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} "${pkg}" || printf "Failed building ${pkg}!\n"
           done
 
       - name: Clean & sign
