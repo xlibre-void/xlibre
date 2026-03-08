@@ -97,29 +97,133 @@ jobs:
           git diff-tree -r --no-renames --name-only --diff-filter=AM ${latest_sha} ${SHA} -- 'srcpkgs/**' \
           | cut -d/ -f 2 | uniq | xargs sudo -Eu builder ./xbps-src sort-dependencies | tee /tmp/templates
 
+      - name: Determine changed templates
+        id: changed
+        run: |
+            cd extra
+
+            base="${{ github.event.before }}"
+            tip="${{ github.sha }}"
+
+            if [ -z "$base" ] || [ "$base" = "0000000000000000000000000000000000000000" ]; then
+                changed_pkgs=$(find srcpkgs -maxdepth 1 -mindepth 1 -type d -printf "%f\n" \
+                  | tr '\n' ' ')
+                removed_pkgs=""
+            else
+                changed_pkgs=$(git diff --name-only "$base" "$tip" --diff-filter=AM -- 'srcpkgs/*/template' \
+                    | cut -d/ -f2 \
+                    | sort -u \
+                    | tr '\n' ' ')
+                
+                removed_pkgs=$(git diff --name-status "$base" "$tip" -- 'srcpkgs/*/template' \
+                    | awk '$1=="D"{print $2}' \
+                    | cut -d/ -f2 \
+                    | sort -u \
+                    | tr '\n' ' ')
+            fi
+
+            changed_pkgs="${changed_pkgs%% }"
+            removed_pkgs="${removed_pkgs%% }"
+
+            echo "Changed templates: ${changed_pkgs:-<none>}"
+            echo "Removed templates: ${removed_pkgs:-<none>}"
+
+            echo "pkgs=$changed_pkgs" >> "$GITHUB_OUTPUT"
+            echo "removed=$removed_pkgs" >> "$GITHUB_OUTPUT"
+
       - name: Checkout void-packages
         run: |
             git clone --depth 1 https://github.com/void-linux/void-packages.git void-packages
             cd void-packages
             git checkout --detach master
-            
-      - name: Setup void-packages
-        run: |
-          chown -R builder:builder .
-          echo XBPS_BUILD_ENVIRONMENT=void-packages-ci >> etc/conf
-          echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
-          echo XBPS_CHROOT_CMD=uchroot >> etc/conf
-          
-          yes | sudo -Eu builder ./xbps-src -a ${{ matrix.config.arch }} binary-bootstrap
 
-      # -------------------- Packages to build --------------------
-
-      - name: build pkgs
+      - name: Merge templates and edit shlibs
         run: |
-          pkgs=$(cat /tmp/templates)   
-          for pkg in ${pkgs}; do
-             sudo -Eu builder ./xbps-src pkg -j$(nproc) -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} -a ${{ matrix.config.arch }} "${pkg}" || printf "Failed building ${pkg}!\n" 
-          done
+            echo "==> copying templates..."
+            cp -rv extra/srcpkgs/* void-packages/srcpkgs/
+
+            SHLIBS_FILE="void-packages/common/shlibs"
+            APPEND_FILE="extra/shlibs_append"
+            REMOVE_FILE="extra/shlibs_remove"
+
+            echo "==> updating common/shlibs..."
+            if [ -f "$REMOVE_FILE" ]; then
+                while IFS= read -r line; do
+                    [ -z "$line" ] && continue
+                    grep -vF "$line" "$SHLIBS_FILE" > "$SHLIBS_FILE.tmp" && mv "$SHLIBS_FILE.tmp" "$SHLIBS_FILE"
+                    echo "   - removed: $line"
+                done < "$REMOVE_FILE"
+            fi
+
+            if [ -f "$APPEND_FILE" ]; then
+                while IFS= read -r line; do
+                    [ -z "$line" ] && continue
+                    if ! grep -qF "$line" "$SHLIBS_FILE"; then
+                        echo "$line" >> "$SHLIBS_FILE"
+                        echo "   + added: $line"
+                    fi
+                done < "$APPEND_FILE"
+            fi
+
+            echo "=> applying inline edits..."
+            if [ -d "void-packages/srcpkgs/hyprutils/patches" ]; then
+                echo "   - removing void-packages/srcpkgs/hyprutils/patches"
+                rm -rf void-packages/srcpkgs/hyprutils/patches
+            fi
+
+      - name: Prepare masterdir
+        run: |
+            cd void-packages
+            chown -R builder:builder . &&
+            sudo -Eu builder common/travis/set_mirror.sh &&
+            sudo -Eu builder common/travis/prepare.sh &&
+            common/travis/fetch-xtools.sh
+
+      - name: Build
+        id: build_step
+        run: |
+            export PATH="/opt/xbps/usr/bin/:$PATH"
+            cd void-packages
+
+            changed="${{ steps.changed.outputs.pkgs }}"
+            removed="${{ steps.changed.outputs.removed }}"
+
+            if [ -z "$changed" ]; then
+                echo "No changed templates, skipping build."
+                echo "built=" >> "$GITHUB_OUTPUT"
+                echo "failed=" >> "$GITHUB_OUTPUT"
+                exit 0
+            fi
+
+            if [ "$BOOTSTRAP" != "$ARCH" ]; then
+                arch="-a $ARCH"
+            fi
+
+            if [ "$TEST" = 1 ]; then
+                test="-Q"
+            fi
+
+            PKGS=$(sudo -Eu builder ./xbps-src $test sort-dependencies $changed)
+            built=""
+            failed=""
+
+            for pkg in ${PKGS}; do
+                if sudo -Eu builder ./xbps-src -j"$(nproc)" -s $arch $test pkg "${pkg}"; then
+                    built="$built $pkg"
+                else
+                    echo "!! build failed for ${pkg}"
+                    failed="$failed $pkg"
+                fi
+            done
+
+            built="${built%% }"
+            failed="${failed%% }"
+
+            echo "Built packages: ${built:-<none>}"
+            echo "Failed packages: ${failed:-<none>}"
+
+            echo "built=$built" >> "$GITHUB_OUTPUT"
+            echo "failed=$failed" >> "$GITHUB_OUTPUT"
           
       # -----------------------------------------------------------
 
