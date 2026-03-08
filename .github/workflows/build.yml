@@ -27,7 +27,7 @@ jobs:
       matrix:
         config:
           - { arch: x86_64,       host: x86_64,      libc: glibc, platform: linux/amd64, test: 1 }
-          - { arch: aarch64,      host: x86_64,      libc: glibc, platform: linux/amd64, test: 0 }
+         # - { arch: aarch64,      host: x86_64,      libc: glibc, platform: linux/amd64, test: 0 }
           - { arch: x86_64-musl,  host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 1 }
          # - { arch: aarch64-musl, host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 0 }
     container:
@@ -104,30 +104,16 @@ jobs:
           echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
           echo XBPS_CHROOT_CMD=uchroot >> etc/conf
           
-           if [ "$BOOTSTRAP" != "$ARCH" ]; then
-                 arch="-a $ARCH"
-            fi
-
-          sudo -Eu builder ./xbps-src -a aarch64 binary-bootstrap
-      #      yes | sudo -Eu builder ./xbps-src -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} binary-bootstrap
+          yes | sudo -Eu builder ./xbps-src -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} binary-bootstrap
 
       # -------------------- Packages to build --------------------pkg
 
       - name: build pkgs
         run: |
-          pkgs=$(cat /tmp/templates)
-            for pkg in ${PKGS}; do
-                if sudo -Eu builder ./xbps-src -j"$(nproc)" -s $arch $test pkg "${pkg}"; then
-                    built="$built $pkg"
-                else
-                    echo "!! build failed for ${pkg}"
-                    failed="$failed $pkg"
-                fi
-            done
-          
-       #   for pkg in ${pkgs}; do
-       #     sudo -Eu builder ./xbps-src pkg -j$(nproc) -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} "${pkg}" || printf "Failed building ${pkg}!\n"
-       #   done
+          pkgs=$(cat /tmp/templates)   
+          for pkg in ${pkgs}; do
+            sudo -Eu builder ./xbps-src pkg -j$(nproc) -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} "${pkg}" || printf "Failed building ${pkg}!\n"
+          done
           
       # -----------------------------------------------------------
 
