@@ -26,33 +26,28 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - { arch: x86_64,       host: x86_64,      libc: glibc, platform: linux/amd64, test: 1 }
-          - { arch: aarch64,      host: x86_64,      libc: glibc, platform: linux/amd64, test: 0 }
-          - { arch: x86_64-musl,  host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 1 }
-          - { arch: aarch64-musl, host: x86_64-musl, libc: musl,  platform: linux/amd64, test: 0 }
+          - { arch: x86_64,       libc: glibc }
+          - { arch: x86_64-musl,  libc: musl  } # Enabled the musl build matrix
     container:
-      image: ghcr.io/void-linux/void-glibc-full:20260301R1
-      options: --platform ${{ matrix.config.platform }} --privileged
+      image: ghcr.io/void-linux/void-glibc-full:20250901R1
+      options: --platform linux/amd64 --privileged
       volumes:
         - /dev:/dev
       env:
-       ARCH: '${{ matrix.config.arch }}'
-       XBPS_TARGET_ARCH: "${{ matrix.config.arch }}"
-       BOOTSTRAP: '${{ matrix.config.host }}'
-       TEST: '${{ matrix.config.test }}'
-       REPO_OWNER: "${{ github.repository_owner }}"
-       REPO_NAME: "${{ github.event.repository.name }}"
+        ARCH: '${{ matrix.config.arch }}'
+        XBPS_TARGET_ARCH: ${{ matrix.config.arch }}
+        REPO_OWNER: "${{ github.repository_owner }}"
+        REPO_NAME: "${{ github.event.repository.name }}"
     if: ${{ github.ref == 'refs/heads/main' }}
 
     steps:
-      - name: Prepare container
+      - name: Prep container
         run: |
           mkdir -p /etc/xbps.d && cp /usr/share/xbps.d/*-repository-*.conf /etc/xbps.d/
-          sed -i 's|repo-default|repo-ci|g' /etc/xbps.d/*-repository-*.conf
           # Unset target arch so the host glibc container can update itself properly
           env -u XBPS_TARGET_ARCH xbps-install -Syu xbps
           env -u XBPS_TARGET_ARCH xbps-install -yu
-          env -u XBPS_TARGET_ARCH xbps-install -y sudo bash grep jq curl git github-cli
+          env -u XBPS_TARGET_ARCH xbps-install -y sudo bash curl git github-cli
           useradd -G xbuilder -M builder -s $(which bash)
 
       - name: Checkout xlibre
@@ -97,99 +92,24 @@ jobs:
           git diff-tree -r --no-renames --name-only --diff-filter=AM ${latest_sha} ${SHA} -- 'srcpkgs/**' \
           | cut -d/ -f 2 | uniq | xargs sudo -Eu builder ./xbps-src sort-dependencies | tee /tmp/templates
 
-      - name: Checkout void-packages
+      - name: Setup void-packages
         run: |
-            git clone --depth 1 https://github.com/void-linux/void-packages.git void-packages
-            cd void-packages
-            git checkout --detach master
+          chown -R builder:builder .
+          echo XBPS_BUILD_ENVIRONMENT=void-packages-ci >> etc/conf
+          echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
+          echo XBPS_CHROOT_CMD=uchroot >> etc/conf
 
-      - name: Merge templates and edit shlibs
+          yes | sudo -Eu builder ./xbps-src -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} binary-bootstrap
+
+      # -------------------- Packages to build --------------------
+
+      - name: build pkgs
         run: |
-            echo "==> copying templates..."
+          pkgs=$(cat /tmp/templates)
+          for pkg in ${pkgs}; do
+            sudo -Eu builder ./xbps-src pkg -j$(nproc) -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} "${pkg}" || printf "Failed building ${pkg}!\n"
+          done
 
-            SHLIBS_FILE="void-packages/common/shlibs"
-            APPEND_FILE="extra/shlibs_append"
-            REMOVE_FILE="extra/shlibs_remove"
-
-            echo "==> updating common/shlibs..."
-            if [ -f "$REMOVE_FILE" ]; then
-                while IFS= read -r line; do
-                    [ -z "$line" ] && continue
-                    grep -vF "$line" "$SHLIBS_FILE" > "$SHLIBS_FILE.tmp" && mv "$SHLIBS_FILE.tmp" "$SHLIBS_FILE"
-                    echo "   - removed: $line"
-                done < "$REMOVE_FILE"
-            fi
-
-            if [ -f "$APPEND_FILE" ]; then
-                while IFS= read -r line; do
-                    [ -z "$line" ] && continue
-                    if ! grep -qF "$line" "$SHLIBS_FILE"; then
-                        echo "$line" >> "$SHLIBS_FILE"
-                        echo "   + added: $line"
-                    fi
-                done < "$APPEND_FILE"
-            fi
-
-            echo "=> applying inline edits..."
-            if [ -d "void-packages/srcpkgs/hyprutils/patches" ]; then
-                echo "   - removing void-packages/srcpkgs/hyprutils/patches"
-                rm -rf void-packages/srcpkgs/hyprutils/patches
-            fi
-
-      - name: Prepare masterdir
-        run: |
-            cd void-packages
-            chown -R builder:builder . &&
-            sudo -Eu builder common/travis/set_mirror.sh &&
-            sudo -Eu builder common/travis/prepare.sh &&
-            common/travis/fetch-xtools.sh
-
-      - name: Build
-        id: build_step
-        run: |
-            export PATH="/opt/xbps/usr/bin/:$PATH"
-            cd void-packages
-
-            changed="${{ steps.changed.outputs.pkgs }}"
-            removed="${{ steps.changed.outputs.removed }}"
-
-            if [ -z "$changed" ]; then
-                echo "No changed templates, skipping build."
-                echo "built=" >> "$GITHUB_OUTPUT"
-                echo "failed=" >> "$GITHUB_OUTPUT"
-                exit 0
-            fi
-
-            if [ "$BOOTSTRAP" != "$ARCH" ]; then
-                arch="-a $ARCH"
-            fi
-
-            if [ "$TEST" = 1 ]; then
-                test="-Q"
-            fi
-
-            PKGS=$(sudo -Eu builder ./xbps-src $test sort-dependencies $changed)
-            built=""
-            failed=""
-
-            for pkg in ${PKGS}; do
-                if sudo -Eu builder ./xbps-src -j"$(nproc)" -s $arch $test pkg "${pkg}"; then
-                    built="$built $pkg"
-                else
-                    echo "!! build failed for ${pkg}"
-                    failed="$failed $pkg"
-                fi
-            done
-
-            built="${built%% }"
-            failed="${failed%% }"
-
-            echo "Built packages: ${built:-<none>}"
-            echo "Failed packages: ${failed:-<none>}"
-
-            echo "built=$built" >> "$GITHUB_OUTPUT"
-            echo "failed=$failed" >> "$GITHUB_OUTPUT"
-          
       # -----------------------------------------------------------
 
       - name: Clean & sign
