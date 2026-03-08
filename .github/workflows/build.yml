@@ -103,11 +103,7 @@ jobs:
           echo XBPS_BUILD_ENVIRONMENT=void-packages-ci >> etc/conf
           echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
           echo XBPS_CHROOT_CMD=uchroot >> etc/conf
-
-      #    yes | sudo -Eu builder ./xbps-src -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} binary-bootstrap
-      - name: Build
-        id: build_step
-        run: |      
+          
            if [ "$BOOTSTRAP" != "$ARCH" ]; then
                  arch="-a $ARCH"
             fi
@@ -119,6 +115,8 @@ jobs:
             PKGS=$(sudo -Eu builder ./xbps-src $test sort-dependencies $changed)
             built=""
             failed=""
+      #    yes | sudo -Eu builder ./xbps-src -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} binary-bootstrap
+
       # -------------------- Packages to build --------------------pkg
 
       - name: build pkgs
