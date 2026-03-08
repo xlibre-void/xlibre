@@ -97,6 +97,12 @@ jobs:
           git diff-tree -r --no-renames --name-only --diff-filter=AM ${latest_sha} ${SHA} -- 'srcpkgs/**' \
           | cut -d/ -f 2 | uniq | xargs sudo -Eu builder ./xbps-src sort-dependencies | tee /tmp/templates
 
+      - name: Checkout void-packages
+        run: |
+            git clone --depth 1 https://github.com/void-linux/void-packages.git void-packages
+            cd void-packages
+            git checkout --detach master
+            
       - name: Setup void-packages
         run: |
           chown -R builder:builder .
@@ -104,7 +110,7 @@ jobs:
           echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
           echo XBPS_CHROOT_CMD=uchroot >> etc/conf
           
-          yes | sudo -Eu builder ./xbps-src -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} -a ${{ matrix.config.arch }} pkg binary-bootstrap
+          yes | sudo -Eu builder ./xbps-src -a ${{ matrix.config.arch }} binary-bootstrap
 
       # -------------------- Packages to build --------------------
 
