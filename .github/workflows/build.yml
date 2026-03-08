@@ -97,40 +97,6 @@ jobs:
           git diff-tree -r --no-renames --name-only --diff-filter=AM ${latest_sha} ${SHA} -- 'srcpkgs/**' \
           | cut -d/ -f 2 | uniq | xargs sudo -Eu builder ./xbps-src sort-dependencies | tee /tmp/templates
 
-      - name: Determine changed templates
-        id: changed
-        run: |
-            cd extra
-
-            base="${{ github.event.before }}"
-            tip="${{ github.sha }}"
-
-            if [ -z "$base" ] || [ "$base" = "0000000000000000000000000000000000000000" ]; then
-                changed_pkgs=$(find srcpkgs -maxdepth 1 -mindepth 1 -type d -printf "%f\n" \
-                  | tr '\n' ' ')
-                removed_pkgs=""
-            else
-                changed_pkgs=$(git diff --name-only "$base" "$tip" --diff-filter=AM -- 'srcpkgs/*/template' \
-                    | cut -d/ -f2 \
-                    | sort -u \
-                    | tr '\n' ' ')
-                
-                removed_pkgs=$(git diff --name-status "$base" "$tip" -- 'srcpkgs/*/template' \
-                    | awk '$1=="D"{print $2}' \
-                    | cut -d/ -f2 \
-                    | sort -u \
-                    | tr '\n' ' ')
-            fi
-
-            changed_pkgs="${changed_pkgs%% }"
-            removed_pkgs="${removed_pkgs%% }"
-
-            echo "Changed templates: ${changed_pkgs:-<none>}"
-            echo "Removed templates: ${removed_pkgs:-<none>}"
-
-            echo "pkgs=$changed_pkgs" >> "$GITHUB_OUTPUT"
-            echo "removed=$removed_pkgs" >> "$GITHUB_OUTPUT"
-
       - name: Checkout void-packages
         run: |
             git clone --depth 1 https://github.com/void-linux/void-packages.git void-packages
