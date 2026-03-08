@@ -112,7 +112,7 @@ jobs:
         run: |
           pkgs=$(cat /tmp/templates)   
           for pkg in ${pkgs}; do
-             sudo -Eu builder ./xbps-src -a -j$(nproc) -m ${{ matrix.config.arch }} -A ${{ matrix.config.arch }} "${pkg}" || printf "Failed building ${pkg}!\n" 
+             sudo -Eu builder ./xbps-src -a -j$(nproc) ${{ matrix.config.arch }} -A ${{ matrix.config.arch }} "${pkg}" || printf "Failed building ${pkg}!\n" 
           done
           
       # -----------------------------------------------------------
