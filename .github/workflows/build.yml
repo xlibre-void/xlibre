@@ -115,7 +115,8 @@ jobs:
             PKGS=$(sudo -Eu builder ./xbps-src $test sort-dependencies $changed)
             built=""
             failed=""
-      #    yes | sudo -Eu builder ./xbps-src -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} binary-bootstrap
+            
+            yes | sudo -Eu builder ./xbps-src -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} binary-bootstrap
 
       # -------------------- Packages to build --------------------pkg
 
