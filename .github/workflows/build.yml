@@ -106,7 +106,6 @@ jobs:
       - name: Merge templates and edit shlibs
         run: |
             echo "==> copying templates..."
-            cp -rv extra/srcpkgs/* void-packages/srcpkgs/
 
             SHLIBS_FILE="void-packages/common/shlibs"
             APPEND_FILE="extra/shlibs_append"
