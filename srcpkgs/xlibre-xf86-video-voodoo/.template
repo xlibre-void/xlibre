@@ -3,7 +3,6 @@ pkgname=xlibre-xf86-video-voodoo
 _pkgname=xf86-video-voodoo
 version=${VERSION}
 revision=1
-archs="x86_64*"
 build_style=gnu-configure
 configure_args="--prefix=/usr"
 hostmakedepends="pkg-config"
