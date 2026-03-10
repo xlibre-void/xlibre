@@ -42,7 +42,7 @@ jobs:
           - xlibre-xf86-video-s3virge
           - xlibre-xf86-video-i128
           - xlibre-xf86-video-i740
-         # - xlibre-xf86-video-openchrome
+          - xlibre-xf86-video-openchrome
     steps:
     - uses: actions/checkout@v4
       with:
