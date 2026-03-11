@@ -28,7 +28,7 @@ jobs:
         config:
           - { arch: x86_64,       libc: glibc }
           - { arch: x86_64-musl,  libc: musl  } # Enabled the musl build matrix
-          - { arch: aarch64,      libc: glibc }
+         # - { arch: aarch64,      libc: glibc }
          # - { arch: aarch64-musl, libc: musl  }
     container:
       image: ghcr.io/void-linux/void-glibc-full:20250901R1
@@ -41,14 +41,12 @@ jobs:
         XBPS_TARGET_ARCH: "${{ matrix.config.arch }}"
         REPO_OWNER: "${{ github.repository_owner }}"
         REPO_NAME: "${{ github.event.repository.name }}"
-        HOSTREPO: /hostrepo
-    if: ${{ github.ref == 'refs/heads/master' }}
+    if: ${{ github.ref == 'refs/heads/main' }}
 
     steps:
       - name: Prepare container
         run: |
           mkdir -p /etc/xbps.d && cp /usr/share/xbps.d/*-repository-*.conf /etc/xbps.d/
-          ls -la
           sed -i 's|repo-default|repo-ci|g' /etc/xbps.d/*-repository-*.conf
           # Unset target arch so the host glibc container can update itself properly
           env -u XBPS_TARGET_ARCH xbps-install -Syu xbps
@@ -56,12 +54,6 @@ jobs:
           env -u XBPS_TARGET_ARCH xbps-install -y sudo bash curl grep jq git github-cli
           useradd -G xbuilder -M builder -s $(which bash)
 
-      - name: Clone Void-Packages and prepare
-        run: |
-          mkdir ~/void-pkgs
-          cd ~/void-pkgs
-          git clone --depth 1 https://github.com/void-linux/void-packages.git
-       
       - name: Checkout xlibre
         uses: actions/checkout@v4
         with:
@@ -76,7 +68,7 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global --add safe.directory "*"
           git remote add -f xlibre-void https://github.com/xlibre-void/xlibre.git
-          git merge --no-commit --strategy-option=theirs --allow-unrelated-histories -Xignore-space-change xlibre-void/master
+          git merge --no-commit --strategy-option=theirs --allow-unrelated-histories -Xignore-space-change xlibre-void/main
           mkdir -p hostdir/binpkgs
           
           gh release download --pattern "*${ARCH}*" --dir hostdir/binpkgs --repo xlibre-void/xlibre || true
@@ -94,7 +86,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           latest_name=$(gh release view --json tagName --jq '.tagName' --repo xlibre-void/xlibre || echo "Initial Commit")
-          latest_sha=$(git rev-list --max-count=1 ${latest_name} 2>/dev/null || git rev-list --max-parents=0 xlibre-void/master)
+          latest_sha=$(git rev-list --max-count=1 ${latest_name} 2>/dev/null || git rev-list --max-parents=0 xlibre-void/main)
           echo "Latest Tag Name: ${latest_name}"
           echo "Latest Tag SHA: ${latest_sha}"
 
