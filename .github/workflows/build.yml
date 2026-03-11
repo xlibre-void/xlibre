@@ -26,9 +26,9 @@ jobs:
       fail-fast: false
       matrix:
         config:
-         # - { arch: x86_64,       libc: glibc }
-         # - { arch: x86_64-musl,  libc: musl  } # Enabled the musl build matrix
-          - { arch: aarch64,      libc: glibc }
+          - { arch: x86_64,       libc: glibc }
+          - { arch: x86_64-musl,  libc: musl  } # Enabled the musl build matrix
+         # - { arch: aarch64,      libc: glibc }
          # - { arch: aarch64-musl, libc: musl  }
     container:
       image: ghcr.io/void-linux/void-glibc-full:20250901R1
@@ -103,8 +103,7 @@ jobs:
           echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
           echo XBPS_CHROOT_CMD=uchroot >> etc/conf
 
-          # yes | sudo -Eu builder ./xbps-src -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} binary-bootstrap
-          yes | sudo -Eu builder ./xbps-src -a aarch64 binary-bootstrap
+          yes | sudo -Eu builder ./xbps-src -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} binary-bootstrap
 
       # -------------------- Packages to build --------------------
 
