@@ -54,7 +54,13 @@ jobs:
           env -u XBPS_TARGET_ARCH xbps-install -yu
           env -u XBPS_TARGET_ARCH xbps-install -y sudo bash curl grep jq git github-cli
           useradd -G xbuilder -M builder -s $(which bash)
-
+          
+      - name: Clone Void-Packages and prepare
+        run: |
+          mkdir ~/void-pkgs
+          cd ~/void-pkgs
+          git clone --depth 1 https://github.com/void-linux/void-packages.git
+   
       - name: Create hostrepo and prepare masterdir
         run: |
           cd ~/void-pkgs/void-packages
