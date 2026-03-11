@@ -62,14 +62,6 @@ jobs:
           cd ~/void-pkgs
           git clone --depth 1 https://github.com/void-linux/void-packages.git
 
-      - name: Clone Xlibre repo and prepare
-        run: |
-          cd ~/void-pkgs
-          git clone https://github.com/${{ env.REPO_OWNER }}/${{ env.REPO_NAME }}.git
-          cd ${{ env.REPO_NAME }}
-          cat common/shlibs >> ../void-packages/common/shlibs
-          cp -r srcpkgs/* ../void-packages/srcpkgs
-
       - name: Create hostrepo and prepare masterdir
         run: |
           cd ~/void-pkgs/void-packages
