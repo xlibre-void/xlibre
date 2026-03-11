@@ -103,7 +103,8 @@ jobs:
           echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
           echo XBPS_CHROOT_CMD=uchroot >> etc/conf
 
-          yes | sudo -Eu builder ./xbps-src -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} binary-bootstrap
+          # yes | sudo -Eu builder ./xbps-src -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} binary-bootstrap
+          yes | sudo -Eu builder ./xbps-src -A aarch64 -j$(nproc) pkg binary-bootstrap
 
       # -------------------- Packages to build --------------------
 
@@ -116,7 +117,7 @@ jobs:
 
       # Normal Build
       - name: Build hyprutils
-        run: (sudo -Eu builder ./xbps-src -A aarch64 -j$(nproc) -s -H pkg xlibre)
+        run: (sudo -Eu builder ./xbps-src -A aarch64 -j$(nproc) pkg binary-bootstrap)
         
       # -----------------------------------------------------------
 
