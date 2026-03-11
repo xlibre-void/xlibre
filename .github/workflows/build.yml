@@ -61,15 +61,7 @@ jobs:
           mkdir ~/void-pkgs
           cd ~/void-pkgs
           git clone --depth 1 https://github.com/void-linux/void-packages.git
-
-      - name: Create hostrepo and prepare masterdir
-        run: |
-          cd ~/void-pkgs/void-packages
-          ln -s "$(pwd)" /hostrepo &&
-          common/travis/set_mirror.sh &&
-          common/travis/prepare.sh &&
-          common/travis/fetch-xtools.sh          
-              
+       
       - name: Checkout xlibre
         uses: actions/checkout@v4
         with:
