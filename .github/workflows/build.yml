@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - master
     paths:
       - srcpkgs/**
 
@@ -28,7 +28,7 @@ jobs:
         config:
           - { arch: x86_64,       libc: glibc }
           - { arch: x86_64-musl,  libc: musl  } # Enabled the musl build matrix
-         # - { arch: aarch64,      libc: glibc }
+          - { arch: aarch64,      libc: glibc }
          # - { arch: aarch64-musl, libc: musl  }
     container:
       image: ghcr.io/void-linux/void-glibc-full:20250901R1
@@ -40,7 +40,7 @@ jobs:
         XBPS_TARGET_ARCH: "${{ matrix.config.arch }}"
         REPO_OWNER: "${{ github.repository_owner }}"
         REPO_NAME: "${{ github.event.repository.name }}"
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/master' }}
 
     steps:
       - name: Prepare container
@@ -67,7 +67,7 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global --add safe.directory "*"
           git remote add -f xlibre-void https://github.com/xlibre-void/xlibre.git
-          git merge --no-commit --strategy-option=theirs --allow-unrelated-histories -Xignore-space-change xlibre-void/main
+          git merge --no-commit --strategy-option=theirs --allow-unrelated-histories -Xignore-space-change xlibre-void/master
           mkdir -p hostdir/binpkgs
           
           gh release download --pattern "*${ARCH}*" --dir hostdir/binpkgs --repo xlibre-void/xlibre || true
@@ -85,7 +85,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           latest_name=$(gh release view --json tagName --jq '.tagName' --repo xlibre-void/xlibre || echo "Initial Commit")
-          latest_sha=$(git rev-list --max-count=1 ${latest_name} 2>/dev/null || git rev-list --max-parents=0 xlibre-void/main)
+          latest_sha=$(git rev-list --max-count=1 ${latest_name} 2>/dev/null || git rev-list --max-parents=0 xlibre-void/master)
           echo "Latest Tag Name: ${latest_name}"
           echo "Latest Tag SHA: ${latest_sha}"
 
