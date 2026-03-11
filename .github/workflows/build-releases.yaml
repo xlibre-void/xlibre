@@ -1,4 +1,4 @@
-name: Build and Release XLibre for VOID linux - aarch64, aarch64-musl
+name: Build and Release XLibre for VOID linux ( aarch64, aarch64-musl )
 
 on:
   push:
