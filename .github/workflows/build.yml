@@ -116,7 +116,7 @@ jobs:
 
       # Normal Build
       - name: Build hyprutils
-        run: (sudo -Eu builder ./xbps-src -A aarch64 -j$(nproc) -s -H ~/hostdir pkg xlibre)
+        run: (sudo -Eu builder ./xbps-src -A aarch64 -j$(nproc) -s -H pkg xlibre)
         
       # -----------------------------------------------------------
 
