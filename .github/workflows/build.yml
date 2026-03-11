@@ -28,14 +28,15 @@ jobs:
         config:
           - { arch: x86_64,       libc: glibc }
           - { arch: x86_64-musl,  libc: musl  } # Enabled the musl build matrix
-          - { arch: aarch64,      libc: glibc }
+         # - { arch: aarch64,      libc: glibc }
+         # - { arch: aarch64-musl, libc: musl  }
     container:
       image: ghcr.io/void-linux/void-glibc-full:20250901R1
       options: --platform linux/amd64 --privileged
       volumes:
         - /dev:/dev
       env:
-        PATH: "/usr/libexec/chroot-git:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:/tmp/bin"
+        # PATH: "/usr/libexec/chroot-git:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:/tmp/bin"
         ARCH: '${{ matrix.config.arch }}'
         XBPS_TARGET_ARCH: "${{ matrix.config.arch }}"
         REPO_OWNER: "${{ github.repository_owner }}"
@@ -46,8 +47,8 @@ jobs:
       - name: Prep container
         run: |
           mkdir -p /etc/xbps.d && cp /usr/share/xbps.d/*-repository-*.conf /etc/xbps.d/
-          ls -la
-          sed -i 's|repo-default|repo-ci|g' /etc/xbps.d/*-repository-*.conf          
+          # ls -la
+          # sed -i 's|repo-default|repo-ci|g' /etc/xbps.d/*-repository-*.conf          
           # Unset target arch so the host glibc container can update itself properly
           env -u XBPS_TARGET_ARCH xbps-install -Syu xbps
           env -u XBPS_TARGET_ARCH xbps-install -yu
