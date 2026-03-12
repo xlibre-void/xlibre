@@ -4,9 +4,9 @@ _pkgname=xf86-video-amdgpu
 version=25.0.3
 revision=1
 # archs="x86_64* aarch64*"
-# build_style=gnu-configure
-build_style=meson
-# configure_args="--prefix=/usr --enable-glamor"
+build_style=gnu-configure
+# build_style=meson
+configure_args="--prefix=/usr --enable-glamor"
 hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool xorgproto pkgconf"
 makedepends="xlibre-xserver-devel eudev-libudev-devel libpciaccess-devel libdrm-devel pixman-devel MesaLib-devel autoconf xorgproto automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
 depends="virtual?xserver-abi-video-28_1 mesa-dri"
@@ -19,12 +19,12 @@ homepage="https://github.com/X11Libre/xf86-video-amdgpu"
 distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
 checksum=7aee2340914cf84d2ce4ab86ed7866f7b2876090e7f63fe9f5d05e2fb158e805
 lib32disabled=yes
+
 LDFLAGS="-Wl,-z,lazy"
 
-#pre_configure() {
-#  ./autogen.sh
-#  ./configure --host=$HOST
-#}
+pre_configure() {
+  ./autogen.sh
+}
 
 post_install() {
 	vlicense COPYING
