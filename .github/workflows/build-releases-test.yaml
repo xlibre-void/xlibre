@@ -93,7 +93,7 @@ jobs:
         run: |
             git clone --depth 1 https://github.com/void-linux/void-packages.git void-packages
             cd void-packages
-            git checkout --detach master
+            git checkout --detach main
 
       - name: Merge templates and edit shlibs
         run: |
