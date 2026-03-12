@@ -3,7 +3,7 @@ name: Build and Release XLibre for VOID linux test
 on:
   push:
     branches:
-        - main
+        - master
     paths:
         - 'srcpkgs/**'
   workflow_dispatch:
@@ -93,7 +93,7 @@ jobs:
         run: |
             git clone --depth 1 https://github.com/void-linux/void-packages.git void-packages
             cd void-packages
-            git checkout --detach main
+            git checkout --detach master
 
       - name: Merge templates and edit shlibs
         run: |
