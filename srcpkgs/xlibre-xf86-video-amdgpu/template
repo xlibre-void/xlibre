@@ -24,7 +24,7 @@ LDFLAGS="-Wl,-z,lazy"
 
 pre_configure() {
   ./autogen.sh
-  ./configure --host=x86_64-pc-linux-gnu --prefix=/usr
+  ./configure --build=x86_64-pc-linux-gnu --host=aarch64-pc-freebsd --enable-gold=yes --prefix=/usr
 }
 
 post_install() {
