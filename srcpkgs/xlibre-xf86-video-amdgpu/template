@@ -3,9 +3,10 @@ pkgname=xlibre-xf86-video-amdgpu
 _pkgname=xf86-video-amdgpu
 version=25.0.3
 revision=1
+archs="x86_64* aarch64*"
 build_style=gnu-configure
-configure_args="--prefix=/usr --enable-glamor"
-hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool git"
+configure_args="--prefix=/usr --enable-glamor --host"
+hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool"
 makedepends="xlibre-xserver-devel eudev-libudev-devel libpciaccess-devel libdrm-devel pixman-devel MesaLib-devel autoconf xorgproto automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
 depends="virtual?xserver-abi-video-28_1 mesa-dri"
 short_desc="XLibre fork of X.Org amdgpu video driver"
