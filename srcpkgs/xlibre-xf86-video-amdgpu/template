@@ -6,7 +6,7 @@ revision=1
 archs="x86_64* aarch64*"
 build_style=gnu-configure
 #build_style=meson
-configure_args="--prefix=/usr --enable-glamor --host=$CHOST"
+configure_args="--prefix=/usr --enable-glamor --host=x86_64"
 hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool patch fakeroot m4 flex xorgproto mesa"
 makedepends="xlibre-xserver-devel eudev-libudev-devel libpciaccess-devel libdrm-devel pixman-devel MesaLib-devel autoconf xorgproto automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
 depends="virtual?xserver-abi-video-28_1 mesa-dri"
