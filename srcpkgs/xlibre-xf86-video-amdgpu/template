@@ -6,7 +6,7 @@ revision=1
 # archs="x86_64* aarch64*"
 # build_style=meson
 build_style=gnu-configure
-configure_args="--prefix=/usr --enable-glamor --host=x86_64-unknown-linux-gnu"
+#configure_args="--prefix=/usr --enable-glamor --host=x86_64-unknown-linux-gnu"
 hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool xorgproto pkgconf git m4 binutils fakeroot findutils patch gawk"
 makedepends="xlibre-xserver-devel eudev-libudev-devel libpciaccess-devel libdrm-devel pixman-devel MesaLib-devel autoconf xorgproto automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
 depends="virtual?xserver-abi-video-28_1 mesa-dri"
@@ -24,6 +24,7 @@ LDFLAGS="-Wl,-z,lazy"
 
 pre_configure() {
   ./autogen.sh
+  ./configure --host=x86_64-pc-linux-gnu --prefix=/usr
 }
 
 post_install() {
