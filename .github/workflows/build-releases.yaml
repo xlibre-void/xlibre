@@ -40,7 +40,7 @@ jobs:
             mkdir -p /etc/xbps.d && cp /usr/share/xbps.d/*-repository-*.conf /etc/xbps.d/
             sed -i 's|repo-default|repo-ci|g' /etc/xbps.d/*-repository-*.conf
             # install dependencies
-            xbps-install -Syu xbps && xbps-install -yu && xbps-install -y sudo bash curl git jq
+            xbps-install -Syu xbps && xbps-install -yu && xbps-install -y sudo bash curl grep git jq github-cli
             # create non-root user
             useradd -G xbuilder -M builder
 
