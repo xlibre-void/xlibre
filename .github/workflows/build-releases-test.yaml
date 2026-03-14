@@ -93,7 +93,6 @@ jobs:
         run: |
             git clone --depth 1 https://github.com/void-linux/void-packages.git void-packages
             cd void-packages
-            ./xbps-src binary-bootstrap
             git checkout --detach master
 
       - name: Merge templates and edit shlibs
