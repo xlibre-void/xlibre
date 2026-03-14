@@ -48,6 +48,8 @@ jobs:
         run: |
             git clone --depth 1 "https://github.com/${{ github.repository }}.git" xlibre
             cd xlibre
+            cat common/shlibs >> ../void-packages/common/shlibs
+            cp -r --remove-destination srcpkgs/* ../void-packages/srcpkgs
             # we need the previous revision to diff against
             if [ -n "${{ github.event.before }}" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
                 git fetch --no-tags origin "${{ github.event.before }}" --depth 1 || true
@@ -93,6 +95,7 @@ jobs:
         run: |
             git clone --depth 1 https://github.com/void-linux/void-packages.git void-packages
             cd void-packages
+            ./xbps-src binary-bootstrap
             git checkout --detach master
 
       - name: Merge templates and edit shlibs
