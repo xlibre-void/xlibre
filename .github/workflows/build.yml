@@ -47,7 +47,7 @@ jobs:
       - name: Prepare container
         run: |
           mkdir -p /etc/xbps.d && cp /usr/share/xbps.d/*-repository-*.conf /etc/xbps.d/
-          sed -i 's|repo-default|repo-ci|g' /etc/xbps.d/*-repository-*.conf
+          # sed -i 's|repo-default|repo-ci|g' /etc/xbps.d/*-repository-*.conf
           # Unset target arch so the host glibc container can update itself properly
           env -u XBPS_TARGET_ARCH xbps-install -Syu xbps
           env -u XBPS_TARGET_ARCH xbps-install -yu
