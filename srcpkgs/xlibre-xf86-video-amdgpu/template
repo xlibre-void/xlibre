@@ -7,7 +7,7 @@ revision=1
 # build_style=meson
 build_style=gnu-configure
 configure_args="--prefix=/usr --enable-glamor"
-hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool xorgproto cmake glslang jq meson pkgconf git m4 fakeroot gawk"
+hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool xorgproto make cmake glslang jq meson pkgconf git m4 fakeroot gawk"
 makedepends="xlibre-xserver-devel eudev-libudev-devel libpciaccess-devel libdrm-devel pixman-devel MesaLib-devel autoconf xorgproto automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
 depends="virtual?xserver-abi-video-28_1 mesa-dri"
 short_desc="XLibre fork of X.Org amdgpu video driver"
