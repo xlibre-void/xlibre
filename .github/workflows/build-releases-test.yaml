@@ -275,7 +275,7 @@ jobs:
 
             xbps-rindex -a *.xbps || true
             xbps-rindex -r "$PWD"
-            xbps-rindex -s --signedby "Encoded14 <linusken@posteo.com>" --privkey private.pem "$PWD"
+            xbps-rindex -s --signedby "Sofiya <sofiya@v.com" --privkey private.pem "$PWD"
             xbps-rindex -S --privkey private.pem "$PWD"/*.xbps
             xbps-rindex -c "$PWD"
 
