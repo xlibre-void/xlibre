@@ -43,7 +43,7 @@ sudo xbps-query -Rs xlibre
 ### _install_
 
 ```shell
-sudo xbps-install -S xlibre
+sudo xbps-install -Su xlibre
 ```
 
 > xlibre (includes a complete set, including drivers)
@@ -71,7 +71,7 @@ sudo xbps-install -S xlibre
 ### _install_
 
 ```shell
-sudo xbps-install -S xlibre-minimal
+sudo xbps-install -Su xlibre-minimal
 ```
 > xlibre-minimal (includes everything listed below)
 - xlibre-xserver - XLibre X server with subpackages (xlibre-xserver-devel, xephyr, xnest, xvfb)
