@@ -5,7 +5,7 @@ version=25.0.0
 revision=1
 build_style=gnu-configure
 configure_args="--prefix=/usr"
-hostmakedepends="pkg-config"
+hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool"
 makedepends="xlibre-xserver-devel autoconf automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
 depends="virtual?xserver-abi-video-28_1 mesa-dri"
 short_desc="XLibre fork NVIDIA video driver"
