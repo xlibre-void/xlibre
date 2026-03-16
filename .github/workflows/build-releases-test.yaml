@@ -13,7 +13,7 @@ jobs:
     name: Build packages
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/void-linux/void-glibc-full:20250901R1 # ghcr.io/void-linux/void-${{ matrix.config.libc }}-full:20250616R1
+      image: ghcr.io/void-linux/void-${{ matrix.config.libc }}-full:20250616R1
       options: --platform ${{ matrix.config.platform }} --privileged
       volumes:
         - /dev:/dev
