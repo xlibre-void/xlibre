@@ -1,5 +1,7 @@
 name: update
 run-name: "Automated update of ${{ github.ref_name }} by @${{ github.actor }}"
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true
 
 on:
   schedule:
