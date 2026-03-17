@@ -1,5 +1,5 @@
 # Template file for 'mirror.fdo.xorg-macros'
-pkgname=xlibre-xorg-macros
+pkgname=xlibre-util-macros
 _pkgname=util-macros
 version=1.20.2
 revision=1

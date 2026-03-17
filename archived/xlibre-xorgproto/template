@@ -5,7 +5,7 @@ _pkgname=xorgproto
 revision=1
 build_style=meson
 configure_args="-Dlegacy=true"
-hostmakedepends="xlibre-xorg-macros"
+hostmakedepends="xlibre-util-macros"
 # makedepends=""
 short_desc="X Window System Unified Protocol"
 maintainer="Sofiya <sofiya@v.org>"
