@@ -17,13 +17,6 @@ distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-
 checksum=d7d9246b6f9a03459a5b603b726aa4e4c0ec8ea669fff2f38976bc81eec96a44
 lib32disabled=yes
 
-
-# pre_configure() {
-#	autoreconf -vif
-#	./configure --prefix=$HOME/build
-#   make
-# }
-
 post_install() {
 	vlicense COPYING
 }

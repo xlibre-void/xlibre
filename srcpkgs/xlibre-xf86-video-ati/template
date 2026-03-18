@@ -6,7 +6,7 @@ revision=1
 build_style=gnu-configure
 configure_args="--prefix=/usr --enable-glamor --disable-debug"
 hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool"
-makedepends="xlibre-xserver-devel eudev-libudev-devel libpciaccess-devel libdrm-devel pixman-devel MesaLib-devel xorgproto autoconf automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
+makedepends="xlibre-xserver-devel eudev-libudev-devel libpciaccess-devel libdrm-devel pixman-devel MesaLib-devel xorgproto fakeroot gawk gettext m4 pkgconf"
 depends="virtual?xserver-abi-video-28_1 mesa-dri"
 short_desc="XLibre ATI Radeon video driver"
 maintainer="Sofiya <sofiya@v.com>"

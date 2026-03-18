@@ -6,7 +6,7 @@ revision=1
 build_style=gnu-configure
 configure_args="--prefix=/usr"
 hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool"
-makedepends="xlibre-xserver-devel xorgproto autoconf automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
+makedepends="xlibre-xserver-devel xorgproto fakeroot gawk gettext m4 pkgconf"
 depends="virtual?xserver-abi-input-26_1"
 short_desc="XLibre fork of X.Org void input driver"
 maintainer="Sofiya <sofiya@v.com>"
