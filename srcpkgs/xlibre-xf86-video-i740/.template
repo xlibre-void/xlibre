@@ -5,8 +5,8 @@ version=${VERSION}
 revision=1
 build_style=gnu-configure
 configure_args="--prefix=/usr"
-hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool"
-makedepends="xlibre-xserver-devel xorgproto libXi-devel autoconf gawk autogen automake libtool xorg-util-macros"
+hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool git"
+makedepends="xlibre-xserver-devel libXi-devel xorgproto gawk autogen"
 depends="virtual?xserver-abi-video-28_1"
 short_desc="Xlibre Intel i740 video driver"
 maintainer="Sofiya <sofiya@v.com>"

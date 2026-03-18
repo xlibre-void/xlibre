@@ -5,8 +5,8 @@ version=${VERSION}
 revision=1
 build_style=gnu-configure
 configure_args="--prefix=/usr"
-hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool"
-makedepends="xlibre-xserver-devel libXvMC-devel xorgproto autoconf automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
+hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool lm4"
+makedepends="xlibre-xserver-devel libXvMC-devel xorgproto fakeroot gawk gettext pkgconf"
 depends="virtual?xserver-abi-video-28_1"
 short_desc="XLibre fork of X.Org driver for VIA IGPs"
 maintainer="Sofiya <sofiya@v.com>"

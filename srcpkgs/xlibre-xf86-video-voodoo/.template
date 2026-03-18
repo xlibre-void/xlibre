@@ -6,7 +6,7 @@ revision=1
 build_style=gnu-configure
 configure_args="--prefix=/usr"
 hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool"
-makedepends="xlibre-xserver-devel autoconf xorgproto automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
+makedepends="xlibre-xserver-devel xorgproto fakeroot gawk gettext pkgconf"
 depends="virtual?xserver-abi-video-28_1"
 short_desc="XLibre fork of X.Org 3dfx Voodoo1/Voodoo2 2D video driver"
 maintainer="Sofiya <sofiya@v.com>"

@@ -5,8 +5,8 @@ version=${VERSION}
 revision=1
 build_style=gnu-configure
 configure_args="--prefix=/usr"
-hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool"
-makedepends="xlibre-xserver-devel autoconf spice-protocol xorgproto automake fakeroot gawk gettext libtool m4 pkgconf xorg-util-macros"
+hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool git"
+makedepends="xlibre-xserver-devel spice-protocol xorgproto fakeroot gawk gettext pkgconf"s"
 depends="virtual?xserver-abi-input-26_1"
 short_desc="XLibre fork of Joystick input driver"
 maintainer="Sofiya <sofiya@v.com>"
