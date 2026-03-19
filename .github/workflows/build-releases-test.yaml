@@ -166,7 +166,7 @@ jobs:
             failed=""
 
             for pkg in ${pkgs}; do
-              sudo -Eu builder ./xbps-src pkg -j$(nproc) -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} "${pkg}" || printf "Failed building ${pkg}!\n"
+              sudo -Eu builder ./xbps-src -j$(nproc) -m masterdir-${{ matrix.config.arch }} -A ${{ matrix.config.arch }} "${pkg}" || printf "Failed building ${pkg}!\n"
             done
           
             # for pkg in ${PKGS}; do
