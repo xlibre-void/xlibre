@@ -34,7 +34,6 @@ jobs:
       volumes:
         - /dev:/dev
       env:
-        PATH: "/usr/libexec/chroot-git:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:/tmp/bin"
         ARCH: '${{ matrix.config.arch }}'
         XBPS_TARGET_ARCH: "${{ matrix.config.arch }}"
         REPO_OWNER: "${{ github.repository_owner }}"
