@@ -101,6 +101,8 @@ wget -O - https://github.com/xlibre-void/xlibre/raw/refs/heads/main/install-xlib
 | xlibre-apps                         | https://github.com/X11Libre/xserver/wiki                | :heavy_check_mark: |
 | xlibre-input-drivers                | https://github.com/X11Libre/xserver/wiki                | :heavy_check_mark: |
 | xlibre-minimal                      | https://github.com/X11Libre/xserver/                    | :heavy_check_mark: |
+| xlibre-util-macros                  | https://github.com/X11Libre/mirror.fdo.xorg-macros      | :heavy_check_mark: |
+| xlibre-xorgproto                    | https://github.com/X11Libre/mirror.fdo.xorgproto        | :heavy_check_mark: |
 | xlibre-xserver                      | https://github.com/X11Libre/xserver/                    | :heavy_check_mark: |
 | xlibre-xserver-common               | https://github.com/X11Libre                             | :heavy_check_mark: |
 | xlibre-xserver-devel                | https://github.com/X11Libre                             | :heavy_check_mark: |
