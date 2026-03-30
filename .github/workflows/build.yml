@@ -25,7 +25,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        arch: [ x86_64, aarch64, aarch64-musl ]      
+        arch: [ aarch64, aarch64-musl ]      
         config:
           - { arch: x86_64,       libc: glibc }
           - { arch: x86_64-musl,  libc: musl  } # Enabled the musl build matrix
@@ -36,7 +36,7 @@ jobs:
         - /dev:/dev
       env:
         ARCH: '${{ matrix.config.arch }}'
-        XBPS_TARGET_ARCH: '${{ matrix.config.arch }}'
+        XBPS_TARGET_ARCH: '${{ matrix.arch }}'
         REPO_OWNER: "${{ github.repository_owner }}"
         REPO_NAME: "${{ github.event.repository.name }}"
     if: ${{ github.ref == 'refs/heads/main' }}
