@@ -46,7 +46,7 @@ jobs:
           mkdir -p /etc/xbps.d && cp /usr/share/xbps.d/*-repository-*.conf /etc/xbps.d/
           env -u XBPS_TARGET_ARCH xbps-install -Syu xbps
           env -u XBPS_TARGET_ARCH xbps-install -yu
-          env -u XBPS_TARGET_ARCH xbps-install -y sudo bash curl grep jq git github-cli
+          env -u XBPS_TARGET_ARCH xbps-install -y sudo bash curl grep jq git zip unzip github-cli xtools
           useradd -G xbuilder -M builder -s $(which bash)
 
       - name: Checkout xlibre
