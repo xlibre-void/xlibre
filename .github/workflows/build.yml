@@ -25,6 +25,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        arch: [ x86_64, aarch64, aarch64-musl ]      
         config:
           - { arch: x86_64,       libc: glibc }
           - { arch: x86_64-musl,  libc: musl  } # Enabled the musl build matrix
