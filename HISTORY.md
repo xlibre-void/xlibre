@@ -84,7 +84,6 @@ Some modern packages (libinput, wacom, xlibre-xserver) use Meson build system.
 | xf86-video-geode:         | https://github.com/X11Libre/xf86-video-geode          |
 | xf86-video-i128:          | https://github.com/X11Libre/xf86-video-i128           |
 | xf86-video-i740:          | https://github.com/X11Libre/xf86-video-i740           |
-| xf86-video-i740:          | https://github.com/X11Libre/xf86-video-i740           |
 | xf86-video-intel:         | https://github.com/X11Libre/xf86-video-intel          |
 | xf86-video-mach64:        | https://github.com/X11Libre/xf86-video-mach64         |
 | xf86-video-mga:           | https://github.com/X11Libre/xf86-video-mga            |
