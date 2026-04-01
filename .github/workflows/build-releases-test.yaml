@@ -123,11 +123,11 @@ jobs:
                 done < "$APPEND_FILE"
             fi
 
-            echo "=> applying inline edits..."
-            if [ -d "void-packages/srcpkgs/hyprutils/patches" ]; then
-                echo "   - removing void-packages/srcpkgs/hyprutils/patches"
-                rm -rf void-packages/srcpkgs/hyprutils/patches
-            fi
+           # echo "=> applying inline edits..."
+           # if [ -d "void-packages/srcpkgs/hyprutils/patches" ]; then
+           #     echo "   - removing void-packages/srcpkgs/hyprutils/patches"
+           #     rm -rf void-packages/srcpkgs/hyprutils/patches
+           # fi
 
       - name: Prepare masterdir
         run: |
