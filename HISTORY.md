@@ -55,7 +55,7 @@ Packages built from GitHub sources use `autoreconf -vif` in the prepare step to 
 
 ### Meson-based Packages
 
-Some modern packages (libinput, wacom, xlibre-xserver) use Meson build system.
+Some modern packages (xlibre-input-libinput, xlibre-input-wacom, xlibre-xf86-video-amdgpu, xlibre-xserver) use Meson build system.
 
 
 
