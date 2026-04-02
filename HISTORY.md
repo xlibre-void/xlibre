@@ -6,11 +6,11 @@ and enhanced functionality.
 ## Repository Structure
 
 ```
-xlibre-ports/
-├── pkgs/
-│   ├── xlibre/                    # XLibre X server (core package)
-│   ├── xlibre-input-*/            # Input drivers (evdev, libinput, synaptics, etc.)
-│   └── xlibre-video-*/            # Video drivers (intel, amd, nouveau, etc.)
+xlibre/
+├── srcpkgs/
+│   ├── xlibre/                         # XLibre X server (core package)
+│   ├── xlibre-xf86-input-*/            # Input drivers (evdev, libinput, synaptics, etc.)
+│   └── xlibre-xf86-video-*/            # Video drivers (intel, amd, nouveau, etc.)
 └── README.md
 ```
 
@@ -20,23 +20,23 @@ xlibre-ports/
 - **xlibre-xserver** - XLibre X server with subpackages (Xvfb, Xephyr, Xnest)
 
 ### Input Drivers
-- xlibre-input-evdev - Generic event device input driver
-- xlibre-input-libinput - Modern libinput-based input driver
-- xlibre-input-synaptics - Synaptics touchpad driver
-- xlibre-input-vmmouse - VMware mouse driver
-- xlibre-input-wacom - Wacom tablet driver
+- xlibre-xf86-input-evdev - Generic event device input driver
+- xlibre-xf86-input-libinput - Modern libinput-based input driver
+- xlibre-xf86-input-synaptics - Synaptics touchpad driver
+- xlibre-xf86-input-vmmouse - VMware mouse driver
+- xlibre-xf86-input-wacom - Wacom tablet driver
 
 ### Video Drivers
-- xlibre-video-amdgpu - AMD Radeon Rx/HDxxxx driver
-- xlibre-video-ati - AMD/ATI Radeon driver
-- xlibre-video-intel - Intel integrated graphics driver
-- xlibre-video-nouveau - Open-source NVIDIA driver
-- xlibre-video-nv - Legacy NVIDIA driver
-- xlibre-video-qxl - QEMU/KVM QXL driver (with Xspice support)
-- xlibre-video-vmware - VMware SVGA driver
-- xlibre-video-fbdev - Framebuffer device driver
-- xlibre-video-vesa - Generic VESA driver
-- xlibre-video-dummy - Dummy/headless driver
+- xlibre-xf86-video-amdgpu - AMD Radeon Rx/HDxxxx driver
+- xlibre-xf86-video-ati - AMD/ATI Radeon driver
+- xlibre-xf86-video-intel - Intel integrated graphics driver
+- xlibre-xf86-video-nouveau - Open-source NVIDIA driver
+- xlibre-xf86-video-nv - Legacy NVIDIA driver
+- xlibre-xf86-video-qxl - QEMU/KVM QXL driver (with Xspice support)
+- xlibre-xf86-video-vmware - VMware SVGA driver
+- xlibre-xf86-video-fbdev - Framebuffer device driver
+- xlibre-xf86-video-vesa - Generic VESA driver
+- xlibre-xf86-video-dummy - Dummy/headless driver
 - And many more legacy drivers (ark, apm, ast, chips, i128, i740, omap, r128, rendition, s3virge, savage, siliconmotion, sis, tdfx)
 
 ## Build Notes
