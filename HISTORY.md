@@ -51,7 +51,7 @@ Most packages require:
 
 ### Autotools-based Packages
 
-Packages built from GitHub sources use `autoreconf -vif` in the prepare step to generate configure scripts.
+Packages built from GitHub sources use `./autogen.sh` in the prepare step to generate configure scripts.
 
 ### Meson-based Packages
 
