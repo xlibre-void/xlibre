@@ -81,6 +81,8 @@ xlibre-xserver-xvfb_package() {
 
 xlibre-xserver-common_package() {
 	short_desc+="- common files"
+    conflicts="xorg-server-common"
+    replaces="xorg-server-common>=0"
 	pkg_install() {
 		vmove usr/lib/xorg/protocol.txt
 		vmove usr/share/man/man1/Xserver.1
