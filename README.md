@@ -12,7 +12,7 @@
 &nbsp;
 [![Updates](https://img.shields.io/github/actions/workflow/status/sofijacom/void-package/update.yml?style=for-the-badge&label=AUTO-UPDATE&logo=github&logoColor=white)](https://github.com/xlibre-void/xlibre/actions)
 
-![GitHub](https://img.shields.io/github/license/xlibre-void/xlibre?style=for-the-badge&label=License&color=purple&logo=gitbook)
+<!--![GitHub](https://img.shields.io/github/license/xlibre-void/xlibre?style=for-the-badge&label=License&color=purple&logo=gitbook)-->
 ![GitHub contributors](https://img.shields.io/github/contributors/xlibre-void/xlibre?style=for-the-badge&color=purple&logo=github&label=Contributors)
 ![GitHub release (with filter)](https://img.shields.io/github/v/release/xlibre-void/xlibre?style=for-the-badge&logo=github&label=Release&color=purple)
 ![GitHub issues](https://img.shields.io/github/issues-raw/xlibre-void/xlibre?style=for-the-badge&label=Open%20Issues&logo=github&color=purple)
