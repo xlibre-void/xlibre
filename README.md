@@ -7,7 +7,6 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/platform-Void%20Linux-478061?logo=linux)
 
-
 [![Build](https://img.shields.io/github/actions/workflow/status/xlibre-void/xlibre/build.yml?style=for-the-badge&label=BUILD&logo=githubactions&logoColor=white)](https://github.com/xlibre-void/xlibre/actions)
 &nbsp;
 [![Updates](https://img.shields.io/github/actions/workflow/status/sofijacom/void-package/update.yml?style=for-the-badge&label=AUTO-UPDATE&logo=github&logoColor=white)](https://github.com/xlibre-void/xlibre/actions)
