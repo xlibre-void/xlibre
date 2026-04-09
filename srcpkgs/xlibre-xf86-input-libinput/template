@@ -27,6 +27,6 @@ xlibre-xf86-input-libinput-devel_package() {
 	short_desc+=" - development files"
 	pkg_install() {
 		vmove usr/include
-#		vmove usr/lib/pkgconfig
+		vmove usr/lib/pkgconfig
 	}
 }
