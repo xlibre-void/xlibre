@@ -53,11 +53,12 @@ post_install() {
 
 xlibre-xserver-xnest_package() {
     short_desc="Nested X server that runs as an X application"
-    depends="xlibre-xserver-common xserver-abi-input-26_1 libXfont2 libunwind libXext pixman nettle libtirpc libXdmcp libX11 libXau"
+    depends="libXfont2 libunwind libXext pixman nettle libtirpc libXdmcp libX11 libXau"
     conflicts="xorg-server-xnest"
     replaces="xorg-server-xnest>=0"
     pkg_install()
     {
+        vlicense COPYING
         vmove usr/bin/Xnest
         vmove usr/share/man/man1/Xnest.1
     }
@@ -65,11 +66,12 @@ xlibre-xserver-xnest_package() {
 
 xlibre-xserver-xephyr_package() {
     short_desc="X server outputting to a window on a pre-existing X display"
-    depends="xlibre-xserver-common xserver-abi-input-26_1 libXfont2 libglvnd libepoxy libunwind xcb-util-image xcb-util-renderutil xcb-util-wm xcb-util-keysyms pixman nettle libtirpc xcb-util libXdmcp libX11 libXau libxshmfence"
+    depends="libXfont2 libglvnd libepoxy libunwind xcb-util-image xcb-util-renderutil xcb-util-wm xcb-util-keysyms pixman nettle libtirpc xcb-util libXdmcp libX11 libXau libxshmfence"
     conflicts="xorg-server-xephyr"
     replaces="xorg-server-xephyr>=0"
     pkg_install()
     {
+        vlicense COPYING
         vmove usr/bin/Xephyr
         vmove usr/share/man/man1/Xephyr.1
     }
@@ -77,11 +79,12 @@ xlibre-xserver-xephyr_package() {
 
 xlibre-xserver-xvfb_package() {
     short_desc="Virtual framebuffer X server"
-    depends="xlibre-xserver-common xserver-abi-input-26_1 libXfont2 libunwind pixman xauth libglvnd nettle libtirpc libXdmcp libXau xkeyboard-config"
+    depends="libXfont2 libunwind pixman xauth libglvnd nettle libtirpc libXdmcp libXau xkeyboard-config"
     conflicts="xorg-server-xvfb"
     replaces="xorg-server-xvfb>=0"
     pkg_install()
     {
+        vlicense COPYING
         vmove usr/bin/Xvfb
         vmove usr/share/man/man1/Xvfb.1
     }
@@ -89,10 +92,10 @@ xlibre-xserver-xvfb_package() {
 
 xlibre-xserver-common_package() {
     short_desc+="- common files"
-    depends="xkeyboard-config xkbcomp setxkbmap"
     conflicts="xorg-server-common"
     replaces="xorg-server-common>=0"
     pkg_install() {
+        vlicense COPYING
         vmove usr/lib/xorg/protocol.txt
         vmove usr/share/man/man1/Xserver.1
     }
@@ -104,6 +107,7 @@ xlibre-xserver-devel_package() {
      conflicts="xorg-server-devel"
      replaces="xorg-server-devel>=0"
      pkg_install() {
+         vlicense COPYING
          vmove usr/include
          vmove usr/lib/pkgconfig
          vmove usr/share/aclocal
