@@ -6,7 +6,7 @@
 ![Security Audit](https://img.shields.io/github/actions/workflow/status/Letdown2491/waypoint-gtk/security.yml?label=Security%20Audit&logo=github)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/platform-Void%20Linux-478061?logo=linux)
-![Xlibre](https://img.shields.io/badge/xlibre-void/xlibre?style=badge&label=xlibre-void&logo=linux&color=purple)
+![Xlibre](https://img.shields.io/badge/xlibre-void/xlibre?style=badge&label=Xlibre-Void&logo=X&color=blue)
 
 [![Build](https://img.shields.io/github/actions/workflow/status/xlibre-void/xlibre/build.yml?style=for-the-badge&label=BUILD&logo=githubactions&logoColor=white)](https://github.com/xlibre-void/xlibre/actions)
 &nbsp;
@@ -18,7 +18,7 @@
 ![GitHub issues](https://img.shields.io/github/issues-raw/xlibre-void/xlibre?style=for-the-badge&label=Open%20Issues&logo=github&color=purple)
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/xlibre-void/xlibre?style=for-the-badge&label=Closed%20Issues&logo=github&color=purple)
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/xlibre-void/xlibre/main?style=for-the-badge&label=Last%20Commit&logo=github&color=purple)
-![Xlibre](https://img.shields.io/badge/xlibre-void/xlibre?style=for-the-badge&label=xlibre-void&logo=linux&color=purple)
+<!-- ![Xlibre](https://img.shields.io/badge/xlibre-void/xlibre?style=for-the-badge&label=Xlibre-Void&logo=X&color=purple) -->
 
 > _**repository provides binary packages for:** x86_64-glibc, x86_64-musl_
 
