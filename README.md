@@ -14,6 +14,7 @@
 [![Updates](https://img.shields.io/github/actions/workflow/status/sofijacom/void-package/update.yml?style=badge&label=AUTO-UPDATE&logo=github&logoColor=white)](https://github.com/xlibre-void/xlibre/actions)
 
 ![GitHub](https://img.shields.io/github/license/xlibre-void/xlibre?style=badge&label=License&color=purple&logo=gitbook)
+[![Stars](https://img.shields.io/github/stars/xlibre-void/xlibre.svg?style=badge&logo=github&color=purple)](https://github.com/xlibre-void/xlibre/stargazers)
 ![GitHub contributors](https://img.shields.io/github/contributors/xlibre-void/xlibre?style=badge&color=purple&logo=github&label=Contributors)
 ![GitHub release (with filter)](https://img.shields.io/github/v/release/xlibre-void/xlibre?style=badge&logo=github&label=Release&color=purple)
 ![GitHub issues](https://img.shields.io/github/issues-raw/xlibre-void/xlibre?style=badge&label=Open%20Issues&logo=github&color=purple)
