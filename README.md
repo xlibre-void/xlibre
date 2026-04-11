@@ -24,7 +24,7 @@
 <!-- ![Xlibre](https://img.shields.io/badge/xlibre-void/xlibre?style=for-the-badge&label=Xlibre-Void&logo=X&color=purple) -->
 
 <!-- style=for-the-badge / style string
-Possible values: [flat, flat-square, plastic, for-the-badge, social] -->
+Possible values: [flat, flat-square, plastic, badge, for-the-badge, social] -->
 
 <!-- </div> -->
 
