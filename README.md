@@ -5,15 +5,15 @@
 # XLibre for VOID linux  ![void](https://github.com/xlibre-void/xlibre/blob/main/img/void.png)
 
 ![Security Audit](https://img.shields.io/github/actions/workflow/status/Letdown2491/waypoint-gtk/security.yml?label=Security%20Audit&logo=github)
-![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/platform-Void%20Linux-478061?logo=linux)
 ![Xlibre](https://img.shields.io/badge/xlibre-void/xlibre?style=badge&label=Xlibre-Void&logo=X&color=df8e1d)
+<!-- ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg) -->
 
 [![Build](https://img.shields.io/github/actions/workflow/status/xlibre-void/xlibre/build.yml?style=badge&label=BUILD&logo=githubactions&logoColor=white)](https://github.com/xlibre-void/xlibre/actions)
 &nbsp;
 [![Updates](https://img.shields.io/github/actions/workflow/status/sofijacom/void-package/update.yml?style=badge&label=AUTO-UPDATE&logo=github&logoColor=white)](https://github.com/xlibre-void/xlibre/actions)
 
-<!--![GitHub](https://img.shields.io/github/license/xlibre-void/xlibre?style=for-the-badge&label=License&color=purple&logo=gitbook)-->
+![GitHub](https://img.shields.io/github/license/xlibre-void/xlibre?style=badge&label=License&color=purple&logo=gitbook)
 ![GitHub contributors](https://img.shields.io/github/contributors/xlibre-void/xlibre?style=badge&color=purple&logo=github&label=Contributors)
 ![GitHub release (with filter)](https://img.shields.io/github/v/release/xlibre-void/xlibre?style=badge&logo=github&label=Release&color=purple)
 ![GitHub issues](https://img.shields.io/github/issues-raw/xlibre-void/xlibre?style=badge&label=Open%20Issues&logo=github&color=purple)
