@@ -8,17 +8,18 @@
 ![Platform](https://img.shields.io/badge/platform-Void%20Linux-478061?logo=linux)
 ![Xlibre](https://img.shields.io/badge/xlibre-void/xlibre?style=badge&label=Xlibre-Void&logo=X&color=df8e1d)
 
-[![Build](https://img.shields.io/github/actions/workflow/status/xlibre-void/xlibre/build.yml?style=for-the-badge&label=BUILD&logo=githubactions&logoColor=white)](https://github.com/xlibre-void/xlibre/actions)
+[![Build](https://img.shields.io/github/actions/workflow/status/xlibre-void/xlibre/build.yml?style=badge&label=BUILD&logo=githubactions&logoColor=white)](https://github.com/xlibre-void/xlibre/actions)
 &nbsp;
-[![Updates](https://img.shields.io/github/actions/workflow/status/sofijacom/void-package/update.yml?style=for-the-badge&label=AUTO-UPDATE&logo=github&logoColor=white)](https://github.com/xlibre-void/xlibre/actions)
+[![Updates](https://img.shields.io/github/actions/workflow/status/sofijacom/void-package/update.yml?style=badge&label=AUTO-UPDATE&logo=github&logoColor=white)](https://github.com/xlibre-void/xlibre/actions)
 
 <!--![GitHub](https://img.shields.io/github/license/xlibre-void/xlibre?style=for-the-badge&label=License&color=purple&logo=gitbook)-->
-![GitHub contributors](https://img.shields.io/github/contributors/xlibre-void/xlibre?style=for-the-badge&color=purple&logo=github&label=Contributors)
-![GitHub release (with filter)](https://img.shields.io/github/v/release/xlibre-void/xlibre?style=for-the-badge&logo=github&label=Release&color=purple)
-![GitHub issues](https://img.shields.io/github/issues-raw/xlibre-void/xlibre?style=for-the-badge&label=Open%20Issues&logo=github&color=purple)
-![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/xlibre-void/xlibre?style=for-the-badge&label=Closed%20Issues&logo=github&color=purple)
-![GitHub last commit (branch)](https://img.shields.io/github/last-commit/xlibre-void/xlibre/main?style=for-the-badge&label=Last%20Commit&logo=github&color=purple)
+![GitHub contributors](https://img.shields.io/github/contributors/xlibre-void/xlibre?style=badge&color=purple&logo=github&label=Contributors)
+![GitHub release (with filter)](https://img.shields.io/github/v/release/xlibre-void/xlibre?style=badge&logo=github&label=Release&color=purple)
+![GitHub issues](https://img.shields.io/github/issues-raw/xlibre-void/xlibre?style=badge&label=Open%20Issues&logo=github&color=purple)
+![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/xlibre-void/xlibre?style=badge&label=Closed%20Issues&logo=github&color=purple)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/xlibre-void/xlibre/main?style=badge&label=Last%20Commit&logo=github&color=purple)
 <!-- ![Xlibre](https://img.shields.io/badge/xlibre-void/xlibre?style=for-the-badge&label=Xlibre-Void&logo=X&color=purple) -->
+<!-- style=for-the-badge -->
 
 > _**repository provides binary packages for:** x86_64-glibc, x86_64-musl_
 
