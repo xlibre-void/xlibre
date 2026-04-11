@@ -1,6 +1,7 @@
 <img width="1366" height="auto" alt="XLibre-2" src="https://github.com/xlibre-void/xlibre/blob/main/img/XLibre-1.png" />
 
-
+<div align="center">
+	
 # XLibre for VOID linux  ![void](https://github.com/xlibre-void/xlibre/blob/main/img/void.png)
 
 ![Security Audit](https://img.shields.io/github/actions/workflow/status/Letdown2491/waypoint-gtk/security.yml?label=Security%20Audit&logo=github)
@@ -19,7 +20,11 @@
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/xlibre-void/xlibre?style=badge&label=Closed%20Issues&logo=github&color=purple)
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/xlibre-void/xlibre/main?style=badge&label=Last%20Commit&logo=github&color=purple)
 <!-- ![Xlibre](https://img.shields.io/badge/xlibre-void/xlibre?style=for-the-badge&label=Xlibre-Void&logo=X&color=purple) -->
-<!-- style=for-the-badge -->
+
+<!-- style=for-the-badge / style string
+Possible values: [flat, flat-square, plastic, for-the-badge, social] -->
+
+</div>
 
 > _**repository provides binary packages for:** x86_64-glibc, x86_64-musl_
 
