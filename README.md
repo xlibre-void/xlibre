@@ -28,6 +28,8 @@ Possible values: [flat, flat-square, plastic, badge, for-the-badge, social] -->
 
 <!-- </div> -->
 
+<br />
+
 > _**repository provides binary packages for:** x86_64-glibc, x86_64-musl_
 
 
