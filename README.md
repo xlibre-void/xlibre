@@ -1,6 +1,6 @@
 <img width="1366" height="auto" alt="XLibre-2" src="https://github.com/xlibre-void/xlibre/blob/main/img/XLibre-1.png" />
 
-<div align="center">
+<!-- <div align="center"> -->
 	
 # XLibre for VOID linux  ![void](https://github.com/xlibre-void/xlibre/blob/main/img/void.png)
 
@@ -25,7 +25,7 @@
 <!-- style=for-the-badge / style string
 Possible values: [flat, flat-square, plastic, for-the-badge, social] -->
 
-</div>
+<!-- </div> -->
 
 > _**repository provides binary packages for:** x86_64-glibc, x86_64-musl_
 
