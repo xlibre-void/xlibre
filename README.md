@@ -21,6 +21,8 @@
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/xlibre-void/xlibre?style=badge&label=Closed%20Issues&logo=github&color=purple)
 
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/xlibre-void/xlibre/main?style=badge&label=Last%20Commit&logo=github&color=purple)
+[![GitHub tag](https://img.shields.io/github/v/tag/xlibre-void/xlibre?style=badge&logo=github&color=purple)](https://github.com/xlibre-void/xlibre/tags)
+
 <!-- ![Xlibre](https://img.shields.io/badge/xlibre-void/xlibre?style=for-the-badge&label=Xlibre-Void&logo=X&color=purple) -->
 
 <!-- style=for-the-badge / style string
