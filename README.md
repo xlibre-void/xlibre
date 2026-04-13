@@ -7,6 +7,7 @@
 ![Security Audit](https://img.shields.io/github/actions/workflow/status/Letdown2491/waypoint-gtk/security.yml?label=Security%20Audit&logo=github)
 ![Platform](https://img.shields.io/badge/platform-Void%20Linux-478061?logo=linux)
 ![Xlibre](https://img.shields.io/badge/xlibre-void/xlibre?style=badge&label=Xlibre-Void&logo=X&color=df8e1d)
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/streetturtle/xlibre">
 <!-- [![Stars](https://img.shields.io/github/stars/xlibre-void/xlibre.svg)](https://github.com/xlibre-void/xlibre/stargazers) -->
 <!-- ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg) build.yml-->
 
