@@ -8,9 +8,6 @@
 ![Platform](https://img.shields.io/badge/platform-Void%20Linux-478061?logo=linux)
 ![Xlibre](https://img.shields.io/badge/xlibre-void/xlibre?style=badge&label=Xlibre-Void&logo=X&color=df8e1d)
 ![Repo size](https://img.shields.io/github/repo-size/xlibre-void/xlibre?style=badge&logo=github&color=blue)
-<!-- <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/xlibre-void/xlibre"> -->
-<!-- [![Stars](https://img.shields.io/github/stars/xlibre-void/xlibre.svg)](https://github.com/xlibre-void/xlibre/stargazers) -->
-<!-- ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg) build.yml-->
 
 [![Build](https://img.shields.io/github/actions/workflow/status/xlibre-void/xlibre/build.yml?style=badge&label=BUILD&logo=githubactions&logoColor=white)](https://github.com/xlibre-void/xlibre/actions)
 [![Updates](https://img.shields.io/github/actions/workflow/status/sofijacom/void-package/update.yml?style=badge&label=AUTO-UPDATE&logo=github&logoColor=white)](https://github.com/xlibre-void/xlibre/actions)
@@ -24,8 +21,6 @@
 
 [![GitHub tag](https://img.shields.io/github/v/tag/xlibre-void/xlibre?style=badge&logo=github&color=purple)](https://github.com/xlibre-void/xlibre/tags)
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/xlibre-void/xlibre/main?style=badge&label=Last%20Commit&logo=github&color=purple)
-
-<!-- ![Xlibre](https://img.shields.io/badge/xlibre-void/xlibre?style=for-the-badge&label=Xlibre-Void&logo=X&color=purple) -->
 
 <!-- style=for-the-badge / style string
 Possible values: [flat, flat-square, plastic, badge, for-the-badge, social] -->
