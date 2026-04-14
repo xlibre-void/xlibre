@@ -29,8 +29,10 @@ Possible values: [flat, flat-square, plastic, badge, for-the-badge, social] -->
 
 <br />
 
-> _**repository provides binary packages for:** x86_64-glibc, x86_64-musl_
-
+<!-- x86_64-glibc, x86_64-musl -->
+> _**repository provides binary packages for:**_
+[![x85_64-glibc](https://img.shields.io/badge/x86__64-glibc-478061?style=flat-square&color)](#)
+[![x86_64-musl](https://img.shields.io/badge/x86__64-musl-478061?style=flat-square&color)](#) 
 
 > [!NOTE]
 >>  _How to use_
