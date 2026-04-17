@@ -4,6 +4,8 @@
 	
 # XLibre for Void Linux  ![void](https://github.com/xlibre-void/xlibre/blob/main/img/void.png)
 
+<div align="center">
+
 ![Security Audit](https://img.shields.io/github/actions/workflow/status/Letdown2491/waypoint-gtk/security.yml?label=Security%20Audit&logo=github)
 ![Platform](https://img.shields.io/badge/platform-Void%20Linux-478061?logo=linux)
 ![Xlibre](https://img.shields.io/badge/xlibre-void/xlibre?style=badge&label=Xlibre-Void&logo=X&color=df8e1d)
@@ -28,7 +30,7 @@
 <!-- style=for-the-badge / style string
 Possible values: [flat, flat-square, plastic, badge, for-the-badge, social] -->
 
-<!-- </div> -->
+</div>
 
 <br />
 
