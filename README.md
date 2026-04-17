@@ -1,10 +1,8 @@
 <img width="1366" height="auto" alt="XLibre-2" src="https://github.com/xlibre-void/xlibre/blob/main/img/XLibre-1.png" />
 
-<!-- <div align="center"> -->
+<div align="center">
 	
 # XLibre for Void Linux  ![void](https://github.com/xlibre-void/xlibre/blob/main/img/void.png)
-
-<div align="center">
 
 ![Security Audit](https://img.shields.io/github/actions/workflow/status/Letdown2491/waypoint-gtk/security.yml?label=Security%20Audit&logo=github)
 ![Platform](https://img.shields.io/badge/platform-Void%20Linux-478061?logo=linux)
