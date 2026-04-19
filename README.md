@@ -13,18 +13,18 @@
 [![Build](https://img.shields.io/github/actions/workflow/status/xlibre-void/xlibre/build.yml?style=badge&label=BUILD&logo=githubactions&logoColor=white)](https://github.com/xlibre-void/xlibre/actions)
 [![Updates](https://img.shields.io/github/actions/workflow/status/sofijacom/void-package/update.yml?style=badge&label=AUTO-UPDATE&logo=github&logoColor=white)](https://github.com/xlibre-void/xlibre/actions)
 
-![GitHub license](https://img.shields.io/github/license/xlibre-void/xlibre?style=badge&label=License&color=purple&logo=gitbook)
-![GitHub contributors](https://img.shields.io/github/contributors/xlibre-void/xlibre?style=badge&color=purple&logo=github&label=Contributors)
-![GitHub release (with filter)](https://img.shields.io/github/v/release/xlibre-void/xlibre?style=badge&logo=github&label=Release&color=purple)
-![GitHub issues](https://img.shields.io/github/issues-raw/xlibre-void/xlibre?style=badge&label=Open%20Issues&logo=github&color=purple)
-![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/xlibre-void/xlibre?style=badge&label=Closed%20Issues&logo=github&color=purple)
+![GitHub license](https://img.shields.io/github/license/xlibre-void/xlibre?style=badge&label=License&colorA=363a4f&colorB=purple&logo=gitbook)
+![GitHub contributors](https://img.shields.io/github/contributors/xlibre-void/xlibre?style=badge&colorA=363a4f&colorB=purple&logo=github&label=Contributors)
+![GitHub release (with filter)](https://img.shields.io/github/v/release/xlibre-void/xlibre?style=badge&logo=github&label=Release&colorA=363a4f&colorB=purple)
+![GitHub issues](https://img.shields.io/github/issues-raw/xlibre-void/xlibre?style=badge&label=Open%20Issues&logo=github&colorA=363a4f&colorB=purple)
+![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/xlibre-void/xlibre?style=badge&label=Closed%20Issues&logo=github&colorA=363a4f&colorB=purple)
 
-[![GitHub tag](https://img.shields.io/github/v/tag/xlibre-void/xlibre?style=badge&logo=github&color=purple)](https://github.com/xlibre-void/xlibre/tags)
-[![Stars](https://img.shields.io/github/stars/xlibre-void/xlibre.svg?style=badge&logo=andela&color=purple)](https://github.com/xlibre-void/xlibre/stargazers)
-[![GitHub watchers](https://img.shields.io/github/watchers/xlibre-void/xlibre?style=badge&logo=github&color=purple)](https://github.com/xlibre-void/xlibre/watchers)
-[![GitHub forks](https://img.shields.io/github/forks/xlibre-void/xlibre?style=badge&logo=github&color=purple)](#)
-![GitHub last commit (branch)](https://img.shields.io/github/last-commit/xlibre-void/xlibre/main?style=badge&label=Last%20Commit&logo=git&logoColor=fff&color=purple)
-[![Discussions](https://img.shields.io/github/discussions/xlibre-void/xlibre?style=badge&label=Discussions&logo=github&logoColor=fff&color=purple)](https://github.com/orgs/xlibre-void/discussions)
+[![GitHub tag](https://img.shields.io/github/v/tag/xlibre-void/xlibre?style=badge&logo=github&colorA=363a4f&colorB=purple)](https://github.com/xlibre-void/xlibre/tags)
+[![Stars](https://img.shields.io/github/stars/xlibre-void/xlibre.svg?style=badge&logo=andela&colorA=363a4f&colorB=purple)](https://github.com/xlibre-void/xlibre/stargazers)
+[![GitHub watchers](https://img.shields.io/github/watchers/xlibre-void/xlibre?style=badge&logo=github&colorA=363a4f&colorB=purple)](https://github.com/xlibre-void/xlibre/watchers)
+[![GitHub forks](https://img.shields.io/github/forks/xlibre-void/xlibre?style=badge&logo=github&colorA=363a4f&colorB=purple)](#)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/xlibre-void/xlibre/main?style=badge&label=Last%20Commit&logo=git&logoColor=fff&colorA=363a4f&colorB=purple)
+[![Discussions](https://img.shields.io/github/discussions/xlibre-void/xlibre?style=badge&label=Discussions&logo=github&logoColor=fff&colorA=363a4f&colorB=purple)](https://github.com/orgs/xlibre-void/discussions)
 
 <!-- style=for-the-badge / style string
 Possible values: [flat, flat-square, plastic, badge, for-the-badge, social] -->
@@ -35,8 +35,8 @@ Possible values: [flat, flat-square, plastic, badge, for-the-badge, social] -->
 
 <!-- x86_64-glibc, x86_64-musl -->
 > _**repository provides binary packages for:**_
-[![x85_64-glibc](https://img.shields.io/badge/x86__64-glibc-478061?style=plastic&color)](#)
-[![x86_64-musl](https://img.shields.io/badge/x86__64-musl-478061?style=plastic&color)](#) 
+[![x85_64-glibc](https://img.shields.io/badge/x86__64-glibc-478061?style=plastic&colorA=363a4f&colorB)](#)
+[![x86_64-musl](https://img.shields.io/badge/x86__64-musl-478061?style=plastic&colorA=363a4f&colorB)](#) 
 
 > [!NOTE]
 >>  _How to use_
