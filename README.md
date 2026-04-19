@@ -7,7 +7,7 @@
 ![Security Audit](https://img.shields.io/github/actions/workflow/status/Letdown2491/waypoint-gtk/security.yml?label=Security%20Audit&logo=github)
 ![Platform](https://img.shields.io/badge/platform-Void%20Linux-478061?logo=linux)
 ![Xlibre](https://img.shields.io/badge/xlibre-void/xlibre?style=badge&label=Xlibre-Void&logo=X&color=df8e1d)
-![Repo size](https://img.shields.io/github/repo-size/xlibre-void/xlibre?style=badge&logo=github&color=blue)
+![Repo size](https://img.shields.io/github/repo-size/xlibre-void/xlibre?style=badge&logo=protondrive&logoColor=fff&color=blue)
 
 [![Build](https://github.com/xlibre-void/xlibre/actions/workflows/build.yml/badge.svg?style=badge&logoColor=white)](https://github.com/xlibre-void/xlibre/actions/workflows/build.yml)
 [![Build](https://img.shields.io/github/actions/workflow/status/xlibre-void/xlibre/build.yml?style=badge&label=BUILD&logo=githubactions&logoColor=white)](https://github.com/xlibre-void/xlibre/actions)
@@ -20,10 +20,10 @@
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/xlibre-void/xlibre?style=badge&label=Closed%20Issues&logo=github&color=purple)
 
 [![GitHub tag](https://img.shields.io/github/v/tag/xlibre-void/xlibre?style=badge&logo=github&color=purple)](https://github.com/xlibre-void/xlibre/tags)
-[![Stars](https://img.shields.io/github/stars/xlibre-void/xlibre.svg?style=badge&logo=github&color=purple)](https://github.com/xlibre-void/xlibre/stargazers)
+[![Stars](https://img.shields.io/github/stars/xlibre-void/xlibre.svg?style=badge&logo=andela&color=purple)](https://github.com/xlibre-void/xlibre/stargazers)
 [![GitHub watchers](https://img.shields.io/github/watchers/xlibre-void/xlibre?style=badge&logo=github&color=purple)](https://github.com/xlibre-void/xlibre/watchers)
 [![GitHub forks](https://img.shields.io/github/forks/xlibre-void/xlibre?style=badge&logo=github&color=purple)](#)
-![GitHub last commit (branch)](https://img.shields.io/github/last-commit/xlibre-void/xlibre/main?style=badge&label=Last%20Commit&logo=github&color=purple)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/xlibre-void/xlibre/main?style=badge&label=Last%20Commit&logo=git&logoColor=fff&color=purple)
 
 <!-- style=for-the-badge / style string
 Possible values: [flat, flat-square, plastic, badge, for-the-badge, social] -->
