@@ -24,8 +24,7 @@
 [![GitHub watchers](https://img.shields.io/github/watchers/xlibre-void/xlibre?style=badge&logo=github&color=purple)](https://github.com/xlibre-void/xlibre/watchers)
 [![GitHub forks](https://img.shields.io/github/forks/xlibre-void/xlibre?style=badge&logo=github&color=purple)](#)
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/xlibre-void/xlibre/main?style=badge&label=Last%20Commit&logo=git&logoColor=fff&color=purple)
-[![Discussions](https://img.shields.io/github/discussions/xlibre-void/xlibre?style=badge&label=Discussions&logo=git&logoColor=fff&color=purple)]()
-
+[![Discussions](https://img.shields.io/github/discussions/xlibre-void/xlibre?style=badge&label=Discussions&logo=Discussions&logoColor=fff&color=purple)](https://github.com/orgs/xlibre-void/discussions)
 
 <!-- style=for-the-badge / style string
 Possible values: [flat, flat-square, plastic, badge, for-the-badge, social] -->
