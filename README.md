@@ -17,7 +17,7 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/xlibre-void/xlibre?style=badge&colorA=363a4f&colorB=purple&logo=github&label=Contributors)](#)
 [![GitHub release (with filter)](https://img.shields.io/github/v/release/xlibre-void/xlibre?style=badge&logo=github&label=Release&colorA=363a4f&colorB=purple)](https://github.com/xlibre-void/xlibre/releases)
 [![GitHub issues](https://img.shields.io/github/issues-raw/xlibre-void/xlibre?style=badge&label=Open%20Issues&logo=github&colorA=363a4f&colorB=purple)](#)
-[![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/xlibre-void/xlibre?style=badge&label=Closed%20Issues&logo=github&colorA=363a4f&colorB=purple)](#)
+[![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/xlibre-void/xlibre?style=badge&label=Closed%20Issues&logo=github&colorA=363a4f&colorB=purple)](https://github.com/xlibre-void/xlibre/issues?q=sort%3Aupdated-desc%20is%3Aissue%20state%3Aclosed)
 
 [![GitHub tag](https://img.shields.io/github/v/tag/xlibre-void/xlibre?style=badge&logo=github&colorA=363a4f&colorB=purple)](https://github.com/xlibre-void/xlibre/tags)
 [![Stars](https://img.shields.io/github/stars/xlibre-void/xlibre.svg?style=badge&logo=andela&colorA=363a4f&colorB=purple)](https://github.com/xlibre-void/xlibre/stargazers)
