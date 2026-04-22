@@ -18,7 +18,7 @@ xlibre/
 
 ### Core Server
 - **xlibre**
-- **xlibre-xserver** - XLibre X server with subpackages (Xvfb, Xephyr, Xnest)
+  - **xlibre-xserver** - XLibre X server with subpackages (Xvfb, Xephyr, Xnest)
 
 ### Input Drivers
 - xlibre-xf86-input-evdev - Generic event device input driver
