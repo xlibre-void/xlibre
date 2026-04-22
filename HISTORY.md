@@ -17,6 +17,7 @@ xlibre/
 ## Packages Included
 
 ### Core Server
+- **xlibre**
 - **xlibre-xserver** - XLibre X server with subpackages (Xvfb, Xephyr, Xnest)
 
 ### Input Drivers
