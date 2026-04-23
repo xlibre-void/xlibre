@@ -11,9 +11,10 @@
 
 [![Auto Assign](https://github.com/xlibre-void/xlibre/actions/workflows/build.yml/badge.svg)](https://github.com/xlibre-void/xlibre/actions/workflows/build.yml)
 [![Proof HTML](https://github.com/xlibre-void/xlibre/actions/workflows/update.yml/badge.svg)](https://github.com/xlibre-void/xlibre/actions/workflows/update.yml)
+[![Build](https://img.shields.io/github/actions/workflow/status/xlibre-void/xlibre/build.yml?style=badge&label=BUILD&logo=githubactions&logoColor=white&colorA=363a4f&colorB)](https://github.com/xlibre-void/xlibre/actions)
 <!--
 [![Build](https://github.com/xlibre-void/xlibre/actions/workflows/build.yml/badge.svg?style=badge&logoColor=white&colorA=363a4f&colorB)](https://github.com/xlibre-void/xlibre/actions/workflows/build.yml)
-[![Build](https://img.shields.io/github/actions/workflow/status/xlibre-void/xlibre/build.yml?style=badge&label=BUILD&logo=githubactions&logoColor=white&colorA=363a4f&colorB=)](https://github.com/xlibre-void/xlibre/actions)
+[![Build](https://img.shields.io/github/actions/workflow/status/xlibre-void/xlibre/build.yml?style=badge&label=BUILD&logo=githubactions&logoColor=white&colorA=363a4f&colorB)](https://github.com/xlibre-void/xlibre/actions)
 [![Updates](https://img.shields.io/github/actions/workflow/status/xlibre-void/xlibre/update.yml?style=badge&label=AUTO-UPDATE&logo=github&logoColor=white&colorA=363a4f&colorB=)](https://github.com/xlibre-void/xlibre/actions/workflows/update.yml) -->
 
 [![GitHub license](https://img.shields.io/github/license/xlibre-void/xlibre?style=badge&label=License&colorA=363a4f&colorB=purple&logo=gitbook)](https://github.com/xlibre-void/xlibre/blob/main/LICENSE)
