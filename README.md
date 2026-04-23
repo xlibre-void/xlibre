@@ -9,9 +9,12 @@
 [![Xlibre](https://img.shields.io/badge/xlibre-void/xlibre?style=badge&label=Xlibre-Void&logo=X&colorA=363a4f&colorB=df8e1d)](#)
 [![Repo size](https://img.shields.io/github/repo-size/xlibre-void/xlibre?style=badge&logo=protondrive&logoColor=fff&colorA=363a4f&colorB=blue)](#)
 
-[![Build](https://github.com/xlibre-void/xlibre/actions/workflows/build.yml/badge.svg?style=badge&logoColor=white&colorA=363a4f&colorB=)](https://github.com/xlibre-void/xlibre/actions/workflows/build.yml)
+[![Auto Assign](https://github.com/xlibre-void/xlibre/actions/workflows/build.yml/badge.svg)](https://github.com/xlibre-void/xlibre/actions/workflows/build.yml)
+[![Proof HTML](https://github.com/xlibre-void/xlibre/actions/workflows/update.yml/badge.svg)](https://github.com/xlibre-void/xlibre/actions/workflows/update.yml)
+<!--
+[![Build](https://github.com/xlibre-void/xlibre/actions/workflows/build.yml/badge.svg?style=badge&logoColor=white&colorA=363a4f&colorB)](https://github.com/xlibre-void/xlibre/actions/workflows/build.yml)
 [![Build](https://img.shields.io/github/actions/workflow/status/xlibre-void/xlibre/build.yml?style=badge&label=BUILD&logo=githubactions&logoColor=white&colorA=363a4f&colorB=)](https://github.com/xlibre-void/xlibre/actions)
-[![Updates](https://img.shields.io/github/actions/workflow/status/sofijacom/void-package/update.yml?style=badge&label=AUTO-UPDATE&logo=github&logoColor=white&colorA=363a4f&colorB=)](https://github.com/xlibre-void/xlibre/actions/workflows/update.yml)
+[![Updates](https://img.shields.io/github/actions/workflow/status/sofijacom/void-package/update.yml?style=badge&label=AUTO-UPDATE&logo=github&logoColor=white&colorA=363a4f&colorB=)](https://github.com/xlibre-void/xlibre/actions/workflows/update.yml) -->
 
 [![GitHub license](https://img.shields.io/github/license/xlibre-void/xlibre?style=badge&label=License&colorA=363a4f&colorB=purple&logo=gitbook)](https://github.com/xlibre-void/xlibre/blob/main/LICENSE)
 [![GitHub contributors](https://img.shields.io/github/contributors/xlibre-void/xlibre?style=badge&colorA=363a4f&colorB=purple&logo=github&label=Contributors)](https://github.com/xlibre-void/xlibre/graphs/contributors)
