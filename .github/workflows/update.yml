@@ -65,7 +65,7 @@ jobs:
         git commit --all --message "Automated update"
     - name: Push updates
       if: ${{ steps.check-updates.outputs.has_updates == 'true' }}
-      uses: ad-m/github-push-action@v1.1.0 # master
+      uses: ad-m/github-push-action@v1.1.0
       with:
         github_token: ${{ secrets.PULL_PUSH }}
         branch: ${{ github.ref }}
