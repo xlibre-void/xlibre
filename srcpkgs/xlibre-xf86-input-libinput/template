@@ -25,6 +25,8 @@ xlibre-xf86-input-libinput-devel_package() {
 	lib32disabled=yes
 	depends="${makedepends}"
 	short_desc+=" - development files"
+	conflicts="xf86-input-libinput-devel"
+	replaces="xf86-input-libinput-devel>=0"
 	pkg_install() {
 		vmove usr/include
 		vmove usr/lib/pkgconfig

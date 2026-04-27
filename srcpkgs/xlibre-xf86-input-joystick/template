@@ -30,6 +30,8 @@ post_install() {
 xlibre-xf86-input-joystick-devel_package() {
 	lib32disabled=yes
 	short_desc+=" - development files"
+	conflicts="xf86-input-joystick-devel"
+	replaces="xf86-input-joystick-devel>=0"
 	pkg_install() {
 		vmove usr/include
 #		vmove usr/lib/pkgconfig

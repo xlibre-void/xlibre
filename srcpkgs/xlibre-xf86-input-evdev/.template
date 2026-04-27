@@ -30,6 +30,8 @@ xlibre-xf86-input-evdev-devel_package() {
 	lib32disabled=yes
 	depends="xlibre-xserver-devel ${sourcepkg}>=${version}_${revision}"
 	short_desc+=" - development files"
+	conflicts="xf86-input-evdev-devel"
+	replaces="xf86-input-evdev-devel>=0"
 	pkg_install() {
 		vmove usr/include
 #		vmove usr/lib/pkgconfig
