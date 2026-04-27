@@ -2,7 +2,7 @@
 
 <div align="center">
 	
-# XLibre for Void Linux 
+# XLibre for Void Linux [![Void Linux](https://img.shields.io/badge/Void_Linux-%23458161.svg?style=plastic&logo=voidlinux&logoColor=white)](#)
 <!-- ![void](https://github.com/xlibre-void/xlibre/blob/main/img/void.png) -->
 
 [![Security Audit](https://img.shields.io/github/actions/workflow/status/Letdown2491/waypoint-gtk/security.yml?label=Security%20Audit&logo=github&colorA=363a4f&colorB)](#)
