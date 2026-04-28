@@ -5,9 +5,10 @@ version=25.0.0
 revision=1
 build_style=gnu-configure
 configure_args="--prefix=/usr --enable-xspice=yes"
-hostmakedepends="pkg-config xorg-util-macros automake autoconf libtool"
-makedepends="xlibre-xserver-devel spice-protocol xorgproto gawk"
-depends="virtual?xserver-abi-video-28_1 spice"
+hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool binutils"
+makedepends="xlibre-xserver-devel xlibre-xserver-common spice-protocol xorgproto gawk"
+optdepends="python3"
+depends="virtual?xserver-abi-video-28_1 spice libXfont2"
 short_desc="XLibre fork of X.Org X11 qxl video driver"
 maintainer="Sofiya <sofiya@v.com>"
 license="MIT"
@@ -21,8 +22,8 @@ lib32disabled=yes
 LDFLAGS="-Wl,-z,lazy"
 
 pre_configure() {
-  # autoreconf -fiv
-  ./autogen.sh
+  autoreconf -fiv
+  # ./autogen.sh
 }
 
 post_install() {
