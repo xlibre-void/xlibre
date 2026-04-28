@@ -82,8 +82,7 @@ xlibre-xserver-xvfb_package() {
     # depends="libXfont2 libunwind pixman xauth libglvnd nettle libtirpc libXdmcp libXau xkeyboard-config"
     conflicts="xorg-server-xvfb"
     replaces="xorg-server-xvfb>=0"
-    pkg_install()
-    {
+    pkg_install() {
         vlicense COPYING
         vmove usr/bin/Xvfb
         vmove usr/share/man/man1/Xvfb.1
