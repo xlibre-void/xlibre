@@ -4,9 +4,9 @@ _pkgname=xf86-video-qxl
 version=25.0.0
 revision=1
 build_style=gnu-configure
-configure_args="--prefix=/usr --enable-xspice=yes"
+configure_args="--enable-xspice --prefix=/usr"
 hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool binutils"
-makedepends="xlibre-xserver-devel xlibre-xserver-common spice-protocol xorgproto gawk"
+makedepends="xlibre-xserver xlibre-xserver-devel xlibre-xserver-common spice-protocol xorgproto gawk"
 optdepends="python3"
 depends="virtual?xserver-abi-video-28_1 spice libXfont2"
 short_desc="XLibre fork of X.Org X11 qxl video driver"
