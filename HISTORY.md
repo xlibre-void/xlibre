@@ -33,7 +33,7 @@ xlibre/
 - xlibre-xf86-video-intel - Intel integrated graphics driver
 - xlibre-xf86-video-nouveau - Open-source NVIDIA driver
 - xlibre-xf86-video-nv - Legacy NVIDIA driver
-- xlibre-xf86-video-qxl - QEMU/KVM QXL driver (with Xspice support)
+- xlibre-xf86-video-qxl - QEMU/KVM QXL driver
 - xlibre-xf86-video-vmware - VMware SVGA driver
 - xlibre-xf86-video-fbdev - Framebuffer device driver
 - xlibre-xf86-video-vesa - Generic VESA driver
