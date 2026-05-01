@@ -173,5 +173,5 @@ jobs:
             ./hostdir/binpkgs/*.sig2
             ./hostdir/binpkgs/*repodata
             # ./hostdir/binpkgs/*.sha256sum
-            # ./hostdir/binpkgs/*.sha512sum            
-
+            # ./hostdir/binpkgs/*.sha512sum
+            
