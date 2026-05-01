@@ -172,4 +172,6 @@ jobs:
             ./hostdir/binpkgs/*.xbps            
             ./hostdir/binpkgs/*.sig2
             ./hostdir/binpkgs/*repodata
+            # ./hostdir/binpkgs/*.sha256sum
+            # ./hostdir/binpkgs/*.sha512sum            
 
