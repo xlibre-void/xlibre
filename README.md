@@ -40,6 +40,7 @@ Possible values: [flat, flat-square, plastic, badge, for-the-badge, social] -->
 
 <!-- x86_64-glibc, x86_64-musl -->
 > _**repository provides binary packages for:**_
+&nbsp;
 [![x85_64-glibc](https://img.shields.io/badge/x86__64-glibc-478061?style=plastic&colorA=363a4f&colorB)](#)
 &nbsp;
 [![x86_64-musl](https://img.shields.io/badge/x86__64-musl-478061?style=plastic&colorA=363a4f&colorB)](#) 
