@@ -1,12 +1,12 @@
 # Template file for 'xf86-video-intel'
 pkgname=xlibre-xf86-video-intel
 _pkgname=xf86-video-intel
-version=25.0.1
+version=25.0.2
 revision=1
 build_style=gnu-configure
 configure_args="--with-default-dri=3 --libexecdir=/usr/lib"
 hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool git"
-makedepends="xlibre-xserver-devel libXScrnSaver-devel libXcursor-devel libXinerama-devel libXrandr-devel libXtst-devel libXvMC-devel fakeroot gawk gettext pkgconf"
+makedepends="xlibre-xserver-devel libXScrnSaver-devel libXcursor-devel libXinerama-devel libXrandr-devel libXtst-devel libXvMC-devel fakeroot gawk gettext pkgconf" libXrandr-devel libXtst-devel libXvMC-devel"
 depends="virtual?xserver-abi-video-25_1 mesa-dri"
 short_desc="XLibre Intel video driver"
 maintainer="Sofiya <sofiya@v.com>"
@@ -15,7 +15,7 @@ conflicts="xf86-video-intel"
 replaces="xf86-video-intel>=0"
 homepage="https://github.com/X11Libre/xf86-video-intel"
 distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
-checksum=9b6ff841a7a921dcca50b3f6e01e84fab4ffba71677b83f8e82d10695bf59f5d
+checksum=e4513cf871374cc5df4d0ae5dcd2787539c38801295ab5a9b3470cf0dd193a43
 lib32disabled=yes
 
 CFLAGS="-fcommon"
@@ -28,4 +28,3 @@ pre_configure() {
 post_install() {
 	vlicense COPYING
 }
-
