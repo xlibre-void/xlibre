@@ -30,7 +30,6 @@
 [![GitHub forks](https://img.shields.io/github/forks/xlibre-void/xlibre?style=badge&logo=github&colorA=363a4f&colorB=purple)](#)
 [![GitHub last commit (branch)](https://img.shields.io/github/last-commit/xlibre-void/xlibre/main?style=badge&label=Last%20Commit&logo=git&logoColor=fff&colorA=363a4f&colorB=purple)](#)
 [![Discussions](https://img.shields.io/github/discussions/xlibre-void/xlibre?style=badge&label=Discussions&logo=github&logoColor=fff&colorA=363a4f&colorB=purple)](https://github.com/orgs/xlibre-void/discussions)
-[![Stars](https://img.shields.io/github/stars/you_know/xlibre-void/xlibre.svg?style=badge&logo=andela&colorA=363a4f&colorB=purple)](https://github.com/xlibre-void/xlibre/stargazers/you_know)
 
 <!-- style=for-the-badge / style string
 Possible values: [flat, flat-square, plastic, badge, for-the-badge, social] -->
