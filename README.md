@@ -182,7 +182,7 @@ wget -O - https://github.com/xlibre-void/xlibre/raw/refs/heads/main/install-xlib
 ### TODO
 
 - [x] Build and package Xlibre once a new version is released via GitHub Actions
--  
+- ▷ 
 
 <details>
 <summary><b>repo-key ► Click to expand</b></summary>
