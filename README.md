@@ -23,14 +23,14 @@
 [![GitHub release (with filter)](https://img.shields.io/github/v/release/xlibre-void/xlibre?style=badge&logo=github&label=Release&colorA=363a4f&colorB=purple)](https://github.com/xlibre-void/xlibre/releases)
 [![GitHub issues](https://img.shields.io/github/issues-raw/xlibre-void/xlibre?style=badge&label=Open%20Issues&logo=github&colorA=363a4f&colorB=purple)](https://github.com/xlibre-void/xlibre/issues?q=sort%3Aupdated-desc+is%3Aissue+is%3Aopen)
 [![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/xlibre-void/xlibre?style=badge&label=Closed%20Issues&logo=github&colorA=363a4f&colorB=purple)](https://github.com/xlibre-void/xlibre/issues?q=sort%3Aupdated-desc%20is%3Aissue%20state%3Aclosed)
-<!--
+
 [![GitHub tag](https://img.shields.io/github/v/tag/xlibre-void/xlibre?style=badge&logo=github&colorA=363a4f&colorB=purple)](https://github.com/xlibre-void/xlibre/tags)
 [![Stars](https://img.shields.io/github/stars/xlibre-void/xlibre.svg?style=badge&logo=andela&colorA=363a4f&colorB=purple)](https://github.com/xlibre-void/xlibre/stargazers)
 [![GitHub watchers](https://img.shields.io/github/watchers/xlibre-void/xlibre?style=badge&logo=github&colorA=363a4f&colorB=purple)](https://github.com/xlibre-void/xlibre/watchers)
 [![GitHub forks](https://img.shields.io/github/forks/xlibre-void/xlibre?style=badge&logo=github&colorA=363a4f&colorB=purple)](#)
 [![GitHub last commit (branch)](https://img.shields.io/github/last-commit/xlibre-void/xlibre/main?style=badge&label=Last%20Commit&logo=git&logoColor=fff&colorA=363a4f&colorB=purple)](#)
 [![Discussions](https://img.shields.io/github/discussions/xlibre-void/xlibre?style=badge&label=Discussions&logo=github&logoColor=fff&colorA=363a4f&colorB=purple)](https://github.com/orgs/xlibre-void/discussions)
--->
+
 <!-- style=for-the-badge / style string
 Possible values: [flat, flat-square, plastic, badge, for-the-badge, social] -->
 
