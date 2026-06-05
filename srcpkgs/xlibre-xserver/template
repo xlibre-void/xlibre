@@ -43,6 +43,7 @@ pre_configure() {
 
 post_install() {
     vinstall ${FILESDIR}/Xwrapper.config 644 etc/X11
+    vinstall ${FILESDIR}/usr/share/X11/xorg.conf.d/10-{nvidia,nvidia-modules,quirks}.conf
     vlicense COPYING
     chmod 4755 ${DESTDIR}/usr/libexec/Xorg.wrap
     find "${DESTDIR}"/usr/share/man -type f -iname '*[1-5].gz' -exec gunzip '{}' \;
