@@ -43,7 +43,7 @@ pre_configure() {
 
 post_install() {
     vinstall ${FILESDIR}/Xwrapper.config 644 etc/X11
-    #vinstall ${FILESDIR}fakeinstall/usr/share/X11/xorg.conf.d/10-{nvidia,nvidia-modules,quirks}.conf
+    #vinstall ${FILESDIR}/usr/share/X11/xorg.conf.d/10-{nvidia,nvidia-modules,quirks}.conf
     #vinstall ${FILESDIR}/usr/share/X11/xorg.conf.d/quirks.conf ${DESTDIR}/usr/share/X11/xorg.conf.d/quirks.conf
     #vinstall ${FILESDIR}/usr/share/X11/xorg.conf.d/10-nvidia.conf ${DESTDIR}/usr/share/X11/xorg.conf.d/10-nvidia.conf
     #vinstall ${FILESDIR}/usr/share/X11/xorg.conf.d/10-nvidia-modules.conf ${DESTDIR}/usr/share/X11/xorg.conf.d/10-nvidia-modules.conf
