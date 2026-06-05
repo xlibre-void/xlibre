@@ -43,9 +43,14 @@ pre_configure() {
 
 post_install() {
     vinstall ${FILESDIR}/Xwrapper.config 644 etc/X11
-    vinstall ${FILESDIR}/usr/share/X11/xorg.conf.d/10-{nvidia,nvidia-modules,quirks}.conf
+    #vinstall ${FILESDIR}fakeinstall/usr/share/X11/xorg.conf.d/10-{nvidia,nvidia-modules,quirks}.conf
+    #vinstall ${FILESDIR}/usr/share/X11/xorg.conf.d/quirks.conf ${DESTDIR}/usr/share/X11/xorg.conf.d/quirks.conf
+    #vinstall ${FILESDIR}/usr/share/X11/xorg.conf.d/10-nvidia.conf ${DESTDIR}/usr/share/X11/xorg.conf.d/10-nvidia.conf
+    #vinstall ${FILESDIR}/usr/share/X11/xorg.conf.d/10-nvidia-modules.conf ${DESTDIR}/usr/share/X11/xorg.conf.d/10-nvidia-modules.conf
     vlicense COPYING
     chmod 4755 ${DESTDIR}/usr/libexec/Xorg.wrap
+    rm -f ${DESTDIR}/etc/X11/xorg.conf.d/10-nvidia.conf.debian
+    rm -f ${DESTDIR}/etc/X11/xorg.conf.d/10-nvidia-modules.conf.debian
     find "${DESTDIR}"/usr/share/man -type f -iname '*[1-5].gz' -exec gunzip '{}' \;
     pkg_install()
     {
@@ -108,6 +113,8 @@ xlibre-xserver-devel_package() {
      depends="${makedepends}"
      conflicts="xorg-server-devel"
      replaces="xorg-server-devel>=0"
+     rm -f ${DESTDIR}/etc/X11/xorg.conf.d/10-nvidia.conf.debian
+     rm -f ${DESTDIR}/etc/X11/xorg.conf.d/10-nvidia-modules.conf.debian
      pkg_install() {
          vlicense COPYING
          vmove usr/include
