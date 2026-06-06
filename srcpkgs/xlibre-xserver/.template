@@ -46,8 +46,9 @@ post_install() {
     vlicense COPYING
     chmod 4755 ${DESTDIR}/usr/libexec/Xorg.wrap
     find "${DESTDIR}"/usr/share/man -type f -iname '*[1-5].gz' -exec gunzip '{}' \;
-    pkg_install()
-    {
+    rm -f ${DESTDIR}/etc/X11/xorg.conf.d/10-nvidia.conf.debian
+    rm -f ${DESTDIR}/etc/X11/xorg.conf.d/10-nvidia-modules.conf.debian
+    pkg_install() {
         vmove usr/lib/xorg/protocol.txt
     }
 }
@@ -57,8 +58,7 @@ xlibre-xserver-xnest_package() {
     # depends="libXfont2 libunwind libXext pixman nettle libtirpc libXdmcp libX11 libXau"
     conflicts="xorg-server-xnest"
     replaces="xorg-server-xnest>=0"
-    pkg_install()
-    {
+    pkg_install() {
         vlicense COPYING
         vmove usr/bin/Xnest
         vmove usr/share/man/man1/Xnest.1
@@ -70,8 +70,7 @@ xlibre-xserver-xephyr_package() {
     # depends="libXfont2 libglvnd libepoxy libunwind xcb-util-image xcb-util-renderutil xcb-util-wm xcb-util-keysyms pixman nettle libtirpc xcb-util libXdmcp libX11 libXau libxshmfence"
     conflicts="xorg-server-xephyr"
     replaces="xorg-server-xephyr>=0"
-    pkg_install()
-    {
+    pkg_install() {
         vlicense COPYING
         vmove usr/bin/Xephyr
         vmove usr/share/man/man1/Xephyr.1
@@ -83,8 +82,7 @@ xlibre-xserver-xvfb_package() {
     # depends="libXfont2 libunwind pixman xauth libglvnd nettle libtirpc libXdmcp libXau xkeyboard-config"
     conflicts="xorg-server-xvfb"
     replaces="xorg-server-xvfb>=0"
-    pkg_install()
-    {
+    pkg_install() {
         vlicense COPYING
         vmove usr/bin/Xvfb
         vmove usr/share/man/man1/Xvfb.1
