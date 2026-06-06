@@ -1,0 +1,61 @@
+diff --git a/hw/xfree86/common/xf86Events.c b/hw/xfree86/common/xf86Events.c
+index 5f593e4f9..01491b558 100644
+--- a/hw/xfree86/common/xf86Events.c
++++ b/hw/xfree86/common/xf86Events.c
+@@ -377,8 +377,8 @@ void xf86DisableGeneralHandler(void *handler) {
+     _xf86DisableGeneralHandler(handler);
+ }
+ 
+-static void
+-xf86VTLeave(void)
++_X_EXPORT /* For libseat */
++void xf86VTLeave(void)
+ {
+     int i;
+     InputInfoPtr pInfo;
+diff --git a/hw/xfree86/common/xf86_priv.h b/hw/xfree86/common/xf86_priv.h
+index be01c40f9..ca13e3f1a 100644
+--- a/hw/xfree86/common/xf86_priv.h
++++ b/hw/xfree86/common/xf86_priv.h
+@@ -64,6 +64,7 @@ InputHandlerProc xf86SetConsoleHandler(InputHandlerProc 
+handler, void *data);
+ void xf86ProcessActionEvent(ActionEvent action, void *arg);
+ Bool xf86VTOwner(void);
+ void xf86VTEnter(void);
++_X_EXPORT void xf86VTLeave(void);
+ void xf86EnableInputDeviceForVTSwitch(InputInfoPtr pInfo);
+ void xf86Wakeup(void *blockData, int err);
+ void xf86HandlePMEvents(int fd, void *data);
+diff --git a/hw/xfree86/os-support/linux/seatd-libseat.c 
+b/hw/xfree86/os-support/linux/seatd-libseat.c
+index ba2005db4..15b424bbe 100644
+--- a/hw/xfree86/os-support/linux/seatd-libseat.c
++++ b/hw/xfree86/os-support/linux/seatd-libseat.c
+@@ -35,11 +35,13 @@
+ #include <errno.h>
+ #include <libseat.h>
+ 
++#include "config/hotplug_priv.h"
+ #include "os.h"
+ #include "linux.h"
+ #include "xf86.h"
+ #include "xf86platformBus.h"
+ #include "xf86Xinput.h"
++#include "xf86_priv.h"
+ #include "xf86Priv.h"
+ #include "globals.h"
+ #include "seatd-libseat.h"
+diff --git a/hw/xfree86/os-support/linux/seatd-libseat.h 
+b/hw/xfree86/os-support/linux/seatd-libseat.h
+index 155f20d9e..a431766a8 100644
+--- a/hw/xfree86/os-support/linux/seatd-libseat.h
++++ b/hw/xfree86/os-support/linux/seatd-libseat.h
+@@ -28,7 +28,7 @@
+ #define SEATD_LIBSEAT_H
+ 
+ #ifdef SEATD_LIBSEAT
+-#include <xf86Xinput.h>
++#include <xf86Xinput_priv.h>
+ extern int seatd_libseat_init(void);
+ extern void seatd_libseat_fini(void);
+ extern int seatd_libseat_open_graphics(const char *path);
