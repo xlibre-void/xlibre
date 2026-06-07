@@ -1,0 +1,12 @@
+diff --git a/os/osdep.h_ b/os/osdep.h
+index ff96187..448fb9f 100644
+--- a/os/osdep.h_
++++ b/os/osdep.h
+@@ -75,6 +75,7 @@ SOFTWARE.
+ 
+ #include "dix.h"
+ #include "ospoll.h"
++#include <errno.h>
+ 
+ extern struct ospoll    *server_poll;
+ 
