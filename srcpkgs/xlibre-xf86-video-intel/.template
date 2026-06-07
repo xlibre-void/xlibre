@@ -5,7 +5,7 @@ version=${VERSION}
 revision=2
 build_style=gnu-configure
 configure_args="--with-default-dri=3 --libexecdir=/usr/lib"
-hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool git"
+hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool gawk git"
 makedepends="xlibre-xserver-devel libXScrnSaver-devel libXcursor-devel libXinerama-devel libXrandr-devel libXtst-devel libXvMC-devel fakeroot gawk gettext pkgconf valgrind-devel libXdamage-devel libXxf86vm-devel"
 depends="virtual?xserver-abi-video-25_1 mesa-dri"
 short_desc="XLibre Intel video driver"
