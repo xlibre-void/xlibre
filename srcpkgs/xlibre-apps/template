@@ -19,4 +19,3 @@ license="Public Domain"
 homepage="https://github.com/X11Libre/xserver/wiki"
 conflicts="xorg-apps"
 replaces="xorg-apps>=0"
-

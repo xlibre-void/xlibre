@@ -5,7 +5,7 @@ version=${VERSION}
 revision=1
 build_style=gnu-configure
 configure_args="--prefix=/usr"
-hostmakedepends="pkg-config xorg-util-macros automake autoconf libtool gawk"
+hostmakedepends="pkg-config xorg-util-macros automake autoconf libtool"
 makedepends="xlibre-xserver-devel spice-protocol xorgproto gawk"
 depends="virtual?xserver-abi-video-25_1"
 short_desc="XLibre fork of X.Org X11 qxl video driver"

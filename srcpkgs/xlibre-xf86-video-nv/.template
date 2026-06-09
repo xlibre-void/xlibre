@@ -5,7 +5,7 @@ version=${VERSION}
 revision=1
 build_style=gnu-configure
 configure_args="--prefix=/usr"
-hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool gawk"
+hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool"
 makedepends="xlibre-xserver-devel libXi-devel xorgproto gawk"
 depends="virtual?xserver-abi-video-25_1 mesa-dri"
 short_desc="NVIDIA video driver for the XLibre X server"

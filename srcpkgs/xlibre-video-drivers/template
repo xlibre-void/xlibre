@@ -19,3 +19,4 @@ case "$XBPS_TARGET_MACHINE" in
 	armv[56]*|aarch64*|mips*) ;;
 	*) depends+=" xlibre-xf86-video-ati xlibre-xf86-video-amdgpu xlibre-xf86-video-nouveau" ;;
 esac
+

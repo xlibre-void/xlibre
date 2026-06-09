@@ -3,43 +3,9 @@ pkgname=xlibre-xserver
 version=25.1.6
 revision=2
 build_style=meson
-configure_args="
-  -Dipv6=true 
-  -Dxorg=true 
-  -Dxnest=true 
-  -Dxephyr=true 
-  -Dxfbdev=true 
-  -Dxvfb=true 
-  -Dhal=false 
-  -Dudev=true 
-  -Dxkb_dir=/usr/share/X11/xkb 
-  -Dxkb_output_dir=/var/lib/xkb 
-  -Dlinux_acpi=true 
-  -Dlinux_apm=false 
-  -Dsuid_wrapper=true 
-  -Dxcsecurity=true 
-  -Dglamor=true 
-  -Ddri2=true 
-  -Ddri3=true 
-  -Dglx=true 
-  -Dsystemd_logind=$(vopt_if elogind true false)
- "
+configure_args="-Dipv6=true -Dxorg=true -Dxnest=true -Dxephyr=true -Dxfbdev=true -Dxvfb=true -Dhal=false -Dudev=true -Dxkb_dir=/usr/share/X11/xkb -Dxkb_output_dir=/var/lib/xkb -Dlinux_acpi=true -Dlinux_apm=false -Dsuid_wrapper=true -Dxcsecurity=true -Dglamor=true -Ddri2=true -Ddri3=true -Dglx=true -Dsystemd_logind=$(vopt_if elogind true false)"
 hostmakedepends="pkg-config xkbcomp flex xorgproto gawk cmake xtrans"
-makedepends="MesaLib-devel libXaw-devel libXfont2-devel libXrender-devel libXres-devel libXtst-devel libXv-devel libXxf86dga-devel libdmx-devel libepoxy-devel openssl-devel libtirpc-devel libxkbfile-devel libxkbui-devel libxshmfence-devel pixman-devel xcb-util-image-devel xcb-util-keysyms-devel xcb-util-renderutil-devel xcb-util-wm-devel xcb-util-devel nettle-devel libxcvt-devel libX11-devel libXmu-devel libXfixes-devel libXinerama-devel libXdmcp-devel libXt-devel libXi-devel libXrandr-devel libXext-devel libXau-devel libxkbcommon-devel libpciaccess-devel libgbm-devel libdrm-devel libXpm-devel libbsd-devel eudev-libudev-devel xkbcomp xtrans xorgproto gawk font-util $(vopt_if elogind 'dbus-devel')"
-makedepends="
-  MesaLib-devel libXaw-devel libXfont2-devel libXrender-devel 
-  libXres-devel libXtst-devel libXv-devel libXxf86dga-devel 
-  libdmx-devel libepoxy-devel openssl-devel libtirpc-devel 
-  libxkbfile-devel libxkbui-devel libxshmfence-devel pixman-devel 
-  xcb-util-image-devel xcb-util-keysyms-devel xcb-util-renderutil-devel xcb-util-wm-devel 
-  xcb-util-devel nettle-devel libxcvt-devel libX11-devel 
-  libXmu-devel libXfixes-devel libXinerama-devel libXdmcp-devel 
-  libXt-devel libXi-devel libXrandr-devel libXext-devel 
-  libXau-devel libxkbcommon-devel libpciaccess-devel libgbm-devel 
-  libdrm-devel libXpm-devel libbsd-devel  
-  xkbcomp xtrans xorgproto font-util 
-  eudev-libudev-devel $(vopt_if elogind 'dbus-devel')
- "
+makedepends="MesaLib-devel libXaw-devel libXfont2-devel libXrender-devel libXres-devel libXtst-devel libXv-devel libXxf86dga-devel libdmx-devel libepoxy-devel openssl-devel libtirpc-devel libxkbfile-devel libxkbui-devel libxshmfence-devel pixman-devel xcb-util-image-devel xcb-util-keysyms-devel xcb-util-renderutil-devel xcb-util-wm-devel xcb-util-devel nettle-devel libxcvt-devel libX11-devel libXmu-devel libXfixes-devel libXinerama-devel libXdmcp-devel libXt-devel libXi-devel libXrandr-devel libXext-devel libXau-devel libxkbcommon-devel libpciaccess-devel libgbm-devel libdrm-devel libXpm-devel libbsd-devel eudev-libudev-devel xkbcomp xtrans xorgproto font-util $(vopt_if elogind 'dbus-devel')"
 depends="xkeyboard-config $(vopt_if elogind 'elogind') xlibre-xserver-common"
 short_desc="Fork of Xorg with lots of code cleanups and enhanced functionality"
 maintainer="Sofiya <sofiya@v.com>"
@@ -55,6 +21,7 @@ build_options="elogind"
 desc_option_elogind="Rootless XLibre support with elogind"
 conflicts="xorg-server"
 lib32disabled=yes
+
 
 # disable VBE on non-x86 systems
 case "$XBPS_TARGET_MACHINE" in
