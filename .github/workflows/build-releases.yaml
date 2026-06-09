@@ -21,6 +21,7 @@ jobs:
         ARCH: '${{ matrix.config.arch }}'
         BOOTSTRAP: '${{ matrix.config.host }}'
         TEST: '${{ matrix.config.test }}'
+        BUILD_ARGS: ""
     strategy:
       fail-fast: false
       matrix:
@@ -154,7 +155,7 @@ jobs:
             fi
 
             if [ "$BOOTSTRAP" != "$ARCH" ]; then
-                arch="-A $ARCH"
+                arch="-a $ARCH"
             fi
 
             if [ "$TEST" = 1 ]; then
@@ -165,14 +166,23 @@ jobs:
             built=""
             failed=""
 
+            #for pkg in ${PKGS}; do
+            #    if sudo -Eu builder ./xbps-src -j"$(nproc)" -s $arch $test pkg "${pkg}"; then
+            #        built="$built $pkg"
+            #    else
+            #        echo "!! build failed for ${pkg}"
+            #        failed="$failed $pkg"
+            #    fi
+            #done
+
             for pkg in ${PKGS}; do
-                if sudo -Eu builder ./xbps-src -j"$(nproc)" -s $arch $test pkg "${pkg}"; then
+                if sudo -Eu builder $BUILD_ARGS ./xbps-src -j"$(nproc)" -s $arch $test pkg "${pkg}"; then
                     built="$built $pkg"
                 else
                     echo "!! build failed for ${pkg}"
                     failed="$failed $pkg"
                 fi
-            done
+            done            
 
             built="${built%% }"
             failed="${failed%% }"
