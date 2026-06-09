@@ -154,7 +154,7 @@ jobs:
             fi
 
             if [ "$BOOTSTRAP" != "$ARCH" ]; then
-                arch="-a $ARCH"
+                arch="-A $ARCH"
             fi
 
             if [ "$TEST" = 1 ]; then
@@ -166,7 +166,7 @@ jobs:
             failed=""
 
             for pkg in ${PKGS}; do
-                if sudo -Eu builder ./xbps-src -j"$(nproc)" -a $arch $test pkg "${pkg}"; then
+                if sudo -Eu builder ./xbps-src -j"$(nproc)" -s -H $arch $test pkg "${pkg}"; then
                     built="$built $pkg"
                 else
                     echo "!! build failed for ${pkg}"
