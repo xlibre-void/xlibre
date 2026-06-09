@@ -3,7 +3,7 @@ name: "Build Latest Packages"
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 jobs:
