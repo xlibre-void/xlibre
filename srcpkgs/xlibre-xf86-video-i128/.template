@@ -5,7 +5,7 @@ version=${VERSION}
 revision=1
 build_style=gnu-configure
 configure_args="--prefix=/usr --disable-dri"
-hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool git"
+hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool git gawk"
 makedepends="xlibre-xserver-devel expat-devel libdrm-devel libXi-devel xorgproto gawk pkgconf"
 depends="virtual?xserver-abi-video-25_1"
 short_desc="Xlibre ATI Rage128 video driver"

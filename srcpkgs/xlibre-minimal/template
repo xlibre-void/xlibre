@@ -17,3 +17,4 @@ maintainer="Sofiya <sofiya@v.com>"
 license="MIT"
 conflicts="xorg-minimal"
 replaces="xorg-minimal>=0"
+
