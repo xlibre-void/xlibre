@@ -1,0 +1,34 @@
+# Template file for 'xf86-video-openchrome'
+pkgname=xlibre-xf86-video-openchrome
+_pkgname=xf86-video-openchrome
+version=25.0.0
+revision=1
+build_style=gnu-configure
+configure_args="--prefix=/usr"
+hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool"
+makedepends="xlibre-xserver-devel libXvMC-devel xorgproto fakeroot m4 gawk gettext pkgconf"
+depends="virtual?xserver-abi-video-25_1"
+short_desc="XLibre fork of X.Org driver for VIA IGPs"
+maintainer="Sofiya <sofiya@v.com>"
+license="MIT"
+conflicts="xf86-video-openchrome"
+replaces="xf86-video-openchrome>=0"
+homepage="https://github.com/X11Libre/xf86-video-openchrome"
+distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
+checksum=8e14401a2160c6a7174b09875b4f87d2ad92cecad51e4762fc8739a536cb835a
+lib32disabled=yes
+
+CFLAGS="-I$XBPS_CROSS_BASE/usr/include/xorg -fcommon"
+LDFLAGS="-Wl,-z,lazy"
+
+case "$XBPS_TARGET_MACHINE" in
+	arm*|aarch*) broken="requires sarea.h which isn't present in cross-compiled arm" ;;
+esac
+
+pre_configure() {
+  NOCONFIGURE=1 ./autogen.sh
+}
+
+post_install() {
+	vlicense COPYING
+}
