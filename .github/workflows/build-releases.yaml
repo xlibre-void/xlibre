@@ -166,7 +166,7 @@ jobs:
             failed=""
 
             for pkg in ${PKGS}; do
-                if sudo -Eu builder ./xbps-src -j"$(nproc)" -s $arch $test pkg "${pkg}"; then
+                if sudo -Eu builder ./xbps-src -j"$(nproc)" -a $arch $test pkg "${pkg}"; then
                     built="$built $pkg"
                 else
                     echo "!! build failed for ${pkg}"
