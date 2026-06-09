@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build Hyprland
+    name: Build Xlibre
     runs-on: ubuntu-latest
 
     container:
