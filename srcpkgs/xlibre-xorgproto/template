@@ -5,8 +5,8 @@ _pkgname=xorgproto
 revision=1
 build_style=meson
 configure_args="-Dlegacy=true"
-hostmakedepends="xlibre-util-macros"
-# makedepends=""
+hostmakedepends="xlibre-util-macros git"
+makedepends="xlibre-util-macros git"
 short_desc="X Window System Unified Protocol"
 maintainer="Sofiya <sofiya@v.org>"
 license="MIT"

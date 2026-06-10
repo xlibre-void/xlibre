@@ -24,7 +24,7 @@ configure_args="
   -Dglx=true
   -Dsystemd_logind=$(vopt_if elogind true false)
  "
-hostmakedepends="pkg-config xkbcomp flex xorgproto gawk cmake xtrans"
+hostmakedepends="pkg-config xkbcomp flex xorgproto gawk cmake xtrans git"
 makedepends="
   MesaLib-devel libXaw-devel libXfont2-devel libXrender-devel
   libXres-devel libXtst-devel libXv-devel libXxf86dga-devel
@@ -36,7 +36,7 @@ makedepends="
   libXt-devel libXi-devel libXrandr-devel libXext-devel
   libXau-devel libxkbcommon-devel libpciaccess-devel libgbm-devel
   libdrm-devel libXpm-devel libbsd-devel
-  xkbcomp xtrans xorgproto font-util
+  xkbcomp xtrans xorgproto font-util git gawk
   eudev-libudev-devel $(vopt_if elogind 'dbus-devel')
  "
 depends="xkeyboard-config $(vopt_if elogind 'elogind') xlibre-xserver-common"
