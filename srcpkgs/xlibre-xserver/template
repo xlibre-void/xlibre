@@ -40,6 +40,7 @@ makedepends="
   eudev-libudev-devel $(vopt_if elogind 'dbus-devel')
  "
 depends="xkeyboard-config $(vopt_if elogind 'elogind') xlibre-xserver-common"
+checkdepends="xkeyboard-config $depends"
 short_desc="Fork of Xorg with lots of code cleanups and enhanced functionality"
 maintainer="Sofiya <sofiya@v.com>"
 license="MIT, BSD-3-Clause"
