@@ -2,7 +2,7 @@
 pkgname=xlibre-xf86-video-mga
 _pkgname=xf86-video-mga
 version=25.0.0
-revision=1
+revision=2
 build_style=gnu-configure
 hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool git"
 makedepends="xlibre-xserver-devel xorgproto fakeroot gawk gettext pkgconf"

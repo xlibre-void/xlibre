@@ -2,7 +2,7 @@
 pkgname=xlibre-xf86-input-libinput
 _pkgname=xf86-input-libinput
 version=25.0.1
-revision=1
+revision=2
 build_style=meson
 hostmakedepends="pkg-config git"
 makedepends="xlibre-xserver-devel libXi-devel libinput-devel libX11-devel gawk gettext xorgproto libXfont2-devel pixman-devel autoconf automake libtool"

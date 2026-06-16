@@ -2,7 +2,7 @@
 pkgname=xlibre-xf86-input-wacom
 _pkgname=xf86-input-wacom
 version=${VERSION}
-revision=1
+revision=2
 build_style=meson
 # build_style=gnu-configure
 hostmakedepends="pkg-config git"

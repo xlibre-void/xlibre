@@ -1,7 +1,7 @@
 # Template file for 'xlibre-xserver'
 pkgname=xlibre-xserver
 version=${VERSION}
-revision=2
+revision=1
 build_style=meson
 configure_args="
   -Dipv6=true

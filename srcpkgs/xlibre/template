@@ -12,4 +12,3 @@ conflicts="xorg"
 replaces="xorg>=0"
 # Trigger musl build test
 # Trigger signing test
-

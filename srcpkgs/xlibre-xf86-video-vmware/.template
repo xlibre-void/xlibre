@@ -2,7 +2,7 @@
 pkgname=xlibre-xf86-video-vmware
 _pkgname=xf86-video-vmware
 version=${VERSION}
-revision=1
+revision=2
 build_style=gnu-configure
 configure_args="--prefix=/usr --enable-vmwarectrl-client"
 hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool git"

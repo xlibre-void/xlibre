@@ -2,7 +2,7 @@
 pkgname=xlibre-xf86-video-intel
 _pkgname=xf86-video-intel
 version=${VERSION}
-revision=2
+revision=3
 build_style=gnu-configure
 configure_args="--with-default-dri=3 --libexecdir=/usr/lib"
 hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool gawk git"

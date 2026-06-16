@@ -2,7 +2,7 @@
 pkgname=xlibre-xf86-input-joystick
 _pkgname=xf86-input-joystick
 version=${VERSION}
-revision=1
+revision=2
 build_style=gnu-configure
 configure_args="--prefix=/usr"
 hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool git"
