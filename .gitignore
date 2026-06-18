@@ -21,7 +21,3 @@
 .vscode/*
 *.vsix
 .history/
-
-hostdir/
-masterdir-x86_64/
-.*
