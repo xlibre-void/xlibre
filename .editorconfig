@@ -1,0 +1,22 @@
+# EditorConfig is awesome: https://editorconfig.org
+
+# top-most EditorConfig file
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{diff,patch}]
+charset = unset
+end_of_line = unset
+indent_style = unset
+trim_trailing_whitespace = unset
+
+[*.md]
+max_line_length = 0
+trim_trailing_whitespace = false
