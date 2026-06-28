@@ -11,6 +11,8 @@ depends="virtual?xserver-abi-input-24_1"
 short_desc="XLibre fork of X.Org Elographics TouchScreen input driver"
 maintainer="Sofiya <sofiya@v.com>"
 license="MIT"
+conflicts="xf86-input-elographics"
+replaces="xf86-input-elographics>=0"
 homepage="https://github.com/X11Libre/xf86-input-elographics"
 distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
 checksum=0c2a82881199a08ec6236e1338f7699ea42d82cad2fafc99e9869644e8240e9b

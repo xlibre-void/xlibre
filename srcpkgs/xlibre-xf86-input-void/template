@@ -11,6 +11,8 @@ depends="virtual?xserver-abi-input-24_1"
 short_desc="XLibre fork of X.Org void input driver"
 maintainer="Sofiya <sofiya@v.com>"
 license="custom"
+conflicts="xf86-input-void"
+replaces="xf86-input-void>=0"
 homepage="https://github.com/X11Libre/xf86-input-void"
 distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
 checksum=2b242b55e429c25e31ca884dedf43bb60be4dbdd0a7ff015f10fa23cd6e08064

@@ -11,6 +11,8 @@ depends="virtual?xserver-abi-video-25_1"
 short_desc="Xlibre ATI Rage128 video driver"
 maintainer="Sofiya <sofiya@v.com>"
 license="X11"
+conflicts="xf86-video-i128"
+replaces="xf86-video-i128>=0"
 homepage="https://github.com/X11Libre/xf86-video-i128"
 distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
 checksum=8429acab3df07ea0ea8d1f6d2584abd6bfe877c533cf21adebad95ef9d799b4c

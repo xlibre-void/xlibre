@@ -47,7 +47,7 @@ license="MIT, BSD-3-Clause"
 homepage="https://x11libre.net/"
 distfiles="https://github.com/X11Libre/xserver/archive/refs/tags/xlibre-xserver-${version}.tar.gz"
 checksum=18091f53e8700801b61f0d20c30d850d1060cb31f6a0d2046249bb413809ae16
-provides="xserver-abi-extension-10_1 xserver-abi-input-24_1 xserver-abi-video-25_1 xf86-video-modesetting-1_1"
+provides="xorg-server-${version}_${revision} xserver-abi-extension-10_1 xserver-abi-input-24_1 xserver-abi-video-25_1 xf86-video-modesetting-1_1"
 # provides="xserver-abi-extension-11_1 xserver-abi-input-26_1 xserver-abi-video-28_1 xf86-video-modesetting-1_1"
 replaces="xf86-video-modesetting>=0 glamor-egl>=0"
 conf_files="/etc/X11/Xwrapper.config"
@@ -90,8 +90,8 @@ post_install() {
 xlibre-xserver-xnest_package() {
     short_desc="Nested X server that runs as an X application"
     # depends="libXfont2 libunwind libXext pixman nettle libtirpc libXdmcp libX11 libXau"
+    provides="xorg-server-xnest-${version}_${revision}"
     conflicts="xorg-server-xnest"
-    replaces="xorg-server-xnest>=0"
     pkg_install() {
         vlicense COPYING
         vmove usr/bin/Xnest
@@ -102,8 +102,8 @@ xlibre-xserver-xnest_package() {
 xlibre-xserver-xephyr_package() {
     short_desc="X server outputting to a window on a pre-existing X display"
     # depends="libXfont2 libglvnd libepoxy libunwind xcb-util-image xcb-util-renderutil xcb-util-wm xcb-util-keysyms pixman nettle libtirpc xcb-util libXdmcp libX11 libXau libxshmfence"
+    provides="xorg-server-xephyr-${version}_${revision}"
     conflicts="xorg-server-xephyr"
-    replaces="xorg-server-xephyr>=0"
     pkg_install() {
         vlicense COPYING
         vmove usr/bin/Xephyr
@@ -114,8 +114,8 @@ xlibre-xserver-xephyr_package() {
 xlibre-xserver-xvfb_package() {
     short_desc="Virtual framebuffer X server"
     # depends="libXfont2 libunwind pixman xauth libglvnd nettle libtirpc libXdmcp libXau xkeyboard-config"
+    provides="xorg-server-xvfb-${version}_${revision}"
     conflicts="xorg-server-xvfb"
-    replaces="xorg-server-xvfb>=0"
     pkg_install() {
         vlicense COPYING
         vmove usr/bin/Xvfb
@@ -137,8 +137,8 @@ xlibre-xserver-common_package() {
 xlibre-xserver-devel_package() {
      short_desc+=" - development files"
      depends="${makedepends}"
+     provides="xorg-server-devel-${version}_${revision}"
      conflicts="xorg-server-devel"
-     replaces="xorg-server-devel>=0"
      pkg_install() {
          vlicense COPYING
          vmove usr/include

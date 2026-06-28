@@ -11,6 +11,8 @@ depends="virtual?xserver-abi-video-25_1"
 short_desc="XLibre fork of s3virge video driver"
 maintainer="Sofiya <sofiya@v.com>"
 license="X11"
+conflicts="xf86-video-s3virge"
+replaces="xf86-video-s3virge>=0"
 homepage="https://github.com/X11Libre/xf86-video-s3virge"
 distfiles="https://github.com/X11Libre/xf86-video-s3virge/archive/refs/tags/${pkgname}-${version}.tar.gz"
 checksum=eee7cf3dc9859e037dfa3bf82cc14cdbea4ccdf7813bd0f59a8a837886d68943
