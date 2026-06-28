@@ -1,7 +1,7 @@
 # Template file for 'xlibre-xserver'
 pkgname=xlibre-xserver
 version=25.1.8
-revision=1
+revision=2
 build_style=meson
 configure_args="
   -Dipv6=true
@@ -39,7 +39,7 @@ makedepends="
   xkbcomp xtrans xorgproto font-util git gawk
   eudev-libudev-devel $(vopt_if elogind 'dbus-devel')
  "
-depends="xkeyboard-config $(vopt_if elogind 'elogind') xlibre-xserver-common"
+depends="xkeyboard-config $(vopt_if elogind 'elogind')"
 checkdepends="xkeyboard-config $depends"
 short_desc="Fork of Xorg with lots of code cleanups and enhanced functionality"
 maintainer="Sofiya <sofiya@v.com>"
