@@ -1,9 +1,8 @@
 # ---------------------------------------------------------
 # GitHub Linguist configuration
-# Force the file named "template" or ".template" to be treated as Bash
+# Force the file named "template" to be treated as Bash
 # ---------------------------------------------------------
 template linguist-language=bash
-.template linguist-language=bash
 update.sh linguist-language=bash
 #
 # ---------------------------------------------------------
