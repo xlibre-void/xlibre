@@ -4,6 +4,7 @@
 # ---------------------------------------------------------
 template linguist-language=bash
 update.sh linguist-language=bash
+
 #
 # ---------------------------------------------------------
 # Whitespace rules for diff/patch files
