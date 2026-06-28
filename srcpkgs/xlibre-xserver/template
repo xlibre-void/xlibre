@@ -127,7 +127,7 @@ xlibre-xserver-common_package() {
     short_desc+="- common files"
     # conflicts="xorg-server-common"
     replaces="xorg-server-common>=0"
-    provides="xlibre-xserver-common"
+    # provides="xlibre-xserver-common"
     pkg_install() {
         vlicense COPYING
         vmove usr/lib/xorg/protocol.txt
