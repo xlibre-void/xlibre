@@ -1,6 +1,6 @@
 # Template file for 'xlibre-xserver'
 pkgname=xlibre-xserver
-version=25.1.7
+version=25.1.8
 revision=1
 build_style=meson
 configure_args="
@@ -46,7 +46,7 @@ maintainer="Sofiya <sofiya@v.com>"
 license="MIT, BSD-3-Clause"
 homepage="https://x11libre.net/"
 distfiles="https://github.com/X11Libre/xserver/archive/refs/tags/xlibre-xserver-${version}.tar.gz"
-checksum=f1c93df3973e1ddc0aecf498666c8d308584728a9b5cd76551b53288c4ee9f7f
+checksum=18091f53e8700801b61f0d20c30d850d1060cb31f6a0d2046249bb413809ae16
 provides="xserver-abi-extension-10_1 xserver-abi-input-24_1 xserver-abi-video-25_1 xf86-video-modesetting-1_1"
 # provides="xserver-abi-extension-11_1 xserver-abi-input-26_1 xserver-abi-video-28_1 xf86-video-modesetting-1_1"
 replaces="xf86-video-modesetting>=0 glamor-egl>=0"
