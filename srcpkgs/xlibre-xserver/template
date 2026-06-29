@@ -1,4 +1,4 @@
-# Template file for 'xorg-server'
+# Template file for 'xlibre-xserver'
 pkgname=xlibre-xserver
 version=25.1.8
 revision=3
