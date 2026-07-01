@@ -75,6 +75,7 @@ _**OctoXBPS** is a graphical user interface (GUI) for the XBPS (The X Binary Pac
 _You should now be able search through all xlibre related packages provided by this repository, and install packages as usual:_
 
 ```shell
+# search for packages
 sudo xbps-query -Rs xlibre
 ```
 
