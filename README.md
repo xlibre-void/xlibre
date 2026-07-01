@@ -75,7 +75,7 @@ _**OctoXBPS** is a graphical user interface (GUI) for the XBPS (The X Binary Pac
 <div align="center">
   
 <!--<img width="768" height="519" alt="octoxbps" src="https://github.com/user-attachments/assets/ce32e4c9-cebd-4167-a1c3-05704406069c" />-->
-<img width="850" height="779" alt="Снимок экрана_20260701_114944" src="https://github.com/user-attachments/assets/76ef3e82-069a-44a5-bfed-65cd07acf596" />
+<img width="auto" height="720" alt="Снимок экрана_20260701_114944" src="https://github.com/user-attachments/assets/76ef3e82-069a-44a5-bfed-65cd07acf596" />
 
 </div>
 
@@ -85,9 +85,9 @@ _You should now be able search through all xlibre related packages provided by t
 # search for packages
 sudo xbps-query -Rs xlibre
 ```
-
-<img width="1153" height="971" alt="Снимок экрана_20260701_114544" src="https://github.com/user-attachments/assets/2abfc69d-bea7-42c6-9912-ce20a576c8ed" />
-
+<div align="center">
+<img width="auto" height="720" alt="Снимок экрана_20260701_114544" src="https://github.com/user-attachments/assets/2abfc69d-bea7-42c6-9912-ce20a576c8ed" />
+</div>
 
 ### _install_
 
