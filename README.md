@@ -75,7 +75,7 @@ _**OctoXBPS** is a graphical user interface (GUI) for the XBPS (The X Binary Pac
 <div align="center">
   
 <!--<img width="768" height="519" alt="octoxbps" src="https://github.com/user-attachments/assets/ce32e4c9-cebd-4167-a1c3-05704406069c" />-->
-<img width="750" height="689" alt="octoxbps" src="https://github.com/user-attachments/assets/56985983-bbdf-4945-adc1-3bd6241c20db" />
+<img width="850" height="779" alt="Снимок экрана_20260701_114944" src="https://github.com/user-attachments/assets/76ef3e82-069a-44a5-bfed-65cd07acf596" />
 
 </div>
 
