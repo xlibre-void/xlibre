@@ -72,8 +72,9 @@ _These packages will now be in your **OctoXBPS** package manager. When a new ver
 
 _**OctoXBPS** is a graphical user interface (GUI) for the XBPS (The X Binary Package System) package manager. I would describe it this way: it takes a mundane task—managing packages—and makes it visually understandable, which is especially valuable for beginners.Simply put, it allows you to manage programs on your system without using the command line.It can be installed by typing `sudo xbps-install -Su octoxbps`_
 
-<img align="center" width="768" height="519" alt="octoxbps" src="https://github.com/user-attachments/assets/ce32e4c9-cebd-4167-a1c3-05704406069c" />
-
+<div align="center">
+<img width="768" height="519" alt="octoxbps" src="https://github.com/user-attachments/assets/ce32e4c9-cebd-4167-a1c3-05704406069c" />
+</div>
 
 _You should now be able search through all xlibre related packages provided by this repository, and install packages as usual:_
 
