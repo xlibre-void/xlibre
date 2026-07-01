@@ -21,23 +21,23 @@ xlibre/
   - **xlibre-xserver** - XLibre X server with subpackages (Xvfb, Xephyr, Xnest)
 
 ### Input Drivers
-- xlibre-xf86-input-evdev - Generic event device input driver
-- xlibre-xf86-input-libinput - Modern libinput-based input driver
-- xlibre-xf86-input-synaptics - Synaptics touchpad driver
-- xlibre-xf86-input-vmmouse - VMware mouse driver
-- xlibre-xf86-input-wacom - Wacom tablet driver
+- `xlibre-xf86-input-evdev` - Generic event device input driver
+- `xlibre-xf86-input-libinput` - Modern libinput-based input driver
+- `xlibre-xf86-input-synaptics` - Synaptics touchpad driver
+- `xlibre-xf86-input-vmmouse` - VMware mouse driver
+- `xlibre-xf86-input-wacom` - Wacom tablet driver
 
 ### Video Drivers
-- xlibre-xf86-video-amdgpu - AMD Radeon Rx/HDxxxx driver
-- xlibre-xf86-video-ati - AMD/ATI Radeon driver
-- xlibre-xf86-video-intel - Intel integrated graphics driver
-- xlibre-xf86-video-nouveau - Open-source NVIDIA driver
-- xlibre-xf86-video-nv - Legacy NVIDIA driver
-- xlibre-xf86-video-qxl - QEMU/KVM QXL driver
-- xlibre-xf86-video-vmware - VMware SVGA driver
-- xlibre-xf86-video-fbdev - Framebuffer device driver
-- xlibre-xf86-video-vesa - Generic VESA driver
-- xlibre-xf86-video-dummy - Dummy/headless driver
+- `xlibre-xf86-video-amdgpu` - AMD Radeon Rx/HDxxxx driver
+- `xlibre-xf86-video-ati` - AMD/ATI Radeon driver
+- `xlibre-xf86-video-intel` - Intel integrated graphics driver
+- `xlibre-xf86-video-nouveau` - Open-source NVIDIA driver
+- `xlibre-xf86-video-nv` - Legacy NVIDIA driver
+- `xlibre-xf86-video-qxl` - QEMU/KVM QXL driver
+- `xlibre-xf86-video-vmware` - VMware SVGA driver
+- `xlibre-xf86-video-fbdev` - Framebuffer device driver
+- `xlibre-xf86-video-vesa` - Generic VESA driver
+- `xlibre-xf86-video-dummy` - Dummy/headless driver
 - And many more legacy drivers (ark, apm, ast, chips, i128, i740, omap, r128, rendition, s3virge, savage, siliconmotion, sis, tdfx)
 
 ## Build Notes
