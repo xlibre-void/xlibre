@@ -6,7 +6,7 @@ revision=2
 build_style=gnu-configure
 configure_args="--prefix=/usr"
 hostmakedepends="pkg-config xorg-util-macros autoconf automake libtool git gawk"
-makedepends="xlibre-xserver-devel xorgproto fakeroot gawk gettext pkgconf libpciaccess-devel"
+makedepends="xlibre-xserver-devel xorgproto gawk gettext libpciaccess-devel"
 depends="virtual?xserver-abi-video-25_1"
 short_desc="XLibre fork of X.Org 3dfx Voodoo1/Voodoo2 2D video driver"
 maintainer="Sofiya <sofiya@v.com>"
@@ -18,7 +18,16 @@ distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-
 checksum=13d94cd94037ab950cf81a787fc9b9d87de0d2ec69ff5f4623278ea2fd27a2e6
 
 post_extract() {
-  vsed -i '/^static void pci_enable/,/^}/{s/CARD32 x;/uint32_t x;/}' src/voodoo_hardware.c
+# Применяем исправление только если мы НЕ собираем пакет под эмуляцию/кросскомпиляцию
+# (то есть когда собираем нативный i686/x86 пакет)
+if [ -z "$XBPS_CROSS_BASE" ]; then
+    case "$XBPS_TARGET_MACHINE" in
+        i686*)
+            # На 32-битных системах размер long и int может конфликтовать со strict aliasing
+            vsed -i 's/CARD32 x;/uint32_t x;/' src/voodoo_hardware.c
+            ;;
+    esac
+fi
 }
 
 pre_configure() {
