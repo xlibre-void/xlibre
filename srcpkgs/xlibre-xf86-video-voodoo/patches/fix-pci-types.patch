@@ -1,9 +1,0 @@
---- a/src/voodoo_hardware.c
-+++ b/src/voodoo_hardware.c
-@@ -134,7 +134,7 @@ pci_enable(VoodooPtr pVoo, int wr, int dac, int fifo)
- {
--    CARD32 x;
-+    uint32_t x;
-     PCI_READ_LONG(pVoo->PciInfo, &x, 0x40);
-     x &= ~7;
-     x |= wr;
