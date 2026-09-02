@@ -17,6 +17,10 @@ homepage="https://github.com/X11Libre/xf86-video-voodoo"
 distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-${version}.tar.gz"
 checksum=13d94cd94037ab950cf81a787fc9b9d87de0d2ec69ff5f4623278ea2fd27a2e6
 
+#post_extract() {
+#  vsed -i 's/CARD32 x;/uint32_t x;/' src/voodoo_hardware.c
+#}
+
 pre_configure() {
   ./autogen.sh
 }
@@ -24,4 +28,3 @@ pre_configure() {
 post_install() {
 	vlicense COPYING
 }
-
