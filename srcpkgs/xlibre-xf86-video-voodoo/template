@@ -18,16 +18,13 @@ distfiles="https://github.com/X11Libre/${_pkgname}/archive/refs/tags/${pkgname}-
 checksum=13d94cd94037ab950cf81a787fc9b9d87de0d2ec69ff5f4623278ea2fd27a2e6
 
 post_extract() {
-# Применяем исправление только если мы НЕ собираем пакет под эмуляцию/кросскомпиляцию
-# (то есть когда собираем нативный i686/x86 пакет)
-if [ -z "$XBPS_CROSS_BASE" ]; then
-    case "$XBPS_TARGET_MACHINE" in
-        i686*)
-            # На 32-битных системах размер long и int может конфликтовать со strict aliasing
-            vsed -i 's/CARD32 x;/uint32_t x;/' src/voodoo_hardware.c
-            ;;
-    esac
-fi
+    if [ -z "$XBPS_CROSS_BASE" ]; then
+        case "$XBPS_TARGET_MACHINE" in
+            i686*)
+                vsed -i 's/CARD32 x;/uint32_t x;/' "${wrksrc}/src/voodoo_hardware.c"
+                ;;
+        esac
+    fi
 }
 
 pre_configure() {
