@@ -134,9 +134,9 @@ post_install() {
 	find "${DESTDIR}"/usr/share/man -type f -iname '*[1-5].gz' -exec gunzip '{}' \;
 	rm -f ${DESTDIR}/etc/X11/xorg.conf.d/10-nvidia.conf.debian
 	rm -f ${DESTDIR}/etc/X11/xorg.conf.d/10-nvidia-modules.conf.debian
-	pkg_install() {
-		vmove usr/lib/xorg/protocol.txt
-	}
+	# pkg_install() {
+	#	vmove usr/lib/xorg/protocol.txt
+	# }
 }
 
 xlibre-xserver-xnest_package() {
