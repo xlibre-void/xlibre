@@ -229,7 +229,7 @@ sudo wget -O /var/db/xbps/keys/00:ca:42:57:c9:c0:9a:ec:94:b4:7d:97:e5:a9:aa:1e.p
 	<key>public-key-size</key>
 	<integer>2048</integer>
 	<key>signature-by</key>
-	<string>void-package-github-actions</string>
+	<string>xlibre-void-github-actions</string>
 </dict>
 </plist>
 ```
