@@ -62,7 +62,7 @@ Possible values: [flat, flat-square, plastic, badge, for-the-badge, social] -->
 sudo mkdir -p /etc/xbps.d
 ```
 
-```
+```sh
 printf "repository=https://github.com/xlibre-void/xlibre/releases/latest/download/" | sudo tee /etc/xbps.d/99-repository-xlibre.conf
 ```
 
