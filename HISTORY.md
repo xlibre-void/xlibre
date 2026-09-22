@@ -52,7 +52,7 @@ Most packages require:
 
 ### Autotools-based Packages
 
-Packages built from GitHub sources use `./autogen.sh` , `autoreconf -fiv` `NOCONFIGURE=1 ./autogen.sh` in the prepare step to generate configure scripts.
+Packages built from GitHub sources use `./autogen.sh` , `autoreconf -fiv` , `NOCONFIGURE=1 ./autogen.sh` in the prepare step to generate configure scripts.
 
 ### Meson-based Packages
 
