@@ -211,6 +211,8 @@ wget -O - https://github.com/xlibre-void/xlibre/raw/refs/heads/main/install-xlib
 
 This is an unofficial repository and is not affiliated with the Void Linux project.
 
+<br />
+
 <details>
 <summary><b>repo-key ► Click to expand</b></summary>
 <br />
