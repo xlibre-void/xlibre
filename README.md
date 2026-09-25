@@ -207,6 +207,10 @@ wget -O - https://github.com/xlibre-void/xlibre/raw/refs/heads/main/install-xlib
 - [x] Build and package Xlibre once a new version is released via GitHub Actions
 - ▷ 
 
+### Disclaimer
+
+This is an unofficial repository and is not affiliated with the Void Linux project.
+
 <details>
 <summary><b>repo-key ► Click to expand</b></summary>
 <br />
