@@ -8,7 +8,7 @@ on:
 
 jobs:
   find-autoupdates:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04 # ubuntu-latest
     if: ${{ github.ref == 'refs/heads/main' }}
     outputs:
       matrix: ${{ steps.collect.outputs.matrix }}
@@ -41,7 +41,7 @@ jobs:
 
   update-versions:
     name: update ${{ matrix.pkg.name }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04 # ubuntu-latest
     needs: find-autoupdates
     if: ${{ needs.find-autoupdates.outputs.matrix != '[]' }}
     strategy:
@@ -72,7 +72,7 @@ jobs:
           path: ${{ matrix.pkg.dir }}
 
   commit-updates:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04 # ubuntu-latest
     needs:
       - update-versions
     if: always()
