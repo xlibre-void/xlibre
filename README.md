@@ -58,9 +58,13 @@ Possible values: [flat, flat-square, plastic, badge, for-the-badge, social] -->
 >>  _How to use_
 >>> _type in the terminal_
 
+### Make sure xbps.d directory exists:
+
 ```
 sudo mkdir -p /etc/xbps.d
 ```
+
+### Create config file and add repository:
 
 ```sh
 printf "repository=https://github.com/xlibre-void/xlibre/releases/latest/download" | sudo tee /etc/xbps.d/99-repository-xlibre.conf
