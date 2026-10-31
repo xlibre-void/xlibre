@@ -1,6 +1,6 @@
 # Template file for 'mirror.fdo.xorgproto'
 pkgname=xlibre-xorgproto
-version=2025.1
+version=2026.1
 _pkgname=xorgproto
 revision=1
 build_style=meson
@@ -12,7 +12,7 @@ maintainer="Sofiya <sofiya@v.org>"
 license="MIT"
 homepage="https://github.com/X11Libre/mirror.fdo.xorgproto"
 distfiles="https://github.com/X11Libre/mirror.fdo.xorgproto/archive/refs/tags/${_pkgname}-${version}.tar.gz"
-checksum=185f272819d70adba383245995b99bce21e7b1f25bded669debbee1a519ad744
+checksum=e767ea78bc19bb353d5a6e1659795f14b1c57a2484d51fbc24f5c9cb08bc50c4
 replaces="bigreqsproto>=0 compositeproto>=0 damageproto>=0 dmxproto>=0 dri2proto>=0
  dri3proto>=0 fixesproto>=0 fontsproto>=0 glproto>=0 inputproto>=0 kbproto>=0 presentproto>=0
  printproto>=0 randrproto>=0 recordproto>=0 renderproto>=0 resourceproto>=0 scrnsaverproto>=0
