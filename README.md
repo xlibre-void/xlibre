@@ -1,11 +1,15 @@
 <!-- <img width="500" height="auto" alt="XLibre-2" src="https://github.com/xlibre-void/xlibre/blob/main/img/XLibre-2.png" /> -->
-
+> [!Warning]
+> The repository will be updated from version (beta -v25.2.3) to the stable version (stable v25.1.11)
 <div align="center">
 
 <img width="540" height="auto" alt="XLibre-2" src="https://github.com/xlibre-void/xlibre/blob/main/img/XLibre-14.png" /> <!-- XLibre-1 -->
 	
 ## ⮞⮞ [![Void Linux](https://img.shields.io/badge/Void_Linux-%23458161.svg?style=plastic&logo=voidlinux&logoColor=white)](#) ⮜⮜
 <!-- ![void](https://github.com/xlibre-void/xlibre/blob/main/img/void.png) -->
+
+> [!Warning]
+> The repository will be updated from version (beta -v25.2.3) to the stable version (stable v25.1.11)
 
 [![Security Audit](https://img.shields.io/github/actions/workflow/status/Letdown2491/waypoint-gtk/security.yml?label=Security%20Audit&logo=github&colorA=363a4f&colorB)](#)
 [![Platform](https://img.shields.io/badge/platform-Void%20Linux-478061?logo=linux&colorA=363a4f)](#)
@@ -42,6 +46,9 @@ Possible values: [flat, flat-square, plastic, badge, for-the-badge, social] -->
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/sofijacom/sofijacom/blob/main/icons_line/split.png"><img width="888" height="40" alt="split" src="https://github.com/sofijacom/sofijacom/raw/main/icons_line/split.png" style="max-width: 100%; height: auto; max-height: 40px;"></a>
 
 <br/>
+
+> [!Warning]
+> The repository will be updated from version (beta -v25.2.3) to the stable version (stable v25.1.11)
 
 <!-- x86_64-glibc, x86_64-musl -->
 > _**repository provides binary packages for:**_
