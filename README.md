@@ -4,7 +4,7 @@
 > 
 > Due to this event, you should completely remove the old version along with its dependencies and install the new version.
 >
-> `sudo xbps-install -y -f xlibre`
+> `sudo xbps-install -y -f xlibre` If you had xlibre-minimal installed then `sudo xbps-install -y -f xlibre-minimal`
 
 <div align="center">
 
