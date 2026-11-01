@@ -1,6 +1,6 @@
 # Template file for 'xlibre-repo'
 pkgname=xlibre-repo
-version=25.1.0
+version=25.1.11
 revision=1
 short_desc="XLibre for VOID linux"
 maintainer="Sofiya <sofiya@v.com>"
