@@ -4,7 +4,7 @@
 > 
 > Due to this event, you should completely remove the old version along with its dependencies and install the new version.
 >
-> sudo xbps-install -u xlibre
+> `sudo xbps-install -u xlibre`
 
 <div align="center">
 
