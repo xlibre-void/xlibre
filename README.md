@@ -1,6 +1,6 @@
 <!-- <img width="500" height="auto" alt="XLibre-2" src="https://github.com/xlibre-void/xlibre/blob/main/img/XLibre-2.png" /> -->
 > [!Warning]
-> The repository will be updated from version (beta v25.2.3) to the stable version (stable v25.1.11).
+> The repository will be updated from version (beta xlibre-xserver-25.2.3) to the stable version (stable xlibre-xserver-25.1.11).
 > 
 > Due to this event, you should completely remove the old version along with its dependencies and install the new version.
 
