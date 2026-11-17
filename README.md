@@ -66,9 +66,17 @@ sudo mkdir -p /etc/xbps.d
 
 ### Create config file and add repository:
 
-```sh
+```bash
+printf '%s\n' \
+  'repository=https://github.com/xlibre-void/xlibre/releases/latest/download' \
+  | sudo tee /etc/xbps.d/99-repository-xlibre.conf
+```
+
+<!--
+```bash
 printf "repository=https://github.com/xlibre-void/xlibre/releases/latest/download" | sudo tee /etc/xbps.d/99-repository-xlibre.conf
 ```
+-->
 
 > [!IMPORTANT]
 > 
